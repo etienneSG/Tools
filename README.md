@@ -15,4 +15,3 @@ Iterator on the possibilities of "N choose K".
 
 ### RandomIterator.h ###
 Random iterator on the integer elements of the intervalle [0, N[.
-
