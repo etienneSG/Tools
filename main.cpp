@@ -1,3 +1,4 @@
+#include "Array2d.h"
 #include "HcubeIterator.h"
 #include "KnapSack.h"
 #include "NchooseKiterator.h"
@@ -9,6 +10,37 @@
 #include <vector>
 
 using namespace std;
+
+
+int Array2dTest()
+{
+  cout << "********* Array2d test **********" << endl;
+  int fail = 0;
+
+  int p = 3; int n = 4;
+  Array2d<int> tab(p,n);
+  for (int j = 0; j < tab.P(); j++)
+    tab(j,0) = j+1;
+  for (int i = 0; i < tab.N(); i++)
+    tab(1,i) = i+2;
+  tab.resize(4,2);
+  tab.push_back_column();
+  for (int j = 0; j < tab.P(); j++) {
+    for (int i = 0; i < tab.N(); i++)
+      cout << tab(j,i) << " ";
+    cout << endl;
+  }
+
+  if (tab.P()!=4 || tab.N()!=3
+      || tab(0,0)!=1 || tab(0,1)!=0 || tab(0,2)!=0
+      || tab(1,0)!=2 || tab(1,1)!=3 || tab(1,2)!=0
+      || tab(2,0)!=3 || tab(2,1)!=0 || tab(2,2)!=0
+      || tab(3,0)!=0 || tab(3,1)!=0 || tab(3,2)!=0)
+  {
+    fail++;
+  }
+  return fail;
+}
 
 
 int HcubeIteratorTest()
@@ -166,6 +198,7 @@ int main()
   srand (time(NULL));
 
   int NbOfFailure = 0;
+  NbOfFailure += Array2dTest();
   NbOfFailure += HcubeIteratorTest();
   NbOfFailure += KnapSackTest1();
   NbOfFailure += KnapSackTest2();
