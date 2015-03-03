@@ -19,7 +19,7 @@
  * @param iVal: Value of each object
  * @param iN:   Number of objects
  * @param oSol: Array of the choosen elements
- *              (Warning: enrase the current elements in the vector!)
+ *              (Warning: erase the current elements in the vector!)
  * @return: the optimal value of the knapsack
  */
 int knapSack(const int iW, const std::vector<int> iWt,
