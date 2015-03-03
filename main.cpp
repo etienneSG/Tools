@@ -1,3 +1,4 @@
+#include "HcubeIterator.h"
 #include "KnapSack.h"
 #include "NchooseKiterator.h"
 #include "RandomIterator.h"
@@ -8,6 +9,43 @@
 #include <vector>
 
 using namespace std;
+
+
+int HcubeIteratorTest()
+{
+  cout << "****** HcubeIterator test *******" << endl;
+  int n = 2;
+  int k = 3;
+  HcubeIterator myIt(n,k);
+
+  vector< vector<int> > Solution(9, vector<int>(k,0));
+  Solution[0][0] = 0; Solution[0][1] = 0;
+  Solution[1][0] = 0; Solution[1][1] = 1;
+  Solution[2][0] = 0; Solution[2][1] = 2;
+  Solution[3][0] = 2; Solution[3][1] = 2;
+  Solution[4][0] = 2; Solution[4][1] = 1;
+  Solution[5][0] = 2; Solution[5][1] = 0;
+  Solution[6][0] = 1; Solution[6][1] = 0;
+  Solution[7][0] = 1; Solution[7][1] = 1;
+  Solution[8][0] = 1; Solution[8][1] = 2;
+
+  while (!myIt.IsEnded())
+  {
+    myIt.Print();
+    unsigned int i;
+    for (i = 0; i < Solution.size(); i++)
+    {
+      if (Solution[i][0]==myIt(0) && Solution[i][1]==myIt(1))
+      {
+        Solution.erase(Solution.begin()+i);
+        break;
+      }
+    }
+    ++myIt;
+  }
+
+  return (Solution.size()==0 ? 0 : 1);
+}
 
 
 int KnapSackTest1()
@@ -128,6 +166,7 @@ int main()
   srand (time(NULL));
 
   int NbOfFailure = 0;
+  NbOfFailure += HcubeIteratorTest();
   NbOfFailure += KnapSackTest1();
   NbOfFailure += KnapSackTest2();
   NbOfFailure += NchooseKiteratorTest();
