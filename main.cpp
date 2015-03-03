@@ -1,7 +1,10 @@
 #include "KnapSack.h"
 #include "NchooseKiterator.h"
+#include "RandomIterator.h"
 
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 #include <vector>
 
 using namespace std;
@@ -100,12 +103,35 @@ int NchooseKiteratorTest()
 }
 
 
+int RandomIteratorTest()
+{
+  cout << "****** RandomIterator test ******" << endl;
+  int total = 0;
+
+  int N = 5;
+  RandomIterator myIt(N);
+  while (!myIt.IsEnded())
+  {
+    cout << myIt() << " ";
+    total += myIt();
+    ++myIt;
+  }
+  cout << endl;
+
+  return (total==N*(N-1)/2 ? 0 : 1);
+}
+
+
 int main()
 {
+  /* initialize random seed: */
+  srand (time(NULL));
+
   int NbOfFailure = 0;
   NbOfFailure += KnapSackTest1();
   NbOfFailure += KnapSackTest2();
   NbOfFailure += NchooseKiteratorTest();
+  NbOfFailure += RandomIteratorTest();
 
   cout << "*********************************" << endl;
   switch (NbOfFailure)
