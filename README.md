@@ -7,7 +7,7 @@ Template for dynamic array in two dimensions.
 ### HcubeIterator.h ###
 Iterator on the subdivision of an hypercube.
 
-### knapSack.h ###
+### KnapSack.h ###
 Tools to solve the knapsack problem using dynamic programming.
 
 ### NchooseKiterator.h ###
