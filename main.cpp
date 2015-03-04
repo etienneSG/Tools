@@ -2,8 +2,10 @@
 #include "HcubeIterator.h"
 #include "KnapSack.h"
 #include "NchooseKiterator.h"
+#include "QuickSort.h"
 #include "RandomIterator.h"
 
+#include <algorithm>
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
@@ -191,6 +193,100 @@ int NchooseKiteratorTest()
 }
 
 
+int QuickSortTest()
+{
+  cout << "******* QuickSort test 1 ********" << endl;
+
+  unsigned int n = 10;
+  vector<int> tab(n, 0);
+  for (unsigned int i = 0; i < tab.size(); i++)
+    tab[i] = i;
+  random_shuffle(tab.begin(), tab.end());
+
+  cout << "Shuffle vector: ";
+  for (unsigned int i = 0; i < tab.size(); i++)
+    cout << tab[i] << " ";
+  cout << endl;
+
+  quickSort<int>(tab.begin(), tab.end());
+
+  cout << "Sorted  vector: ";
+  for (unsigned int i = 0; i < tab.size(); i++)
+    cout << tab[i] << " ";
+  cout << endl;
+
+  if (tab.size()!=n)
+  {
+    cout << "===> FAIL <===" << endl;
+    return 1;
+  }
+  for (unsigned int i = 0; i < n; i++)
+    if (tab[i]!=(int)i)
+    {
+      cout << "===> FAIL <===" << endl;
+      return 1;
+    }
+  return 0;
+}
+
+
+struct Point2d
+{
+  int _i;
+  int _j;
+  Point2d(int i=0, int j=0): _i(i), _j(j) {};
+  bool operator<(Point2d & P)
+    {
+      if (_i < P._i)
+        return true;
+      else if (P._i < _i)
+        return false;
+      else
+        return (_j < P._j ? true : false);
+    };
+  void Print() { cout << "(" << _i << "," << _j << ")" << endl; };
+};
+
+
+int QuickSortTest2()
+{
+  cout << "******* QuickSort test 2 ********" << endl;
+  int fail = 0;
+
+  unsigned int n = 6;
+  vector<Point2d> tab(n, 0);
+  for (unsigned int i = 0; i < tab.size(); i++)
+  {
+    tab[i]._i = i/3, tab[i]._j = i%3;
+  }
+  random_shuffle(tab.begin(), tab.end());
+
+  cout << "Shuffle vector:" << endl;
+  for (unsigned int i = 0; i < tab.size(); i++)
+    tab[i].Print();
+
+  quickSort<Point2d>(tab.begin(), tab.end());
+
+  cout << "Sorted vector:" << endl;
+  for (unsigned int i = 0; i < tab.size(); i++)
+    tab[i].Print();
+
+  if (tab.size()!=n)
+  {
+    fail= 1;
+  }
+  for (int i = 0; i < (int)n; i++)
+    if (tab[i]._i != i/3 || tab[i]._j != i%3)
+    {
+      fail = 1;
+    }
+
+  if (fail>0)
+    cout << "===> FAIL <===" << endl;
+  return fail;
+}
+
+
 int RandomIteratorTest()
 {
   cout << "****** RandomIterator test ******" << endl;
@@ -227,6 +323,8 @@ int main()
   NbOfFailure += KnapSackTest1();
   NbOfFailure += KnapSackTest2();
   NbOfFailure += NchooseKiteratorTest();
+  NbOfFailure += QuickSortTest();
+  NbOfFailure += QuickSortTest2();
   NbOfFailure += RandomIteratorTest();
 
   cout << "*********************************" << endl;

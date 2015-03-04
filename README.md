@@ -13,5 +13,8 @@ Tools to solve the knapsack problem using dynamic programming.
 ### NchooseKiterator.h ###
 Iterator on the possibilities of "N choose K".
 
+### QuickSort.h ###
+Template function to execute a quick sort in increasing order.
+
 ### RandomIterator.h ###
 Random iterator on the integer elements of the intervalle [0, N[.
