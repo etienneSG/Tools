@@ -24,20 +24,24 @@ int Array2dTest()
   for (int i = 0; i < tab.N(); i++)
     tab(1,i) = i+2;
   tab.resize(4,2);
-  tab.push_back_column();
+  tab.push_back_column(vector<int>(4,9));
+  tab.insertRow(0, vector<int>(3,6));
+  tab.insertColumn(1, vector<int>(5,7));
   for (int j = 0; j < tab.P(); j++) {
     for (int i = 0; i < tab.N(); i++)
       cout << tab(j,i) << " ";
     cout << endl;
   }
 
-  if (tab.P()!=4 || tab.N()!=3
-      || tab(0,0)!=1 || tab(0,1)!=0 || tab(0,2)!=0
-      || tab(1,0)!=2 || tab(1,1)!=3 || tab(1,2)!=0
-      || tab(2,0)!=3 || tab(2,1)!=0 || tab(2,2)!=0
-      || tab(3,0)!=0 || tab(3,1)!=0 || tab(3,2)!=0)
+  if (tab.P()!=5 || tab.N()!=4
+      || tab(0,0)!=6 || tab(0,1)!=7 || tab(0,2)!=6 || tab(0,3)!=6
+      || tab(1,0)!=1 || tab(1,1)!=7 || tab(1,2)!=0 || tab(1,3)!=9
+      || tab(2,0)!=2 || tab(2,1)!=7 || tab(2,2)!=3 || tab(2,3)!=9
+      || tab(3,0)!=3 || tab(3,1)!=7 || tab(3,2)!=0 || tab(3,3)!=9
+      || tab(4,0)!=0 || tab(4,1)!=7 || tab(4,2)!=0 || tab(4,3)!=9)
   {
     fail++;
+    cout << "===> FAIL <===" << endl;
   }
   return fail;
 }
@@ -76,7 +80,13 @@ int HcubeIteratorTest()
     ++myIt;
   }
 
-  return (Solution.size()==0 ? 0 : 1);
+  if (Solution.size()!=0)
+  {
+    cout << "===> FAIL <===" << endl;
+    return 1;
+  }
+  else
+    return 0;
 }
 
 
@@ -107,6 +117,7 @@ int KnapSackTest1()
       || Solution[3]!=0)
   {
     fail++;
+    cout << "===> FAIL <===" << endl;
   }
   return fail;
 }
@@ -129,6 +140,7 @@ int KnapSackTest2()
   if (opt!=230)
   {
     fail++;
+    cout << "===> FAIL <===" << endl;
   }
   return fail;
 }
@@ -169,7 +181,13 @@ int NchooseKiteratorTest()
     ++myIt;
   }
 
-  return (Solution.size()==0 ? 0 : 1);
+  if (Solution.size()!=0)
+  {
+    cout << "===> FAIL <===" << endl;
+    return 1;
+  }
+  else
+    return 0;
 }
 
 
@@ -188,7 +206,13 @@ int RandomIteratorTest()
   }
   cout << endl;
 
-  return (total==N*(N-1)/2 ? 0 : 1);
+  if (total!=N*(N-1)/2)
+  {
+    cout << "===> FAIL <===" << endl;
+    return 1;
+  }
+  else
+    return 0;
 }
 
 

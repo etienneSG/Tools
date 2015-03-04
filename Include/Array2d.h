@@ -12,6 +12,7 @@
 #ifndef ARRAY2D_H
 #define ARRAY2D_H
 
+#include <algorithm>
 #include <assert.h>
 #include <iostream>
 #include <vector>
@@ -32,32 +33,12 @@ public:
 
   /** Destructor */
   ~Array2d();
-  
-  /**
-   * Change the size of the array keeping its coefficients
-   * @param iP: New number of rows of the array
-   * @param iN: New Number of column of the array
-   */
-  void resize(int iP, int iN);
-
-  /**
-   * Erase a row of the array
-   * @param iP: Number of the row to erase
-   */
-  void eraseRow(int iP);
-
-  /**
-   * Erase rows of the array
-   * @param iBegin: Number of the first row to erase
-   * @param iEnd:   Number of the last row to erase
-   */
-  void eraseRows(int iBegin, int iEnd);
 
   /**
    * Erase a column of the array
    * @param iN: Number of the row to erase
    */
-  void eraseColumn(int iN);
+  void eraseColumn(int iJ);
 
   /**
    * Erase columns of the array
@@ -66,11 +47,43 @@ public:
    */
   void eraseColumns(int iBegin, int iEnd);
 
-  /** Add a row at the end of the array */
-  void push_back_row();
+  /**
+   * Erase a row of the array
+   * @param iP: Number of the row to erase
+   */
+  void eraseRow(int iI);
+
+  /**
+   * Erase rows of the array
+   * @param iBegin: Number of the first row to erase
+   * @param iEnd:   Number of the last row to erase
+   */
+  void eraseRows(int iBegin, int iEnd);
+
+  /** Insert a column at the position iI */
+  void insertColumn(int iI, const std::vector<T> & iC);
+
+  /** Insert a row at the position iJ */
+  void insertRow(int iJ, const std::vector<T> & iR);
 
   /** Add a column at the end of the array */
-  void push_back_column();
+  void push_back_column(const std::vector<T> & iC);
+
+  /** Add a row at the end of the array */
+  void push_back_row(const std::vector<T> & iR);
+  
+  /**
+   * Change the size of the array keeping its coefficients
+   * @param iP: New number of rows of the array
+   * @param iN: New Number of column of the array
+   */
+  void resize(int iP, int iN);
+
+  /** Exchange the values of the columns i and j */
+  void swapColumn(int i, int j);
+
+  /** Exchange the values of the rows i and j */
+  void swapRow(int i, int j);
 
   /** Return the number of rows of the array */
   inline int P();
@@ -101,19 +114,56 @@ Array2d<T>::Array2d(int iP, int iN)
 {
 }
 
-
 template <class T>
 Array2d<T>::Array2d(const Array2d & iArray2d)
 : _aT(iArray2d.P(), std::vector<T>(iArray2d.N(), T()))
 {
 }
 
-
 template <class T>
 Array2d<T>::~Array2d()
 {
 }
 
+template <class T>
+void Array2d<T>::eraseColumn(int iI)
+{
+  for (int j = 0; j < _aT.P(); j++)
+    _aT[j].erase(_aT.begin()+iI);
+}
+
+template <class T>
+void Array2d<T>::eraseColumns(int iBegin, int iEnd)
+{
+  for (int j = 0; j < _aT.P(); j++)
+    _aT[j].erase(_aT.begin()+iBegin, _aT.begin()+iEnd);
+}
+
+template <class T>
+void Array2d<T>::eraseRow(int iJ)
+{
+  if (0 <= iJ && iJ < _aT.P())
+    _aT.erase(_aT.begin()+iJ);
+}
+
+template <class T>
+void Array2d<T>::eraseRows(int iBegin, int iEnd)
+{
+  _aT.erase(_aT.begin()+iBegin, _aT.begin()+iEnd);
+}
+
+template <class T>
+void Array2d<T>::insertColumn(int iI, const std::vector<T> & iC)
+{
+  for (int j = 0; j < P(); j++)
+    _aT[j].insert(_aT[j].begin()+iI, iC[j]);
+}
+
+template <class T>
+void Array2d<T>::insertRow(int iJ, const std::vector<T> & iR)
+{
+  _aT.insert(_aT.begin()+iJ, iR);
+}
 
 template <class T>
 void Array2d<T>::resize(int iP, int iN)
@@ -123,52 +173,31 @@ void Array2d<T>::resize(int iP, int iN)
     _aT[i].resize(iN);
 }
 
-
 template <class T>
-void Array2d<T>::eraseRow(int iJ)
-{
-  if (0 <= iJ && iJ < _aT.P())
-    _aT.erase(_aT.begin()+iJ);
-}
-
-
-template <class T>
-void Array2d<T>::eraseRows(int iBegin, int iEnd)
-{
-  _aT.erase(_aT.begin()+iBegin, _aT.begin()+iEnd);
-}
-
-
-template <class T>
-void Array2d<T>::eraseColumn(int iI)
-{
-  for (int j = 0; j < _aT.P(); j++)
-    _aT[j].erase(_aT.begin()+iI);
-}
-
-
-template <class T>
-void Array2d<T>::eraseColumns(int iBegin, int iEnd)
-{
-  for (int j = 0; j < _aT.P(); j++)
-    _aT[j].erase(_aT.begin()+iBegin, _aT.begin()+iEnd);
-}
-
-
-template <class T>
-void Array2d<T>::push_back_row()
-{
-  _aT.push_back(std::vector<T>(N(), T()));
-}
-
-
-template <class T>
-void Array2d<T>::push_back_column()
+void Array2d<T>::push_back_column(const std::vector<T> & iC)
 {
   for (int j = 0; j < P(); j++)
-    _aT[j].push_back(T());
+    _aT[j].push_back(iC[j]);
 }
 
+template <class T>
+void Array2d<T>::push_back_row(const std::vector<T> & iR)
+{
+  _aT.push_back(iR);
+}
+
+template <class T>
+void Array2d<T>::swapColumn(int i, int j)
+{
+  for (int k = 0; k < P(); k++)
+    std::swap(_aT[k][i], _aT[k][j]);
+}
+
+template <class T>
+void Array2d<T>::swapRow(int i, int j)
+{
+  std::swap(_aT[i], _aT[j]);
+}
 
 template <class T>
 inline int Array2d<T>::P()
@@ -176,20 +205,17 @@ inline int Array2d<T>::P()
   return _aT.size();
 }
 
-
 template <class T>
 inline int Array2d<T>::N()
 {
   return (P() ? _aT[0].size() : 0);
 }
 
-
 template <class T>
 inline T& Array2d<T>::operator()(int iJ, int iI)
 {
   return _aT[iJ][iI];
 }
-
 
 template <class T>
 inline const T& Array2d<T>::operator()(int iJ, int iI)const
