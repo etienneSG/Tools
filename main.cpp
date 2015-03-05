@@ -4,6 +4,7 @@
 #include "NchooseKiterator.h"
 #include "QuickSort.h"
 #include "RandomIterator.h"
+#include "TimeTools.h"
 
 #include <algorithm>
 #include <iostream>
@@ -312,6 +313,26 @@ int RandomIteratorTest()
 }
 
 
+int TimeToolsTest()
+{
+  cout << "******** TimeTools test *********" << endl;
+  int fail = 0;
+
+  try
+  {
+    cout << "CPU time:  " << get_cpu_time() << " s." << endl;
+    cout << "Wall time: " << get_wall_time() << "s." << endl;
+  }
+  catch (...)
+  {
+    cout << "===> FAIL <===" << endl;
+    fail++;
+  }
+
+  return fail;    
+}
+
+
 int main()
 {
   /* initialize random seed: */
@@ -326,6 +347,7 @@ int main()
   NbOfFailure += QuickSortTest();
   NbOfFailure += QuickSortTest2();
   NbOfFailure += RandomIteratorTest();
+  NbOfFailure += TimeToolsTest();
 
   cout << "*********************************" << endl;
   switch (NbOfFailure)

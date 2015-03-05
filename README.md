@@ -18,3 +18,6 @@ Template function to execute a quick sort in increasing order.
 
 ### RandomIterator.h ###
 Random iterator on the integer elements of the intervalle [0, N[.
+
+### TimeTools.h ###
+Two functions to get CPU time and wall time. (Defined for linux and windows plateforms.)
