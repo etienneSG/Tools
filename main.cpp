@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <math.h>
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
@@ -105,7 +106,7 @@ int KnapSackTest1()
   vector<int> wt(myWt, myWt + n);
   int  W = 50;
   vector<int> Solution;
-  int opt = knapSack(W, wt, val, n, Solution);
+  int opt = knapSack<int>(W, wt, val, n, Solution);
   cout << "Optimal value of the knapsack: " << opt << endl;
   cout << "Affectation of the knapsack: ";
   for (unsigned int i = 0; i < Solution.size(); i++)
@@ -137,10 +138,43 @@ int KnapSackTest2()
   vector<int> val(myVal, myVal + n);
   vector<int> wt(myWt, myWt + n);
   int  W = 50;
-  int opt = knapSack(W, wt, val, n);
+  int opt = knapSack<int>(W, wt, val, n);
   cout << "Optimal value of the knapsack: " << opt << endl;
 
   if (opt!=230)
+  {
+    fail++;
+    cout << "===> FAIL <===" << endl;
+  }
+  return fail;
+}
+
+
+int KnapSackTest3()
+{
+  cout << "******** Knapsack test 3 ********" << endl;
+  int fail = 0;
+
+  double myVal[] = {-12.7, 31.5, 40.8, 15.7};
+  int myWt[]= {20, 10, 30, 20};
+  int n = sizeof(myVal)/sizeof(double);
+  vector<double> val(myVal, myVal + n);
+  vector<int> wt(myWt, myWt + n);
+  int  W = 50;
+  vector<int> Solution;
+  double opt = knapSack<double>(W, wt, val, n, Solution);
+  cout << "Optimal value of the knapsack: " << opt << endl;
+  cout << "Affectation of the knapsack: ";
+  for (unsigned int i = 0; i < Solution.size(); i++)
+    cout << Solution[i] << " ";
+  cout << endl;
+
+  if (fabs(opt-72.3) > 1E-9
+      || Solution.size()!=(unsigned int)n
+      || Solution[0]!=0
+      || Solution[1]!=1
+      || Solution[2]!=1
+      || Solution[3]!=0)
   {
     fail++;
     cout << "===> FAIL <===" << endl;
@@ -343,6 +377,7 @@ int main()
   NbOfFailure += HcubeIteratorTest();
   NbOfFailure += KnapSackTest1();
   NbOfFailure += KnapSackTest2();
+  NbOfFailure += KnapSackTest3();
   NbOfFailure += NchooseKiteratorTest();
   NbOfFailure += QuickSortTest();
   NbOfFailure += QuickSortTest2();
