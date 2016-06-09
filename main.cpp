@@ -23,21 +23,21 @@ int Array2dTest()
 
   int p = 3; int n = 4;
   Array2d<int> tab(p,n);
-  for (int j = 0; j < tab.P(); j++)
+  for (int j = 0; j < tab.nb_rows(); j++)
     tab(j,0) = j+1;
-  for (int i = 0; i < tab.N(); i++)
+  for (int i = 0; i < tab.nb_columns(); i++)
     tab(1,i) = i+2;
   tab.resize(4,2);
   tab.push_back_column(vector<int>(4,9));
-  tab.insertRow(0, vector<int>(3,6));
-  tab.insertColumn(1, vector<int>(5,7));
-  for (int j = 0; j < tab.P(); j++) {
-    for (int i = 0; i < tab.N(); i++)
+  tab.insert_row(0, vector<int>(3,6));
+  tab.insert_column(1, vector<int>(5,7));
+  for (int j = 0; j < tab.nb_rows(); j++) {
+    for (int i = 0; i < tab.nb_columns(); i++)
       cout << tab(j,i) << " ";
     cout << endl;
   }
 
-  if (tab.P()!=5 || tab.N()!=4
+  if (tab.nb_rows()!=5 || tab.nb_columns()!=4
       || tab(0,0)!=6 || tab(0,1)!=7 || tab(0,2)!=6 || tab(0,3)!=6
       || tab(1,0)!=1 || tab(1,1)!=7 || tab(1,2)!=0 || tab(1,3)!=9
       || tab(2,0)!=2 || tab(2,1)!=7 || tab(2,2)!=3 || tab(2,3)!=9
