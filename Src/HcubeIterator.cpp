@@ -1,3 +1,11 @@
+/**
+ * @file HcubeIterator.cpp
+ * @author Etienne de Saint Germain
+ * @date 2016
+ * @brief File implementing HcubeIterator.h
+ */
+
+
 #include "HcubeIterator.h"
 #include <iostream>
 

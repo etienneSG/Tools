@@ -1,10 +1,10 @@
 #include "array2d.h"
 #include "HcubeIterator.h"
 #include "KnapSack.h"
-#include "NchooseKiterator.h"
-#include "QuickSort.h"
+#include "n_choose_k_iterator.h"
+#include "quick_sort.h"
 #include "RandomIterator.h"
-#include "TimeTools.h"
+#include "time_tools.h"
 
 #include <algorithm>
 #include <iostream>
@@ -189,7 +189,7 @@ int NchooseKiteratorTest()
 
   int n = 5;
   int k = 2;
-  NchooseKiterator myIt(n,k);
+  N_choose_K_iterator myIt(n,k);
 
   vector< vector<int> > Solution(10, vector<int>(k,0));
   Solution[0][0] = 0; Solution[0][1] = 1;
@@ -203,9 +203,9 @@ int NchooseKiteratorTest()
   Solution[8][0] = 1; Solution[8][1] = 3;
   Solution[9][0] = 1; Solution[9][1] = 4;
 
-  while (!myIt.IsEnded())
+  while (!myIt.is_ended())
   {
-    myIt.Print();
+    myIt.print();
     unsigned int i;
     for (i = 0; i < Solution.size(); i++)
     {
@@ -243,7 +243,7 @@ int QuickSortTest()
     cout << tab[i] << " ";
   cout << endl;
 
-  quickSort<int>(tab.begin(), tab.end());
+  quick_sort<int>(tab.begin(), tab.end());
 
   cout << "Sorted  vector: ";
   for (unsigned int i = 0; i < tab.size(); i++)
@@ -300,7 +300,7 @@ int QuickSortTest2()
   for (unsigned int i = 0; i < tab.size(); i++)
     tab[i].Print();
 
-  quickSort<Point2d>(tab.begin(), tab.end());
+  quick_sort<Point2d>(tab.begin(), tab.end());
 
   cout << "Sorted vector:" << endl;
   for (unsigned int i = 0; i < tab.size(); i++)

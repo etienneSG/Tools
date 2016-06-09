@@ -1,4 +1,11 @@
-#include "TimeTools.h"
+/**
+ * @file time_tools.cpp
+ * @author Etienne de Saint Germain
+ * @date 2016
+ * @brief File implementing time_tools.h
+ */
+
+#include "time_tools.h"
 
 // Windows
 #ifdef _WIN32

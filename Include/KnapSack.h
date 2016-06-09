@@ -1,12 +1,10 @@
-//==============================================================================
-// 
-// Template function KnapSack:
-//   Solve the Knapsack problem using dynamic programming.
-// 
-// WARNING! T must be a class with an operator + and an operator <
-//
-//==============================================================================
-
+/**
+ * @file KnapSack.h
+ * @author Etienne de Saint Germain
+ * @date 2014
+ * @brief Template function to solve the Knapsack problem using dynamic programming.
+ * @details WARNING: T must be a class with an operator + and an operator <
+ */
 
 #ifndef KNAPSACK_H
 #define KNAPSACK_H
@@ -17,15 +15,15 @@
 
 
 /**
- * Returns the maximum value that can be put in a knapsack of capacity W and the
- * binary vector of the affectation
- * @param iW:   Total weight of the knapsack
- * @param iWt:  Weight of each object
- * @param iVal: Value of each object
- * @param iN:   Number of objects
- * @param oSol: Array of the choosen elements
- *              (Warning: erase the current elements in the vector!)
- * @return: the optimal value of the knapsack
+ * @brief Returns the maximum value that can be put in a knapsack of capacity W
+ * and the binary vector of the affectation
+ * @param[in] iW Total weight of the knapsack
+ * @param[in] iWt Vector of object's weights
+ * @param[in] iVal Vector of object's values
+ * @param[in] iN Number of objects
+ * @param[out] oSol Array of the choosen elements
+ *                  (Warning: erase the current elements in the vector!)
+ * @return the optimal value of the knapsack
  */
 template<class T>
 T knapSack(const int iW, const std::vector<int> iWt,
@@ -33,12 +31,12 @@ T knapSack(const int iW, const std::vector<int> iWt,
            std::vector<int> & oSol);
 
 /**
- * Returns the maximum value that can be put in a knapsack of capacity W
- * @param iW:   Total weight of the knapsack
- * @param iWt:  Weight of each object
- * @param iVal: Value of each object
- * @param iN:   Number of objects
- * @return: the optimal value of the knapsack
+ * @brief Return the maximum value that can be put in a knapsack of capacity W
+ * @param[in] iW Total weight of the knapsack
+ * @param[in] iWt Vector of object's weights
+ * @param[in] iVal Vector of object's values
+ * @param[in] iN Number of objects
+ * @return the optimal value of the knapsack
  */
 template<class T>
 T knapSack(const int iW, const std::vector<int> iWt,
@@ -51,17 +49,17 @@ T knapSack(const int iW, const std::vector<int> iWt,
 //==============================================================================
 
 /**
- * Fill the array of used by dynamic programming to solve the knapsack problem
- * @param iW:   Total weight of the knapsack
- * @param iWt:  Weight of each object
- * @param iVal: Value of each object
- * @param iN:   Number of objects
- * @return: the optimal value of the knapsack
+ * @brief Fill the array of used by dynamic programming to solve the knapsack problem
+ * @param[in] iW Total weight of the knapsack
+ * @param[in] iWt Vector of object's weights
+ * @param[in] iVal Vector of object's values
+ * @param[in] iN Number of objects
+ * @return the optimal value of the knapsack
  */
 template<class T>
-T FillDynamicProgrammingArrayOfKnapsack(const int iW, const std::vector<int> iWt,
-                                        const typename std::vector<T> iVal, const int iN,
-                                        std::vector<typename std::vector<T> > & K)
+T fill_dynamic_programming_array_of_knapsack(const int iW, const std::vector<int> iWt,
+                                             const typename std::vector<T> iVal, const int iN,
+                                             std::vector<typename std::vector<T> > & K)
 {
   int i, w;
   // Build table K[][] in bottom up mainner
@@ -88,7 +86,7 @@ T knapSack(const int iW, const std::vector<int> iWt,
 {
   std::vector< std::vector<T> > K(iN+1, std::vector<T>(iW+1,0));
  
-  FillDynamicProgrammingArrayOfKnapsack<T>(iW, iWt, iVal, iN, K);
+  fill_dynamic_programming_array_of_knapsack<T>(iW, iWt, iVal, iN, K);
 
   // Creation of the object list
   oSol.assign(iN,0);
@@ -115,11 +113,11 @@ T knapSack(const int iW, const std::vector<int> iWt,
            const typename std::vector<T> iVal, const int iN)
 {
   std::vector< std::vector<T> > K(iN+1, std::vector<T>(iW+1,0));
-  return FillDynamicProgrammingArrayOfKnapsack<T>(iW, iWt, iVal, iN, K);
+  return fill_dynamic_programming_array_of_knapsack<T>(iW, iWt, iVal, iN, K);
 }
 
 
 
 
-#endif
+#endif // KNAPSACK_H
 

@@ -1,9 +1,9 @@
 /**
  * @file array2d.h
  * @author Etienne de Saint Germain
- * @date 2016
+ * @date 2014
  * @brief Template for dynamic array with two dimensions.
- * @details WARNING : this class DO NOT verify the validity of a range called by the user!
+ * @details WARNING: this class DO NOT verify the validity of a range called by the user!
  */
 
 

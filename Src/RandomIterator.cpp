@@ -1,3 +1,11 @@
+/**
+ * @file RandomIterator.cpp
+ * @author Etienne de Saint Germain
+ * @date 2016
+ * @brief File implementing RandomIterator.h
+ */
+
+
 #include "RandomIterator.h"
 #include <iostream>
 #include <algorithm>

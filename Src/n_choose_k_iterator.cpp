@@ -1,15 +1,23 @@
-#include "NchooseKiterator.h"
+/**
+ * @file n_choose_k_iterator.cpp
+ * @author Etienne de Saint Germain
+ * @date 2016
+ * @brief File implementing n_choose_k_iterator.h
+ */
+
+
+#include "n_choose_k_iterator.h"
 
 #include <iostream>
 
-NchooseKiterator::NchooseKiterator():
+N_choose_K_iterator::N_choose_K_iterator():
   _n(0),
   _k(0)
 {
 }
 
 
-NchooseKiterator::NchooseKiterator(int iN, int iK):
+N_choose_K_iterator::N_choose_K_iterator(int iN, int iK):
   _n(iN),
   _k(iK),
   _v(iK+1,iN)
@@ -19,12 +27,12 @@ NchooseKiterator::NchooseKiterator(int iN, int iK):
 }
 
 
-NchooseKiterator::~NchooseKiterator()
+N_choose_K_iterator::~N_choose_K_iterator()
 {
 }
 
 
-void NchooseKiterator::operator++()
+void N_choose_K_iterator::operator++()
 {
   int l=_k;
   _v[l]++;
@@ -43,7 +51,7 @@ void NchooseKiterator::operator++()
 }
 
 
-void NchooseKiterator::Print()
+void N_choose_K_iterator::print()
 {
   unsigned int i;
   for(i = 1; i < _v.size(); i++)
@@ -52,7 +60,7 @@ void NchooseKiterator::Print()
 }
 
 
-void NchooseKiterator::Reset(bool iEnd)
+void N_choose_K_iterator::reset(bool iEnd)
 {
   _v[0] = iEnd ? -1 : 0;
   for (int i = 1; i < _k+1; i++)
