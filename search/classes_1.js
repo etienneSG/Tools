@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hcubeiterator',['HcubeIterator',['../classHcubeIterator.html',1,'']]]
+  ['hcubeiterator',['HcubeIterator',['../class_hcube_iterator.html',1,'']]]
 ];
