@@ -1,0 +1,51 @@
+/**
+@mainpage Tools 
+
+@section overview Overview
+
+Various generic tools that can be used in differents projects:
+
+- \a array2d.h
+
+Template for dynamic array in two dimensions.
+
+- \a HcubeIterator.h
+
+Iterator on the subdivision of an hypercube.
+
+- \a KnapSack.h
+
+Tools to solve the knapsack problem using dynamic programming.
+
+- \a n_choose_k_iterator.h
+
+Iterator on the possibilities of "N choose K".
+
+- \a quick_sort.h
+
+Template function to execute a quick sort in increasing order.
+
+- \a  RandomIterator.h
+
+Random iterator on the integer elements of the intervalle [0, N[.
+
+- \a time_tools.h
+
+Two functions to get CPU time and wall time. (Defined for linux and windows plateforms.)
+
+
+@section contacts Contacts
+
+
+Etienne de Saint Germain<br>
+CERMICS, École Nationale des Ponts et Chaussées<br>
+6 et 8, av. Blaise Pascal<br>
+Cité Descartes - Champs-sur-Marne<br>
+77455 Marne-la-Vallée cedex 2<br>
+France
+
+E-mail: etienne (dot) gaillard-de-saint-germain (at) enpc (dot) fr
+
+Office: B210 (Coriolis building)
+
+*/
