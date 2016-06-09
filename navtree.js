@@ -2,6 +2,7 @@ var NAVTREE =
 [
   [ "Tools", "index.html", [
     [ "Classes", null, [
+      [ "Overview", "index.html#overview", null ],
       [ "Contacts", "index.html#contacts", null ],
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
