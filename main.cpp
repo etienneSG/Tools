@@ -1,4 +1,4 @@
-#include "Array2d.h"
+#include "array2d.h"
 #include "HcubeIterator.h"
 #include "KnapSack.h"
 #include "NchooseKiterator.h"
