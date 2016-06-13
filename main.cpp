@@ -1,6 +1,6 @@
 #include "array2d.h"
 #include "hcube_iterator.h"
-#include "KnapSack.h"
+#include "knapsack.h"
 #include "n_choose_k_iterator.h"
 #include "quick_sort.h"
 #include "random_iterator.h"
@@ -16,7 +16,7 @@
 using namespace std;
 
 
-int Array2dTest()
+int array2d_test()
 {
   cout << "********* Array2d test **********" << endl;
   int fail = 0;
@@ -51,7 +51,7 @@ int Array2dTest()
 }
 
 
-int HcubeIteratorTest()
+int hcube_iterator_test()
 {
   cout << "****** Hcube_iterator test *******" << endl;
   int n = 2;
@@ -94,19 +94,26 @@ int HcubeIteratorTest()
 }
 
 
-int KnapSackTest1()
+int KnapSack_test1()
 {
   cout << "******** Knapsack test 1 ********" << endl;
   int fail = 0;
 
+  // Input of the knapsack
   int myVal[] = {100, 60, 120, 50};
-  int myWt[]= {20, 20, 30, 10};
+  unsigned int myWt[]= {20, 20, 30, 10};
   int n = sizeof(myVal)/sizeof(int);
   vector<int> val(myVal, myVal + n);
-  vector<int> wt(myWt, myWt + n);
-  int  W = 50;
-  vector<int> Solution;
-  int opt = knapSack<int>(W, wt, val, n, Solution);
+  vector<unsigned int> wt(myWt, myWt + n);
+  unsigned int  W = 50;
+
+
+  Knapsack<int> knapsack(W, wt, val);     // Create the knapsack problem
+  int opt = knapsack();                   // Solve the knapsack problem
+  vector<bool> Solution;                  // 
+  knapsack.get_chosen_objects(Solution);  // Get the list of chosen objects
+
+
   cout << "Optimal value of the knapsack: " << opt << endl;
   cout << "Affectation of the knapsack: ";
   for (unsigned int i = 0; i < Solution.size(); i++)
@@ -127,18 +134,23 @@ int KnapSackTest1()
 }
 
 
-int KnapSackTest2()
+int KnapSack_test2()
 {
   cout << "******** Knapsack test 2 ********" << endl;
   int fail = 0;
 
+  // Input of the knapsack
   int myVal[] = {100, 60, 120, 70};
-  int myWt[]= {20, 20, 30, 10};
+  unsigned int myWt[]= {20, 20, 30, 10};
   int n = sizeof(myVal)/sizeof(int);
   vector<int> val(myVal, myVal + n);
-  vector<int> wt(myWt, myWt + n);
-  int  W = 50;
-  int opt = knapSack<int>(W, wt, val, n);
+  vector<unsigned int> wt(myWt, myWt + n);
+  unsigned int  W = 50;
+
+
+  Knapsack<int> knapsack;          // Create the knapsack problem
+  int opt = knapsack(W, wt, val);  // Solve the knapsack problem
+
   cout << "Optimal value of the knapsack: " << opt << endl;
 
   if (opt!=230)
@@ -150,19 +162,36 @@ int KnapSackTest2()
 }
 
 
-int KnapSackTest3()
+int KnapSack_test3()
 {
   cout << "******** Knapsack test 3 ********" << endl;
   int fail = 0;
 
-  double myVal[] = {-12.7, 31.5, 40.8, 15.7};
-  int myWt[]= {20, 10, 30, 20};
-  int n = sizeof(myVal)/sizeof(double);
-  vector<double> val(myVal, myVal + n);
-  vector<int> wt(myWt, myWt + n);
-  int  W = 50;
-  vector<int> Solution;
-  double opt = knapSack<double>(W, wt, val, n, Solution);
+  // Input of the knapsack at his creation
+  double myVal1[] = {5, 12.6, 8, 9.7, 7};
+  unsigned int myWt1[]= {10, 80, 53, 10, 24};
+  int n1 = sizeof(myVal1)/sizeof(double);
+  vector<double> val1(myVal1, myVal1 + n1);
+  vector<unsigned int> wt1(myWt1, myWt1 + n1);
+  unsigned int  W1 = 64;
+
+  // Create the knapsack problem
+  Knapsack<double> knapsack(W1, wt1, val1);
+
+  // Input of the knapsack for resolution
+  double myVal2[] = {-12.7, 31.5, 40.8, 15.7};
+  unsigned int myWt2[]= {20, 10, 30, 20};
+  int n2 = sizeof(myVal2)/sizeof(double);
+  vector<double> val2(myVal2, myVal2 + n2);
+  vector<unsigned int> wt2(myWt2, myWt2 + n2);
+  unsigned int  W2 = 50;
+
+
+  knapsack(W2, wt2, val2);                    // Solve the knapsack problem
+  double opt = knapsack.get_optimal_value();  // Get the optimal vallue of the knapsack
+  vector<bool> Solution;                      // Get the list of chosen objects
+  knapsack.get_chosen_objects(Solution);      // Get the list of chosen objects
+
   cout << "Optimal value of the knapsack: " << opt << endl;
   cout << "Affectation of the knapsack: ";
   for (unsigned int i = 0; i < Solution.size(); i++)
@@ -170,7 +199,7 @@ int KnapSackTest3()
   cout << endl;
 
   if (fabs(opt-72.3) > 1E-9
-      || Solution.size()!=(unsigned int)n
+      || Solution.size()!=(unsigned int)n2
       || Solution[0]!=0
       || Solution[1]!=1
       || Solution[2]!=1
@@ -183,7 +212,7 @@ int KnapSackTest3()
 }
 
 
-int NchooseKiteratorTest()
+int n_choose_k_iterator_test()
 {
   cout << "***** NchooseKiterator test *****" << endl;
 
@@ -228,7 +257,7 @@ int NchooseKiteratorTest()
 }
 
 
-int QuickSortTest()
+int quick_sort_test()
 {
   cout << "******* QuickSort test 1 ********" << endl;
 
@@ -283,7 +312,7 @@ struct Point2d
 };
 
 
-int QuickSortTest2()
+int quick_sort_test2()
 {
   cout << "******* QuickSort test 2 ********" << endl;
   int fail = 0;
@@ -322,7 +351,7 @@ int QuickSortTest2()
 }
 
 
-int RandomIteratorTest()
+int random_iterator_test()
 {
   cout << "****** Random_iterator test ******" << endl;
   int total = 0;
@@ -347,7 +376,7 @@ int RandomIteratorTest()
 }
 
 
-int TimeToolsTest()
+int time_tools_test()
 {
   cout << "******** TimeTools test *********" << endl;
   int fail = 0;
@@ -367,35 +396,36 @@ int TimeToolsTest()
 }
 
 
+
 int main()
 {
   /* initialize random seed: */
   srand (time(NULL));
 
-  int NbOfFailure = 0;
-  NbOfFailure += Array2dTest();
-  NbOfFailure += HcubeIteratorTest();
-  NbOfFailure += KnapSackTest1();
-  NbOfFailure += KnapSackTest2();
-  NbOfFailure += KnapSackTest3();
-  NbOfFailure += NchooseKiteratorTest();
-  NbOfFailure += QuickSortTest();
-  NbOfFailure += QuickSortTest2();
-  NbOfFailure += RandomIteratorTest();
-  NbOfFailure += TimeToolsTest();
+  int nb_failure = 0;
+  nb_failure += array2d_test();
+  nb_failure += hcube_iterator_test();
+  nb_failure += KnapSack_test1();
+  nb_failure += KnapSack_test2();
+  nb_failure += KnapSack_test3();
+  nb_failure += n_choose_k_iterator_test();
+  nb_failure += quick_sort_test();
+  nb_failure += quick_sort_test2();
+  nb_failure += random_iterator_test();
+  nb_failure += time_tools_test();
 
   cout << "*********************************" << endl;
-  switch (NbOfFailure)
+  switch (nb_failure)
   {
   case 0:
     cout << "No failure. Well done!" << endl;
     break;
   case 1:
-    cout << NbOfFailure << " test failed." << endl;
+    cout << nb_failure << " test failed." << endl;
     break;
   default:
-    cout << NbOfFailure << " tests failed." << endl;
+    cout << nb_failure << " tests failed." << endl;
     break;
   }
-  return 0;
+  return nb_failure;
 }  
