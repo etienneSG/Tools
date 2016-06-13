@@ -12,7 +12,9 @@ var dir_856524284ebe840938865dc061f982fb =
     [ "n_choose_k_iterator.h", "n__choose__k__iterator_8h.html", [
       [ "N_choose_K_iterator", "class_n__choose___k__iterator.html", "class_n__choose___k__iterator" ]
     ] ],
-    [ "quick_sort.h", "quick__sort_8h.html", "quick__sort_8h" ],
+    [ "quick_sort.h", "quick__sort_8h.html", [
+      [ "Quick_sort", "class_quick__sort.html", "class_quick__sort" ]
+    ] ],
     [ "random_iterator.h", "random__iterator_8h.html", [
       [ "Random_iterator", "class_random__iterator.html", "class_random__iterator" ]
     ] ],
