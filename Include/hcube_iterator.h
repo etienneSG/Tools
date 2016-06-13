@@ -53,13 +53,13 @@ public:
    */
   inline int operator()(int iIdx);
 
-  /** Print the indexes of the k current chosen elements */
+  /** @brief Print the indexes of the k current chosen elements */
   void print();
   
-  /** Return false while the iterator has not iterate on every element */
+  /** @brief Return false while the iterator has not iterate on every element */
   inline bool is_ended();
   
-  /** Reset the iterator at the begining */
+  /** @brief Reset the iterator at the begining */
   void reset();
   
 private:

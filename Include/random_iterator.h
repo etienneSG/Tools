@@ -1,5 +1,5 @@
 /**
- * @file KnapSack.h
+ * @file random_iterator.h
  * @author Etienne de Saint Germain
  * @date 2014
  * @brief File declaring a random iterator on the integer of an intervalle [0, N[
@@ -13,7 +13,7 @@
 
 /**
  * @brief Random iterator on the integer of an intervalle [0, N[
- * @details N represent the number of element of the intervelle.
+ * @details N represent the number of element of the intervalle.
  *
  * WARNING! Random must be initialize in the main function!
  */
@@ -42,9 +42,9 @@ public:
   inline int operator()();
   
 protected:
-  int _n;                         /**< Number of elements (N) */
-  std::vector<int> _v;            /**< Vector of N elements */
-  std::vector<int>::iterator _it; /**< Iterator on the elements of the vector */
+  int _n;                         /**< @brief Number of elements (N) */
+  std::vector<int> _v;            /**< @brief Vector of N elements */
+  std::vector<int>::iterator _it; /**< @brief Iterator on the elements of the vector */
 };
 
 
