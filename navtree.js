@@ -2,6 +2,7 @@ var NAVTREE =
 [
   [ "Tools", "index.html", [
     [ "Classes", null, [
+      [ "Git repository", "index.html#repository", null ],
       [ "Overview", "index.html#overview", null ],
       [ "License", "index.html#license", null ],
       [ "Contacts", "index.html#contacts", null ],
