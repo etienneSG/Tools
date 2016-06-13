@@ -272,7 +272,8 @@ int quick_sort_test()
     cout << tab[i] << " ";
   cout << endl;
 
-  quick_sort<int>(tab.begin(), tab.end());
+  Quick_sort<int> quick_sort;
+  quick_sort(tab.begin(), tab.end());
 
   cout << "Sorted  vector: ";
   for (unsigned int i = 0; i < tab.size(); i++)
@@ -329,7 +330,8 @@ int quick_sort_test2()
   for (unsigned int i = 0; i < tab.size(); i++)
     tab[i].Print();
 
-  quick_sort<Point2d>(tab.begin(), tab.end());
+  Quick_sort<Point2d> quick_sort;
+  quick_sort(tab.begin(), tab.end());
 
   cout << "Sorted vector:" << endl;
   for (unsigned int i = 0; i < tab.size(); i++)
