@@ -1,6 +1,11 @@
 /**
 @mainpage Tools
 
+@section repository Git repository
+
+The whole code can be found at the following adress: https://github.com/etienneSG/Tools
+
+
 
 @section overview Overview
 
@@ -26,7 +31,7 @@ Iterator on the possibilities of "N choose K".
 
 Template function to execute a quick sort in increasing order.
 
-- \a  random_iterator.h
+- \a random_iterator.h
 
 Random iterator on the integer elements of the intervalle [0, N[.
 
