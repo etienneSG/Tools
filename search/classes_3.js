@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['randomiterator',['RandomIterator',['../class_random_iterator.html',1,'']]]
+  ['random_5fiterator',['Random_iterator',['../class_random__iterator.html',1,'']]]
 ];

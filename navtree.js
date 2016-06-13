@@ -3,6 +3,7 @@ var NAVTREE =
   [ "Tools", "index.html", [
     [ "Classes", null, [
       [ "Overview", "index.html#overview", null ],
+      [ "License", "index.html#license", null ],
       [ "Contacts", "index.html#contacts", null ],
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
@@ -24,7 +25,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_hcube_iterator_8h.html"
+"_knap_sack_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
