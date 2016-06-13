@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['operator_28_29',['operator()',['../class_array2d.html#a2c676ac4955bc7de767896b6c7188b4f',1,'Array2d::operator()(int iJ, int iI)'],['../class_array2d.html#aa0335869f28b57a84f40e21ac04e51a9',1,'Array2d::operator()(int iJ, int iI) const '],['../class_hcube__iterator.html#ac9173c8dc8e17c1335dbdb7131c3a045',1,'Hcube_iterator::operator()()'],['../class_n__choose___k__iterator.html#ac1aae1b3a7f916e9a0a7f4ad467ffae6',1,'N_choose_K_iterator::operator()()'],['../class_random__iterator.html#a5c06e66ae8e24a4a11d8839af764d622',1,'Random_iterator::operator()()']]],
-  ['operator_2b_2b',['operator++',['../class_hcube__iterator.html#a83fc214f0a60d75cc500762c8d675aac',1,'Hcube_iterator::operator++()'],['../class_n__choose___k__iterator.html#aef19dad3bf8050c37a5ac8bd4ae45468',1,'N_choose_K_iterator::operator++()'],['../class_random__iterator.html#adf3025235bd414135335545e4260c7db',1,'Random_iterator::operator++()']]]
+  ['partition',['partition',['../quick__sort_8h.html#acb762ffd3425250064c15fbd654e2c6e',1,'quick_sort.h']]],
+  ['print',['print',['../class_hcube__iterator.html#aa6afc175b8a62fe8877456cfa639eed7',1,'Hcube_iterator::print()'],['../class_n__choose___k__iterator.html#ad03955369b20bac639e48fe1777faf48',1,'N_choose_K_iterator::print()']]],
+  ['push_5fback_5fcolumn',['push_back_column',['../class_array2d.html#a234ee4d3d68a0541cde9951a9e1237a3',1,'Array2d']]],
+  ['push_5fback_5frow',['push_back_row',['../class_array2d.html#a6e21f09f750e776357a5841492e83611',1,'Array2d']]]
 ];

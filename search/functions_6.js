@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['knapsack',['knapSack',['../_knap_sack_8h.html#a6dc7bd71810f8bb8e00e8ae1eff69b42',1,'knapSack(const int iW, const std::vector&lt; int &gt; iWt, const typename std::vector&lt; T &gt; iVal, const int iN, std::vector&lt; int &gt; &amp;oSol):&#160;KnapSack.h'],['../_knap_sack_8h.html#a3906538a18ec451b95804cb3d81d3de5',1,'knapSack(const int iW, const std::vector&lt; int &gt; iWt, const typename std::vector&lt; T &gt; iVal, const int iN):&#160;KnapSack.h']]]
+  ['n_5fchoose_5fk_5fiterator',['N_choose_K_iterator',['../class_n__choose___k__iterator.html#a90af59a61a9ad57ef5ddea314efc58c9',1,'N_choose_K_iterator::N_choose_K_iterator()'],['../class_n__choose___k__iterator.html#a9d2707d2371ae0a0c278ec4c4a7ac169',1,'N_choose_K_iterator::N_choose_K_iterator(int iN, int iK)']]],
+  ['nb_5fcolumns',['nb_columns',['../class_array2d.html#a80d5bd1c14aced180d29411758508021',1,'Array2d']]],
+  ['nb_5frows',['nb_rows',['../class_array2d.html#a85e73e7efdd15f2ae6c91248e62b4ccf',1,'Array2d']]]
 ];
