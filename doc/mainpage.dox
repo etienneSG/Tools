@@ -19,7 +19,7 @@ Template for dynamic array in two dimensions.
 
 Iterator on the subdivision of an hypercube.
 
-- \a KnapSack.h
+- \a knapsack.h
 
 Tools to solve the knapsack problem using dynamic programming.
 
