@@ -1,17 +1,17 @@
 /**
- * @file RandomIterator.cpp
+ * @file random_iterator.cpp
  * @author Etienne de Saint Germain
- * @date 2016
- * @brief File implementing RandomIterator.h
+ * @date 2014
+ * @brief File implementing random_iterator.h
  */
 
 
-#include "RandomIterator.h"
+#include "random_iterator.h"
 #include <iostream>
 #include <algorithm>
 
 
-RandomIterator::RandomIterator(int iN):
+Random_iterator::Random_iterator(int iN):
   _n(iN),
   _v(iN, 0),
   _it(_v.begin())
@@ -22,12 +22,12 @@ RandomIterator::RandomIterator(int iN):
 }
 
 
-RandomIterator::~RandomIterator()
+Random_iterator::~Random_iterator()
 {
 }
 
 
-void RandomIterator::Reset()
+void Random_iterator::reset()
 {
   std::random_shuffle(_v.begin(), _v.end());
   _it = _v.begin();

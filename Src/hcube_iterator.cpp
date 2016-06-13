@@ -1,22 +1,22 @@
 /**
- * @file HcubeIterator.cpp
+ * @file hcube_iterator.cpp
  * @author Etienne de Saint Germain
- * @date 2016
- * @brief File implementing HcubeIterator.h
+ * @date 2014
+ * @brief File implementing hcube_iterator.h
  */
 
 
-#include "HcubeIterator.h"
+#include "hcube_iterator.h"
 #include <iostream>
 
-HcubeIterator::HcubeIterator():
+Hcube_iterator::Hcube_iterator():
   _n(0),
   _k(0)
 {
 }
 
 
-HcubeIterator::HcubeIterator(int iN, int iK):
+Hcube_iterator::Hcube_iterator(int iN, int iK):
   _n(iN),
   _k(iK),
   _v(iN+1, 0)
@@ -25,12 +25,12 @@ HcubeIterator::HcubeIterator(int iN, int iK):
 }
 
 
-HcubeIterator::~HcubeIterator()
+Hcube_iterator::~Hcube_iterator()
 {
 }
 
 
-void HcubeIterator::operator++()
+void Hcube_iterator::operator++()
 {
   int l=_n;
   _v[l]++;
@@ -42,7 +42,7 @@ void HcubeIterator::operator++()
   }
 }
 
-void HcubeIterator::Print()
+void Hcube_iterator::print()
 {
   unsigned int i;
   for(i = 1; i < _v.size(); i++)
@@ -50,7 +50,7 @@ void HcubeIterator::Print()
   std::cout << std::endl;   
 }
 
-void HcubeIterator::Reset()
+void Hcube_iterator::reset()
 {
   _v[0]=-1;
   unsigned int i;

@@ -1,9 +1,9 @@
 #include "array2d.h"
-#include "HcubeIterator.h"
+#include "hcube_iterator.h"
 #include "KnapSack.h"
 #include "n_choose_k_iterator.h"
 #include "quick_sort.h"
-#include "RandomIterator.h"
+#include "random_iterator.h"
 #include "time_tools.h"
 
 #include <algorithm>
@@ -53,10 +53,10 @@ int Array2dTest()
 
 int HcubeIteratorTest()
 {
-  cout << "****** HcubeIterator test *******" << endl;
+  cout << "****** Hcube_iterator test *******" << endl;
   int n = 2;
   int k = 3;
-  HcubeIterator myIt(n,k);
+  Hcube_iterator myIt(n,k);
 
   vector< vector<int> > Solution(9, vector<int>(k,0));
   Solution[0][0] = 0; Solution[0][1] = 0;
@@ -69,9 +69,9 @@ int HcubeIteratorTest()
   Solution[7][0] = 1; Solution[7][1] = 1;
   Solution[8][0] = 1; Solution[8][1] = 2;
 
-  while (!myIt.IsEnded())
+  while (!myIt.is_ended())
   {
-    myIt.Print();
+    myIt.print();
     unsigned int i;
     for (i = 0; i < Solution.size(); i++)
     {
@@ -324,12 +324,12 @@ int QuickSortTest2()
 
 int RandomIteratorTest()
 {
-  cout << "****** RandomIterator test ******" << endl;
+  cout << "****** Random_iterator test ******" << endl;
   int total = 0;
 
   int N = 5;
-  RandomIterator myIt(N);
-  while (!myIt.IsEnded())
+  Random_iterator myIt(N);
+  while (!myIt.is_ended())
   {
     cout << myIt() << " ";
     total += myIt();

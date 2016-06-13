@@ -1,47 +1,62 @@
-# Compilateur
+# Compiler
 CPP=g++
 
-# Les différents répertoires contenant respectivement les fichiers :
-# Sources *.c, Headers *.h, Objets *.o, l'exécutable
-SRCDIR=Src
-HEADDIR=Include
-LIBDIR=Objet
-BINDIR=Bin
+# The folder containing:
+# source files *.cpp, header files *.h, objects *.o, executable
+SRC_DIR=Src
+HEAD_DIR=Include
+OBJ_DIR=Obj
+BIN_DIR=Bin
 
-# Les différentes options de compilations
-# -fopenmp : pour le multithreading (linux only)
-# -g : mode debug  /  -O6 : optimisé
+# Compiler options
+# -fopenmp (multithreading, linux only)
+# -g (debug) / -O6 (optimized)
 CFLAGS=-I Include -g -Wall -pedantic
-# Les différents FrameWorks et bibliothèques pour le linkage
+# linked libraries
 GLLIBS= -lstdc++
 
-# Où trouver les différents sources *.cpp qu'il faudra compiler
-# pour créer les objets correspondants
-SRCPP= $(wildcard $(SRCDIR)/*.cpp)
-OBJCPP= $(SRCPP:$(SRCDIR)/%.cpp=$(LIBDIR)/%.o)
+# Where find the source files to create the objects
+SRC_CPP= $(wildcard $(SRC_DIR)/*.cpp)
+OBJ_CPP= $(SRC_CPP:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
-# L'éxécutable
-all: MonExec
+# List of header files
+HEAD_FILES= $(wildcard $(HEAD_DIR)/*.h)
 
-#Création de l'exécutable
-MonExec: $(LIBDIR)/main.o $(OBJCPP)
-	$(CPP) -o $(BINDIR)/$@ $^ $(CFLAGS) $(GLLIBS)
+# the executable
+all: MyExec
 
-# Création de main.o
-$(LIBDIR)/main.o: main.cpp
-	mkdir -p $(BINDIR) $(LIBDIR)
-	$(CPP) -o $@ -c $< $(CFLAGS)
+# create the executable
+MyExec: $(OBJ_DIR)/main.o $(OBJ_CPP)
+	@mkdir -p $(BIN_DIR)
+	@echo "link $(BIN_DIR)/$@"
+	@$(CPP) -o $(BIN_DIR)/$@ $^ $(CFLAGS) $(GLLIBS)
 
-# Création des différents *.o à partir des *.cpp
-$(LIBDIR)/%.o: $(SRCDIR)/%.cpp $(HEADDIR)/%.h
-	$(CPP) -o $@ -c $< $(CFLAGS)
+# create main.o
+$(OBJ_DIR)/main.o: main.cpp
+	@mkdir -p $(OBJ_DIR)
+	@echo "compile $@ ($(CPP))"
+	@$(CPP) -o $@ -c $< $(CFLAGS)
 
-# Nettoyage des objets => Tout sera recompilé !
+# create every object of the executable
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEAD_DIR)/%.h
+	@mkdir -p $(OBJ_DIR)
+	@echo "compile $@ ($(CPP))"
+	@$(CPP) -o $@ -c $< $(CFLAGS)
+
+# clean the objects (Everything will be compile from scratch!)
 clean:
-	rm $(LIBDIR)/*.o
-	rmdir $(LIBDIR)
+	@echo "clean objects"
+	@rm -R -f $(OBJ_DIR)
 
-# Nettoyage complet => clean + effacement du l'exécutable
+# complete cleanning (clean + delete the executable)
 Clean: clean
-	rm $(BINDIR)/*
-	rmdir $(BINDIR)
+	@echo "clean binaries and temporary files"
+	@rm -R -f $(BIN_DIR)
+	@find . -name "*~" -exec rm {} \;
+
+# Generate the documentation
+doc: doc/Doxyfile doc/mainpage.dox $(HEAD_FILES) main.cpp
+	@echo "generate documentation"
+	@doxygen doc/Doxyfile
+
+

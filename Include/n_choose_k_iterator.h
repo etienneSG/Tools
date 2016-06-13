@@ -1,9 +1,10 @@
-//==============================================================================
-// 
-// Class NchooseKiterator:
-//   Iterator on the elements of the k-combinations from a set of n elements.
-//
-//==============================================================================
+/**
+ * @file n_choose_k_iterator.h
+ * @author Etienne de Saint Germain
+ * @date 2014
+ * @brief File declaring an iterator n the set of k-combinations from a set of n elements
+ */
+
 
 #ifndef N_CHOOSE_K_ITERATOR_H
 #define N_CHOOSE_K_ITERATOR_H
@@ -11,6 +12,16 @@
 #include <vector>
 #include <assert.h>
 
+/**
+ * @brief File declaring an iterator n the set of k-combinations from a set of n elements
+
+ * @details For example, if n=4 and k=2, there are 6 iterated points:
+ * <table>
+ *   <tr><td>(0,1)<td>(0,2)<td>(0,3)
+ *   <tr><td>     <td>(1,2)<td>(1,3)
+ *   <tr><td>     <td>     <td>(2,3)
+ * </table>
+ */
 class N_choose_K_iterator
 {
 public:

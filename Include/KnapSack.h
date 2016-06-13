@@ -54,6 +54,7 @@ T knapSack(const int iW, const std::vector<int> iWt,
  * @param[in] iWt Vector of object's weights
  * @param[in] iVal Vector of object's values
  * @param[in] iN Number of objects
+ * @param[in] K Table storing the optimal value of the knapsack for each etap of the dynamic programming
  * @return the optimal value of the knapsack
  */
 template<class T>
