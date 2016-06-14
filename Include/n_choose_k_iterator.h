@@ -9,8 +9,9 @@
 #ifndef N_CHOOSE_K_ITERATOR_H
 #define N_CHOOSE_K_ITERATOR_H
 
-#include <vector>
 #include <assert.h>
+#include <iostream>
+#include <vector>
 
 /**
  * @brief File declaring an iterator n the set of k-combinations from a set of n elements
@@ -33,7 +34,7 @@ public:
    * @param[in] iN number of elements in the set
    * @param[in] iK number of elements to chose
    */
-  N_choose_K_iterator(int iN,int iK);
+  N_choose_K_iterator(unsigned int iN, unsigned int iK);
   
   /** @brief Destructor */
   ~N_choose_K_iterator();
@@ -46,7 +47,7 @@ public:
    * @param[in] iIdx one of the k chosen elements
    * @return index of the iIdx-th chosen element
    */
-  inline int operator()(int iIdx);
+  inline unsigned int operator()(unsigned int iIdx);
 
   /** @brief Print the indexes of the k current chosen elements */
   void print();
@@ -62,23 +63,82 @@ public:
   void reset(bool iEnd = true);
   
 private:
-  int _n;               /**< Number of elements in the set */
-  int _k;               /**< Number of elements to chose */
-  std::vector<int> _v;  /**< Vector of indexes of current chosen elements */
+  unsigned int _n;               /**< Number of elements in the set */
+  unsigned int _k;               /**< Number of elements to chose */
+  std::vector<unsigned int> _v;  /**< Vector of indexes of current chosen elements */
 };
 
 
 //==============================================================================
-// Implementation of inline methods
+// Implementation of methods
 //==============================================================================
 
-inline bool N_choose_K_iterator::is_ended() {
-  return _v[0] >= 0;
+
+N_choose_K_iterator::N_choose_K_iterator():
+  _n(0),
+  _k(0)
+{
 }
 
-inline int N_choose_K_iterator::operator()(int iIdx) {
-  assert(0 <= iIdx && iIdx < _k);
-  return _v[iIdx+1];
+
+N_choose_K_iterator::N_choose_K_iterator(unsigned int iN, unsigned int iK):
+  _n(iN),
+  _k(iK),
+  _v(iK+1,iN+1)
+{
+  for (unsigned int i = 0; i < iK+1; i++)
+    _v[i]=i;
 }
+
+
+N_choose_K_iterator::~N_choose_K_iterator()
+{
+}
+
+
+void N_choose_K_iterator::operator++()
+{
+  unsigned int l=_k;
+  _v[l]++;
+  while (l > 0 && _v[l] >= (_n+l+1-_k) )
+  {
+    _v[l-1]++;
+    _v[l]=1;
+    l--;
+  }
+  for (unsigned int i = 1 ; i < _v.size(); i++)
+  {
+    if (_v[i]<=_v[i-1])
+      _v[i]=_v[i-1]+1;
+  }
+}
+
+
+inline unsigned int N_choose_K_iterator::operator()(unsigned int iIdx) {
+  assert(iIdx < _k);
+  return _v[iIdx+1]-1;
+}
+
+
+void N_choose_K_iterator::print()
+{
+  for(unsigned int i = 0; i < _k; i++)
+    std::cout << operator()(i) << " ";
+  std::cout << std::endl;   
+}
+
+
+inline bool N_choose_K_iterator::is_ended() {
+  return _v[0] > 0;
+}
+
+
+void N_choose_K_iterator::reset(bool iEnd)
+{
+  _v[0] = iEnd ? -1 : 0;
+  for (unsigned int i = 1; i < _k+1; i++)
+    _v[i]=i;
+}
+
 
 #endif // N_CHOOSE_K_ITERATOR_H

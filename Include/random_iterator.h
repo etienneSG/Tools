@@ -8,6 +8,8 @@
 #ifndef RANDOMITERATOR_H
 #define RANDOMITERATOR_H
 
+#include <algorithm>
+#include <iostream>
 #include <vector>
 
 
@@ -24,7 +26,7 @@ public:
    * @brief Constructor
    * @param[in] iN Number of elements in the set. (Default value: 0)
    */
-  Random_iterator(int iN = 0);
+  Random_iterator(unsigned int iN = 0);
   
   /** @brief Destructor */
   ~Random_iterator();
@@ -42,15 +44,38 @@ public:
   inline int operator()();
   
 protected:
-  int _n;                         /**< @brief Number of elements (N) */
-  std::vector<int> _v;            /**< @brief Vector of N elements */
-  std::vector<int>::iterator _it; /**< @brief Iterator on the elements of the vector */
+  unsigned int _n;                         /**< @brief Number of elements (N) */
+  std::vector<unsigned int> _v;            /**< @brief Vector of N elements */
+  std::vector<unsigned int>::iterator _it; /**< @brief Iterator on the elements of the vector */
 };
 
 
 //==============================================================================
-// Implementation of inline methods
+// Implementation of methods
 //==============================================================================
+
+
+Random_iterator::Random_iterator(unsigned int iN):
+  _n(iN),
+  _v(iN, 0),
+  _it(_v.begin())
+{
+  for (unsigned int i = 0; i < _n; i++)
+    _v[i] = i;
+  std::random_shuffle(_v.begin(), _v.end());
+}
+
+
+Random_iterator::~Random_iterator()
+{
+}
+
+
+void Random_iterator::reset()
+{
+  std::random_shuffle(_v.begin(), _v.end());
+  _it = _v.begin();
+}
 
 
 inline void Random_iterator::operator++() {

@@ -15,9 +15,6 @@ CFLAGS=-I Include -g -Wall -pedantic
 # linked libraries
 GLLIBS= -lstdc++
 
-# Where find the source files to create the objects
-SRC_CPP= $(wildcard $(SRC_DIR)/*.cpp)
-OBJ_CPP= $(SRC_CPP:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 # List of header files
 HEAD_FILES= $(wildcard $(HEAD_DIR)/*.h)
@@ -26,22 +23,17 @@ HEAD_FILES= $(wildcard $(HEAD_DIR)/*.h)
 all: MyExec
 
 # create the executable
-MyExec: $(OBJ_DIR)/main.o $(OBJ_CPP)
+MyExec: $(OBJ_DIR)/main.o
 	@mkdir -p $(BIN_DIR)
 	@echo "link $(BIN_DIR)/$@"
 	@$(CPP) -o $(BIN_DIR)/$@ $^ $(CFLAGS) $(GLLIBS)
 
 # create main.o
-$(OBJ_DIR)/main.o: main.cpp
+$(OBJ_DIR)/main.o: main.cpp $(HEAD_FILES)
 	@mkdir -p $(OBJ_DIR)
 	@echo "compile $@ ($(CPP))"
 	@$(CPP) -o $@ -c $< $(CFLAGS)
 
-# create every object of the executable
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEAD_DIR)/%.h
-	@mkdir -p $(OBJ_DIR)
-	@echo "compile $@ ($(CPP))"
-	@$(CPP) -o $@ -c $< $(CFLAGS)
 
 # clean the objects (Everything will be compile from scratch!)
 clean:

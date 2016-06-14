@@ -54,11 +54,11 @@ int array2d_test()
 int hcube_iterator_test()
 {
   cout << "****** Hcube_iterator test *******" << endl;
-  int n = 2;
-  int k = 3;
+  unsigned int n = 2;
+  unsigned int k = 3;
   Hcube_iterator myIt(n,k);
 
-  vector< vector<int> > Solution(9, vector<int>(k,0));
+  vector< vector<unsigned int> > Solution(9, vector<unsigned int>(k,0));
   Solution[0][0] = 0; Solution[0][1] = 0;
   Solution[1][0] = 0; Solution[1][1] = 1;
   Solution[2][0] = 0; Solution[2][1] = 2;
@@ -72,8 +72,7 @@ int hcube_iterator_test()
   while (!myIt.is_ended())
   {
     myIt.print();
-    unsigned int i;
-    for (i = 0; i < Solution.size(); i++)
+    for (unsigned int i = 0; i < Solution.size(); i++)
     {
       if (Solution[i][0]==myIt(0) && Solution[i][1]==myIt(1))
       {
@@ -216,11 +215,11 @@ int n_choose_k_iterator_test()
 {
   cout << "***** NchooseKiterator test *****" << endl;
 
-  int n = 5;
-  int k = 2;
+  unsigned int n = 5;
+  unsigned int k = 2;
   N_choose_K_iterator myIt(n,k);
 
-  vector< vector<int> > Solution(10, vector<int>(k,0));
+  vector< vector<unsigned int> > Solution(10, vector<unsigned int>(k,0));
   Solution[0][0] = 0; Solution[0][1] = 1;
   Solution[1][0] = 0; Solution[1][1] = 2;
   Solution[2][0] = 0; Solution[2][1] = 3;
@@ -235,8 +234,7 @@ int n_choose_k_iterator_test()
   while (!myIt.is_ended())
   {
     myIt.print();
-    unsigned int i;
-    for (i = 0; i < Solution.size(); i++)
+    for (unsigned int i = 0; i < Solution.size(); i++)
     {
       if (Solution[i][0]==myIt(0) && Solution[i][1]==myIt(1))
       {

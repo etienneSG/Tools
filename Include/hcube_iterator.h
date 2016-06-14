@@ -10,15 +10,16 @@
 #ifndef HCUBEITERATOR_H
 #define HCUBEITERATOR_H
 
-#include <vector>
 #include <assert.h>
+#include <iostream>
+#include <vector>
 
 
 /**
  * @brief Iterator on the subdivision of an hypercube.
  * @details The subdivision is characterized by two value:
- * - n which is is dimension.
- * - k which is the number  on subdivision along a dimension.
+ * - n which is his dimension.
+ * - k which is the number on subdivision along a dimension.
  *
  * For example, if n=2 and k=3, there are k^n=9 iterated points:
  * <table>
@@ -38,7 +39,7 @@ public:
    * @param[in] iN dimension of the hypercube
    * @param[in] iK number of subdivision of the hypercube
    */
-  Hcube_iterator(int iN,int iK);
+  Hcube_iterator(unsigned int iN, unsigned int iK);
   
   /** @brief Destructor */
   ~Hcube_iterator();
@@ -51,7 +52,7 @@ public:
    * @param[in] iIdx one of the k chosen elements
    * @return index of the iIdx-th chosen element
    */
-  inline int operator()(int iIdx);
+  inline unsigned int operator()(unsigned int iIdx);
 
   /** @brief Print the indexes of the k current chosen elements */
   void print();
@@ -63,9 +64,9 @@ public:
   void reset();
   
 private:
-  int _n;               /**< dimension of the hypercube */
-  int _k;               /**< number of subdivision of the hypercube */
-  std::vector<int> _v;  /**< Vector of indexes of current vertex */
+  unsigned int _n;               /**< dimension of the hypercube */
+  unsigned int _k;               /**< number of subdivision of the hypercube */
+  std::vector<unsigned int> _v;  /**< Vector of indexes of current vertex */
 };
 
 
@@ -73,13 +74,64 @@ private:
 // Implementation of inline methods
 //==============================================================================
 
-inline bool Hcube_iterator::is_ended() {
-  return _v[0] >= 0;
+
+Hcube_iterator::Hcube_iterator():
+  _n(0),
+  _k(0)
+{
 }
 
-inline int Hcube_iterator::operator()(int iIdx) {
-  assert(0 <= iIdx && iIdx < _n);
-  return _v[iIdx+1];
+
+Hcube_iterator::Hcube_iterator(unsigned int iN, unsigned int iK):
+  _n(iN),
+  _k(iK),
+  _v(iN+1, 1)
+{
+  _v[0]=0;
+}
+
+
+Hcube_iterator::~Hcube_iterator()
+{
+}
+
+
+void Hcube_iterator::operator++()
+{
+  int l=_n;
+  _v[l]++;
+  while (l > 0 && _v[l] >= _k+1 )
+  {
+    _v[l-1]++;
+    _v[l]=1;
+    l--;
+  }
+}
+
+
+void Hcube_iterator::print()
+{
+  for(unsigned int i = 0; i < _n; i++)
+    std::cout << operator()(i) << " ";
+  std::cout << std::endl;   
+}
+
+
+void Hcube_iterator::reset()
+{
+  _v.assign(_n+1,1);
+  _v[0]=0;
+}
+
+
+inline bool Hcube_iterator::is_ended() {
+  return _v[0] > 0;
+}
+
+
+inline unsigned int Hcube_iterator::operator()(unsigned int iIdx) {
+  assert(iIdx < _n+1);
+  return _v[iIdx+1]-1;
 }
 
 #endif
