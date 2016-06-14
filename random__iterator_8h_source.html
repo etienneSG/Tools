@@ -109,70 +109,95 @@ $(document).ready(function(){initNavTree('random__iterator_8h_source.html','');}
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef RANDOMITERATOR_H</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define RANDOMITERATOR_H</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_random__iterator.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_random__iterator.html">Random_iterator</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="class_random__iterator.html#ae3adc10fc72e6f2d20102a22d4cb7a3c">Random_iterator</a>(<span class="keywordtype">int</span> iN = 0);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="class_random__iterator.html#af85ce0ea65cba8887618507d011d4db0">~Random_iterator</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_random__iterator.html#a88470099f0c456c13322cdf187c93e90">reset</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_random__iterator.html#adf3025235bd414135335545e4260c7db">operator++</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_random__iterator.html#a840fc2e852714bd874c14bd3db120aca">is_ended</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_random__iterator.html#a5c06e66ae8e24a4a11d8839af764d622">operator()</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a0de5688cd8e81888505bb1d1d8e7ac62">   45</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_random__iterator.html#a0de5688cd8e81888505bb1d1d8e7ac62">_n</a>;                         </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a7bf663fdbb3b09f7db5133cbaf120a43">   46</a></span>&#160;  std::vector&lt;int&gt; <a class="code" href="class_random__iterator.html#a7bf663fdbb3b09f7db5133cbaf120a43">_v</a>;            </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a3016c06e42821c521c04f80911740f7c">   47</a></span>&#160;  std::vector&lt;int&gt;::iterator <a class="code" href="class_random__iterator.html#a3016c06e42821c521c04f80911740f7c">_it</a>; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">// Implementation of inline methods</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_random__iterator.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_random__iterator.html">Random_iterator</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="class_random__iterator.html#a7a92f00c4e49355ac38a3abe4ceb2ac9">Random_iterator</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iN = 0);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="class_random__iterator.html#af85ce0ea65cba8887618507d011d4db0">~Random_iterator</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_random__iterator.html#a88470099f0c456c13322cdf187c93e90">reset</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_random__iterator.html#adf3025235bd414135335545e4260c7db">operator++</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_random__iterator.html#a840fc2e852714bd874c14bd3db120aca">is_ended</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_random__iterator.html#a5c06e66ae8e24a4a11d8839af764d622">operator()</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a2db062dcea798d4cb404973fecfb7ec5">   47</a></span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_random__iterator.html#a2db062dcea798d4cb404973fecfb7ec5">_n</a>;                         </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">   48</a></span>&#160;  std::vector&lt;unsigned int&gt; <a class="code" href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">_v</a>;            </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a066d38aa2041f108caa6192c4766cea4">   49</a></span>&#160;  std::vector&lt;unsigned int&gt;::iterator <a class="code" href="class_random__iterator.html#a066d38aa2041f108caa6192c4766cea4">_it</a>; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">//==============================================================================</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_random__iterator.html#adf3025235bd414135335545e4260c7db">   56</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_random__iterator.html#adf3025235bd414135335545e4260c7db">Random_iterator::operator++</a>() {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  ++<a class="code" href="class_random__iterator.html#a3016c06e42821c521c04f80911740f7c">_it</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a840fc2e852714bd874c14bd3db120aca">   61</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_random__iterator.html#a840fc2e852714bd874c14bd3db120aca">Random_iterator::is_ended</a>() {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordflow">return</span> (<a class="code" href="class_random__iterator.html#a3016c06e42821c521c04f80911740f7c">_it</a> == <a class="code" href="class_random__iterator.html#a7bf663fdbb3b09f7db5133cbaf120a43">_v</a>.end());</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a5c06e66ae8e24a4a11d8839af764d622">   66</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_random__iterator.html#a5c06e66ae8e24a4a11d8839af764d622">Random_iterator::operator()</a>() {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">return</span> *<a class="code" href="class_random__iterator.html#a3016c06e42821c521c04f80911740f7c">_it</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// Implementation of methods</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">//==============================================================================</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a7a92f00c4e49355ac38a3abe4ceb2ac9">   58</a></span>&#160;<a class="code" href="class_random__iterator.html#a7a92f00c4e49355ac38a3abe4ceb2ac9">Random_iterator::Random_iterator</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iN):</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  _n(iN),</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  _v(iN, 0),</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  _it(_v.begin())</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="class_random__iterator.html#a2db062dcea798d4cb404973fecfb7ec5">_n</a>; i++)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">_v</a>[i] = i;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  std::random_shuffle(<a class="code" href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">_v</a>.begin(), <a class="code" href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">_v</a>.end());</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_random__iterator.html#af85ce0ea65cba8887618507d011d4db0">   69</a></span>&#160;<a class="code" href="class_random__iterator.html#af85ce0ea65cba8887618507d011d4db0">Random_iterator::~Random_iterator</a>()</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="ttc" id="class_random__iterator_html_a0de5688cd8e81888505bb1d1d8e7ac62"><div class="ttname"><a href="class_random__iterator.html#a0de5688cd8e81888505bb1d1d8e7ac62">Random_iterator::_n</a></div><div class="ttdeci">int _n</div><div class="ttdoc">Number of elements (N) </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00045">random_iterator.h:45</a></div></div>
-<div class="ttc" id="class_random__iterator_html_adf3025235bd414135335545e4260c7db"><div class="ttname"><a href="class_random__iterator.html#adf3025235bd414135335545e4260c7db">Random_iterator::operator++</a></div><div class="ttdeci">void operator++()</div><div class="ttdoc">Increment the iterator on the elements. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00056">random_iterator.h:56</a></div></div>
-<div class="ttc" id="class_random__iterator_html_a5c06e66ae8e24a4a11d8839af764d622"><div class="ttname"><a href="class_random__iterator.html#a5c06e66ae8e24a4a11d8839af764d622">Random_iterator::operator()</a></div><div class="ttdeci">int operator()()</div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00066">random_iterator.h:66</a></div></div>
-<div class="ttc" id="class_random__iterator_html_af85ce0ea65cba8887618507d011d4db0"><div class="ttname"><a href="class_random__iterator.html#af85ce0ea65cba8887618507d011d4db0">Random_iterator::~Random_iterator</a></div><div class="ttdeci">~Random_iterator()</div><div class="ttdoc">Destructor. </div></div>
-<div class="ttc" id="class_random__iterator_html_a3016c06e42821c521c04f80911740f7c"><div class="ttname"><a href="class_random__iterator.html#a3016c06e42821c521c04f80911740f7c">Random_iterator::_it</a></div><div class="ttdeci">std::vector&lt; int &gt;::iterator _it</div><div class="ttdoc">Iterator on the elements of the vector. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00047">random_iterator.h:47</a></div></div>
-<div class="ttc" id="class_random__iterator_html_a840fc2e852714bd874c14bd3db120aca"><div class="ttname"><a href="class_random__iterator.html#a840fc2e852714bd874c14bd3db120aca">Random_iterator::is_ended</a></div><div class="ttdeci">bool is_ended()</div><div class="ttdoc">Return false while the iterator has not iterate on every element. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00061">random_iterator.h:61</a></div></div>
-<div class="ttc" id="class_random__iterator_html_ae3adc10fc72e6f2d20102a22d4cb7a3c"><div class="ttname"><a href="class_random__iterator.html#ae3adc10fc72e6f2d20102a22d4cb7a3c">Random_iterator::Random_iterator</a></div><div class="ttdeci">Random_iterator(int iN=0)</div><div class="ttdoc">Constructor. </div></div>
-<div class="ttc" id="class_random__iterator_html"><div class="ttname"><a href="class_random__iterator.html">Random_iterator</a></div><div class="ttdoc">Random iterator on the integer of an intervalle [0, N[. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00020">random_iterator.h:20</a></div></div>
-<div class="ttc" id="class_random__iterator_html_a7bf663fdbb3b09f7db5133cbaf120a43"><div class="ttname"><a href="class_random__iterator.html#a7bf663fdbb3b09f7db5133cbaf120a43">Random_iterator::_v</a></div><div class="ttdeci">std::vector&lt; int &gt; _v</div><div class="ttdoc">Vector of N elements. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00046">random_iterator.h:46</a></div></div>
-<div class="ttc" id="class_random__iterator_html_a88470099f0c456c13322cdf187c93e90"><div class="ttname"><a href="class_random__iterator.html#a88470099f0c456c13322cdf187c93e90">Random_iterator::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reset the operator. </div></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a88470099f0c456c13322cdf187c93e90">   74</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_random__iterator.html#a88470099f0c456c13322cdf187c93e90">Random_iterator::reset</a>()</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  std::random_shuffle(<a class="code" href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">_v</a>.begin(), <a class="code" href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">_v</a>.end());</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="class_random__iterator.html#a066d38aa2041f108caa6192c4766cea4">_it</a> = <a class="code" href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">_v</a>.begin();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_random__iterator.html#adf3025235bd414135335545e4260c7db">   81</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_random__iterator.html#adf3025235bd414135335545e4260c7db">Random_iterator::operator++</a>() {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  ++<a class="code" href="class_random__iterator.html#a066d38aa2041f108caa6192c4766cea4">_it</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a840fc2e852714bd874c14bd3db120aca">   86</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_random__iterator.html#a840fc2e852714bd874c14bd3db120aca">Random_iterator::is_ended</a>() {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">return</span> (<a class="code" href="class_random__iterator.html#a066d38aa2041f108caa6192c4766cea4">_it</a> == <a class="code" href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">_v</a>.end());</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_random__iterator.html#a5c06e66ae8e24a4a11d8839af764d622">   91</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_random__iterator.html#a5c06e66ae8e24a4a11d8839af764d622">Random_iterator::operator()</a>() {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordflow">return</span> *<a class="code" href="class_random__iterator.html#a066d38aa2041f108caa6192c4766cea4">_it</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="ttc" id="class_random__iterator_html_a7ca6556f0df60919b7fe8252c97546f6"><div class="ttname"><a href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">Random_iterator::_v</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; _v</div><div class="ttdoc">Vector of N elements. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00048">random_iterator.h:48</a></div></div>
+<div class="ttc" id="class_random__iterator_html_adf3025235bd414135335545e4260c7db"><div class="ttname"><a href="class_random__iterator.html#adf3025235bd414135335545e4260c7db">Random_iterator::operator++</a></div><div class="ttdeci">void operator++()</div><div class="ttdoc">Increment the iterator on the elements. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00081">random_iterator.h:81</a></div></div>
+<div class="ttc" id="class_random__iterator_html_a5c06e66ae8e24a4a11d8839af764d622"><div class="ttname"><a href="class_random__iterator.html#a5c06e66ae8e24a4a11d8839af764d622">Random_iterator::operator()</a></div><div class="ttdeci">int operator()()</div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00091">random_iterator.h:91</a></div></div>
+<div class="ttc" id="class_random__iterator_html_af85ce0ea65cba8887618507d011d4db0"><div class="ttname"><a href="class_random__iterator.html#af85ce0ea65cba8887618507d011d4db0">Random_iterator::~Random_iterator</a></div><div class="ttdeci">~Random_iterator()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00069">random_iterator.h:69</a></div></div>
+<div class="ttc" id="class_random__iterator_html_a066d38aa2041f108caa6192c4766cea4"><div class="ttname"><a href="class_random__iterator.html#a066d38aa2041f108caa6192c4766cea4">Random_iterator::_it</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt;::iterator _it</div><div class="ttdoc">Iterator on the elements of the vector. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00049">random_iterator.h:49</a></div></div>
+<div class="ttc" id="class_random__iterator_html_a7a92f00c4e49355ac38a3abe4ceb2ac9"><div class="ttname"><a href="class_random__iterator.html#a7a92f00c4e49355ac38a3abe4ceb2ac9">Random_iterator::Random_iterator</a></div><div class="ttdeci">Random_iterator(unsigned int iN=0)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00058">random_iterator.h:58</a></div></div>
+<div class="ttc" id="class_random__iterator_html_a840fc2e852714bd874c14bd3db120aca"><div class="ttname"><a href="class_random__iterator.html#a840fc2e852714bd874c14bd3db120aca">Random_iterator::is_ended</a></div><div class="ttdeci">bool is_ended()</div><div class="ttdoc">Return false while the iterator has not iterate on every element. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00086">random_iterator.h:86</a></div></div>
+<div class="ttc" id="class_random__iterator_html"><div class="ttname"><a href="class_random__iterator.html">Random_iterator</a></div><div class="ttdoc">Random iterator on the integer of an intervalle [0, N[. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00022">random_iterator.h:22</a></div></div>
+<div class="ttc" id="class_random__iterator_html_a88470099f0c456c13322cdf187c93e90"><div class="ttname"><a href="class_random__iterator.html#a88470099f0c456c13322cdf187c93e90">Random_iterator::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reset the operator. </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00074">random_iterator.h:74</a></div></div>
+<div class="ttc" id="class_random__iterator_html_a2db062dcea798d4cb404973fecfb7ec5"><div class="ttname"><a href="class_random__iterator.html#a2db062dcea798d4cb404973fecfb7ec5">Random_iterator::_n</a></div><div class="ttdeci">unsigned int _n</div><div class="ttdoc">Number of elements (N) </div><div class="ttdef"><b>Definition:</b> <a href="random__iterator_8h_source.html#l00047">random_iterator.h:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_856524284ebe840938865dc061f982fb.html">Include</a></li><li class="navelem"><a class="el" href="random__iterator_8h.html">random_iterator.h</a></li>
-    <li class="footer">Generated on Mon Jun 13 2016 17:48:47 for Tools by
+    <li class="footer">Generated on Tue Jun 14 2016 11:23:51 for Tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
