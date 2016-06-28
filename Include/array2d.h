@@ -95,8 +95,11 @@ class Array2d
    * @brief Change the size of the array keeping its coefficients
    * @param[in] iP New number of rows of the array
    * @param[in] iN New Number of column of the array
+   * @param[in] iVal Object whose content is copied to the added elements in case that new size 
+   * is greater than the current container size. If not specified, the default constructor is 
+   * used instead.
    */
-  void resize(int iP, int iN);
+  void resize(int iP, int iN, T iVal = T());
 
   /** @brief Exchange the values of the columns i and j */
   void swap_column(int i, int j);
@@ -191,11 +194,11 @@ void Array2d<T>::insert_row(int iJ, const std::vector<T> & iR)
 }
 
 template <class T>
-void Array2d<T>::resize(int iP, int iN)
+void Array2d<T>::resize(int iP, int iN, T iVal)
 {
   _aT.resize(iP);
   for (int i = 0; i < iP; i++)
-    _aT[i].resize(iN);
+    _aT[i].resize(iN, iVal);
 }
 
 template <class T>

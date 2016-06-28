@@ -27,22 +27,27 @@ int array2d_test()
     tab(j,0) = j+1;
   for (int i = 0; i < tab.nb_columns(); i++)
     tab(1,i) = i+2;
+
   tab.resize(4,2);
   tab.push_back_column(vector<int>(4,9));
   tab.insert_row(0, vector<int>(3,6));
   tab.insert_column(1, vector<int>(5,7));
+  tab.resize(5,5);
+  tab.resize(6,5,1);
+
   for (int j = 0; j < tab.nb_rows(); j++) {
     for (int i = 0; i < tab.nb_columns(); i++)
       cout << tab(j,i) << " ";
     cout << endl;
   }
 
-  if (tab.nb_rows()!=5 || tab.nb_columns()!=4
-      || tab(0,0)!=6 || tab(0,1)!=7 || tab(0,2)!=6 || tab(0,3)!=6
-      || tab(1,0)!=1 || tab(1,1)!=7 || tab(1,2)!=0 || tab(1,3)!=9
-      || tab(2,0)!=2 || tab(2,1)!=7 || tab(2,2)!=3 || tab(2,3)!=9
-      || tab(3,0)!=3 || tab(3,1)!=7 || tab(3,2)!=0 || tab(3,3)!=9
-      || tab(4,0)!=0 || tab(4,1)!=7 || tab(4,2)!=0 || tab(4,3)!=9)
+  if (tab.nb_rows()!=6 || tab.nb_columns()!=5
+      || tab(0,0)!=6 || tab(0,1)!=7 || tab(0,2)!=6 || tab(0,3)!=6 || tab(0,4)!=0
+      || tab(1,0)!=1 || tab(1,1)!=7 || tab(1,2)!=0 || tab(1,3)!=9 || tab(1,4)!=0
+      || tab(2,0)!=2 || tab(2,1)!=7 || tab(2,2)!=3 || tab(2,3)!=9 || tab(2,4)!=0
+      || tab(3,0)!=3 || tab(3,1)!=7 || tab(3,2)!=0 || tab(3,3)!=9 || tab(3,4)!=0
+      || tab(4,0)!=0 || tab(4,1)!=7 || tab(4,2)!=0 || tab(4,3)!=9 || tab(4,4)!=0
+      || tab(5,0)!=1 || tab(5,1)!=1 || tab(5,2)!=1 || tab(5,3)!=1 || tab(5,4)!=1)
   {
     fail++;
     cout << "===> FAIL <===" << endl;
