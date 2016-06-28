@@ -15,7 +15,7 @@ var class_array2d =
     [ "operator()", "class_array2d.html#aa0335869f28b57a84f40e21ac04e51a9", null ],
     [ "push_back_column", "class_array2d.html#a234ee4d3d68a0541cde9951a9e1237a3", null ],
     [ "push_back_row", "class_array2d.html#a6e21f09f750e776357a5841492e83611", null ],
-    [ "resize", "class_array2d.html#ab7d74ee3603d8ae774be12600140ad1e", null ],
+    [ "resize", "class_array2d.html#a36dc3093ba582eb832a2f39014cf459f", null ],
     [ "swap_column", "class_array2d.html#a5767f589953b4f966d80e6f76abcfaa1", null ],
     [ "swap_row", "class_array2d.html#a1627dd9e887f69ddb7f079b27f36ccb3", null ],
     [ "_aT", "class_array2d.html#a8ed6c13c991d6d953c2b7d8597670d36", null ]
