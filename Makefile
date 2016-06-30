@@ -46,7 +46,7 @@ Clean: clean
 	@find . -name "*~" -exec rm {} \;
 
 # Generate the documentation
-doc: $(HEAD_FILES) main.cpp
+doc: $(HEAD_FILES) main.cpp doc/Doxyfile doc/mainpage.dox
 	@echo "generate documentation"
 	@doxygen doc/Doxyfile
 

@@ -28,7 +28,7 @@ typedef std::string Unite;
 /**
  * @brief Class for double comparison with tolerance
  * @details Example of use of this class is given in the implementation of the function 
- * #tolerance_test()
+ * tolerance_test() in the main file.
  */
 class Tolerance
 {
@@ -73,7 +73,7 @@ public:
 
   /**
    * @brief Set the relative tolerance. (0.5 denote a 50% tolerance)
-   * @param[in] atol New relative tolerance. (0.5 denote a 50% tolerance)
+   * @param[in] rtol New relative tolerance. (0.5 denote a 50% tolerance)
    */
   void set_rtol(const double& rtol);
 

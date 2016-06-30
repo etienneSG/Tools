@@ -39,6 +39,10 @@ Random iterator on the integer elements of the intervalle [0, N[.
 
 Two functions to get CPU time and wall time. (Defined for linux and windows plateforms.)
 
+- \a tolerance.h
+
+A class to perform double comparisons, to add perturbation to numbers and to round them up to relative and absolute tolerances.
+
 
 @section license License
 
