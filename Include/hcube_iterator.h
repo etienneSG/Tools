@@ -32,20 +32,20 @@ class Hcube_iterator
 {
 public:
   /** @brief Default constructor */
-  Hcube_iterator();
+  inline Hcube_iterator();
   
   /**
    * @brief Constructor
    * @param[in] iN dimension of the hypercube
    * @param[in] iK number of subdivision of the hypercube
    */
-  Hcube_iterator(unsigned int iN, unsigned int iK);
+  inline Hcube_iterator(unsigned int iN, unsigned int iK);
   
   /** @brief Destructor */
-  ~Hcube_iterator();
+  inline ~Hcube_iterator();
   
   /** @brief Iterator on the set of k-combinations from a set of n elements */
-  void operator++();
+  inline void operator++();
   
   /**
    * @brief Return the iIdx-th coordinate of the current iterated element
@@ -55,13 +55,13 @@ public:
   inline unsigned int operator()(unsigned int iIdx);
 
   /** @brief Print the indexes of the k current chosen elements */
-  void print();
+  inline void print();
   
   /** @brief Return false while the iterator has not iterate on every element */
   inline bool is_ended();
   
   /** @brief Reset the iterator at the begining */
-  void reset();
+  inline void reset();
   
 private:
   unsigned int _n;               /**< dimension of the hypercube */
@@ -75,14 +75,14 @@ private:
 //==============================================================================
 
 
-Hcube_iterator::Hcube_iterator():
+inline Hcube_iterator::Hcube_iterator():
   _n(0),
   _k(0)
 {
 }
 
 
-Hcube_iterator::Hcube_iterator(unsigned int iN, unsigned int iK):
+inline Hcube_iterator::Hcube_iterator(unsigned int iN, unsigned int iK):
   _n(iN),
   _k(iK),
   _v(iN+1, 1)
@@ -91,12 +91,12 @@ Hcube_iterator::Hcube_iterator(unsigned int iN, unsigned int iK):
 }
 
 
-Hcube_iterator::~Hcube_iterator()
+inline Hcube_iterator::~Hcube_iterator()
 {
 }
 
 
-void Hcube_iterator::operator++()
+inline void Hcube_iterator::operator++()
 {
   int l=_n;
   _v[l]++;
@@ -109,7 +109,7 @@ void Hcube_iterator::operator++()
 }
 
 
-void Hcube_iterator::print()
+inline void Hcube_iterator::print()
 {
   for(unsigned int i = 0; i < _n; i++)
     std::cout << operator()(i) << " ";
@@ -117,7 +117,7 @@ void Hcube_iterator::print()
 }
 
 
-void Hcube_iterator::reset()
+inline void Hcube_iterator::reset()
 {
   _v.assign(_n+1,1);
   _v[0]=0;

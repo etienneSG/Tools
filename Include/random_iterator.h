@@ -26,13 +26,13 @@ public:
    * @brief Constructor
    * @param[in] iN Number of elements in the set. (Default value: 0)
    */
-  Random_iterator(unsigned int iN = 0);
+  inline Random_iterator(unsigned int iN = 0);
   
   /** @brief Destructor */
-  ~Random_iterator();
+  inline ~Random_iterator();
   
   /** @brief Reset the operator */
-  void reset();
+  inline void reset();
   
   /** @brief Increment the iterator on the elements */
   inline void operator++();
@@ -55,7 +55,7 @@ protected:
 //==============================================================================
 
 
-Random_iterator::Random_iterator(unsigned int iN):
+inline Random_iterator::Random_iterator(unsigned int iN):
   _n(iN),
   _v(iN, 0),
   _it(_v.begin())
@@ -66,12 +66,12 @@ Random_iterator::Random_iterator(unsigned int iN):
 }
 
 
-Random_iterator::~Random_iterator()
+inline Random_iterator::~Random_iterator()
 {
 }
 
 
-void Random_iterator::reset()
+inline void Random_iterator::reset()
 {
   std::random_shuffle(_v.begin(), _v.end());
   _it = _v.begin();

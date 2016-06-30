@@ -27,7 +27,7 @@ public:
   /**
    * @brief Default constructor
    */
-  Knapsack();
+  inline Knapsack();
 
   /**
    * @brief Constructor
@@ -35,18 +35,18 @@ public:
    * @param[in] iWt Vector of object's weights
    * @param[in] iVal Vector of object's values
    */
-  Knapsack(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal);
+  inline Knapsack(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal);
 
   /**
    * @brief Destructor
    */
-  ~Knapsack();
+  inline ~Knapsack();
 
   /**
    * @brief Solve the knapsack problem with the parameters stored in the attribute of the fonctor
    * @return Optimal value of the knapsack
    */
-  T operator()();
+  inline T operator()();
 
   /**
    * @brief Solve the knapsack problem with the parameters in argument
@@ -56,7 +56,7 @@ public:
    * @param[in] iVal Vector of object's values
    * @return Optimal value of the knapsack
    */
-  T operator()(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal);
+  inline T operator()(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal);
 
   /**
    * @brief Return the optimal value of the knapsack
@@ -69,13 +69,13 @@ public:
    * @param[out] oSolution Vector representing the chosen elements. If coordinate i is true,
    * the i-th element is chosen, otherwise, it is not.
    */
-  void get_chosen_objects(std::vector<bool> & oSolution);
+  inline void get_chosen_objects(std::vector<bool> & oSolution);
 
 protected:
   /**
    * @brief Solve the knapsack problem with the parameters stored in the attribute of the fonctor
    */
-  void solve();
+  inline void solve();
 
   unsigned int _W; /**< @brief [input] Total weight of the knapsack */
   std::vector<unsigned int> _Wt; /**< @brief [input] Vector of object's weights */
@@ -92,7 +92,7 @@ protected:
 
 
 template< class T >
-Knapsack<T>::Knapsack()
+inline Knapsack<T>::Knapsack()
 : _W(0),
   _Wt(),
   _Val(),
@@ -102,7 +102,7 @@ Knapsack<T>::Knapsack()
 
 
 template< class T >
-Knapsack<T>::Knapsack(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal)
+inline Knapsack<T>::Knapsack(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal)
 : _W(iW),
   _Wt(iWt),
   _Val(iVal),
@@ -117,16 +117,16 @@ Knapsack<T>::Knapsack(const unsigned int iW, const std::vector<unsigned int> iWt
 }
 
 
-  
+
 template< class T >
-Knapsack<T>::~Knapsack()
+inline Knapsack<T>::~Knapsack()
 {
 }
 
 
 
 template< class T >
-T Knapsack<T>::operator()()
+inline T Knapsack<T>::operator()()
 {
   solve();
   return _opt_value;
@@ -135,7 +135,7 @@ T Knapsack<T>::operator()()
 
 
 template< class T >
-T Knapsack<T>::operator()(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal)
+inline T Knapsack<T>::operator()(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal)
 {
   // Reassignment
   _W = iW;
@@ -161,14 +161,14 @@ inline T Knapsack<T>::get_optimal_value() {
 
 
 template< class T >
-void Knapsack<T>::get_chosen_objects(std::vector<bool> & oSolution)
+inline void Knapsack<T>::get_chosen_objects(std::vector<bool> & oSolution)
 {
   oSolution.assign(_Solution.begin(),_Solution.end());
 }
 
 
 template< class T >
-void Knapsack<T>::solve()
+inline void Knapsack<T>::solve()
 {
   size_t nb_obj = _Wt.size(); // number of objects
   std::vector< std::vector<T> > K(nb_obj+1, std::vector<T>(_W+1,0));
@@ -179,11 +179,11 @@ void Knapsack<T>::solve()
     for (unsigned int w = 0; w <= _W; w++)
     {
       if (i==0 || w==0)
-	K[i][w] = 0;
+        K[i][w] = 0;
       else if (_Wt[i-1] <= w)
-	K[i][w] = std::max(_Val[i-1]+K[i-1][w-_Wt[i-1]],  K[i-1][w]);
+        K[i][w] = std::max(_Val[i-1]+K[i-1][w-_Wt[i-1]],  K[i-1][w]);
       else
-	K[i][w] = K[i-1][w];
+        K[i][w] = K[i-1][w];
     }
   }
   _opt_value = K[nb_obj][_W];

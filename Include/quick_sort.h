@@ -25,18 +25,18 @@ class Quick_sort
 {
 public:
   /** @brief Constructor */
-  Quick_sort();
+  inline Quick_sort();
 
   /** @brief Destructor */
-  ~Quick_sort();
+  inline ~Quick_sort();
 
   /**
    * @brief Execute a quick sort on the element of the vector
    * @param[in] iBegin Iterator on the first element to sort in the vector
    * @param[in] iEnd Iterator on the last element to sort in the vector
    */
-  void operator()(typename std::vector<T>::iterator iBegin,
-		  typename std::vector<T>::iterator iEnd);
+  inline void operator()(typename std::vector<T>::iterator iBegin,
+                         typename std::vector<T>::iterator iEnd);
 
 protected:
   /**
@@ -46,8 +46,8 @@ protected:
    * @param[in] iEnd Last element of the vector to separate
    * @return New index of the first element
    */
-  typename std::vector<T>::iterator partition(typename std::vector<T>::iterator iBegin,
-					      typename std::vector<T>::iterator iEnd);
+  inline typename std::vector<T>::iterator partition(typename std::vector<T>::iterator iBegin,
+                                                     typename std::vector<T>::iterator iEnd);
 
 };
 
@@ -57,18 +57,18 @@ protected:
 //==============================================================================
 
 template< class T >
-Quick_sort<T>::Quick_sort()
+inline Quick_sort<T>::Quick_sort()
 {}
 
 
 template< class T >
-Quick_sort<T>::~Quick_sort()
+inline Quick_sort<T>::~Quick_sort()
 {}
 
 
 template< class T >
-typename std::vector<T>::iterator Quick_sort<T>::partition(typename std::vector<T>::iterator iBegin,
-							   typename std::vector<T>::iterator iEnd)
+inline typename std::vector<T>::iterator Quick_sort<T>::partition(typename std::vector<T>::iterator iBegin,
+                                                                  typename std::vector<T>::iterator iEnd)
 {
   T x = *iBegin;
   typename std::vector<T>::iterator i = iBegin;
@@ -87,8 +87,8 @@ typename std::vector<T>::iterator Quick_sort<T>::partition(typename std::vector<
 
 
 template<class T>
-void Quick_sort<T>::operator()(typename std::vector<T>::iterator iBegin,
-			       typename std::vector<T>::iterator iEnd)
+inline void Quick_sort<T>::operator()(typename std::vector<T>::iterator iBegin,
+                                      typename std::vector<T>::iterator iEnd)
 {
   typename std::vector<T>::iterator pivot;
   if (iBegin < iEnd)

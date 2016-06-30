@@ -27,20 +27,20 @@ class N_choose_K_iterator
 {
 public:
   /** @brief Default constructor */
-  N_choose_K_iterator();
+  inline N_choose_K_iterator();
   
   /**
    * @brief Constructor
    * @param[in] iN number of elements in the set
    * @param[in] iK number of elements to chose
    */
-  N_choose_K_iterator(unsigned int iN, unsigned int iK);
+  inline N_choose_K_iterator(unsigned int iN, unsigned int iK);
   
   /** @brief Destructor */
-  ~N_choose_K_iterator();
+  inline ~N_choose_K_iterator();
   
   /** @brief Iterator on the set of k-combinations from a set of n elements */
-  void operator++();
+  inline void operator++();
   
   /**
    * @brief Return the index of the iIdx-th chosen element
@@ -50,7 +50,7 @@ public:
   inline unsigned int operator()(unsigned int iIdx);
 
   /** @brief Print the indexes of the k current chosen elements */
-  void print();
+  inline void print();
   
   /** @brief Return false while the iterator has not iterate on every element */
   inline bool is_ended();
@@ -60,7 +60,7 @@ public:
    * @param[in] iEnd if false, do not modify the actual value returned by the
    * method IsEnded.
    */
-  void reset(bool iEnd = true);
+  inline void reset(bool iEnd = true);
   
 private:
   unsigned int _n;               /**< Number of elements in the set */
@@ -74,14 +74,14 @@ private:
 //==============================================================================
 
 
-N_choose_K_iterator::N_choose_K_iterator():
+inline N_choose_K_iterator::N_choose_K_iterator():
   _n(0),
   _k(0)
 {
 }
 
 
-N_choose_K_iterator::N_choose_K_iterator(unsigned int iN, unsigned int iK):
+inline N_choose_K_iterator::N_choose_K_iterator(unsigned int iN, unsigned int iK):
   _n(iN),
   _k(iK),
   _v(iK+1,iN+1)
@@ -91,12 +91,12 @@ N_choose_K_iterator::N_choose_K_iterator(unsigned int iN, unsigned int iK):
 }
 
 
-N_choose_K_iterator::~N_choose_K_iterator()
+inline N_choose_K_iterator::~N_choose_K_iterator()
 {
 }
 
 
-void N_choose_K_iterator::operator++()
+inline void N_choose_K_iterator::operator++()
 {
   unsigned int l=_k;
   _v[l]++;
@@ -120,7 +120,7 @@ inline unsigned int N_choose_K_iterator::operator()(unsigned int iIdx) {
 }
 
 
-void N_choose_K_iterator::print()
+inline void N_choose_K_iterator::print()
 {
   for(unsigned int i = 0; i < _k; i++)
     std::cout << operator()(i) << " ";
@@ -133,7 +133,7 @@ inline bool N_choose_K_iterator::is_ended() {
 }
 
 
-void N_choose_K_iterator::reset(bool iEnd)
+inline void N_choose_K_iterator::reset(bool iEnd)
 {
   _v[0] = iEnd ? -1 : 0;
   for (unsigned int i = 1; i < _k+1; i++)

@@ -19,10 +19,10 @@
 
 
 /** @brief Return user time */
-double get_wall_time();
+inline double get_wall_time();
 
 /** @brief Return CPU time */
-double get_cpu_time();
+inline double get_cpu_time();
 
 
 
@@ -37,7 +37,7 @@ double get_cpu_time();
 #include <Windows.h>
 
 
-double get_wall_time(){
+inline double get_wall_time(){
   LARGE_INTEGER time,freq;
   if (!QueryPerformanceFrequency(&freq)){
     //  Handle error
@@ -50,7 +50,7 @@ double get_wall_time(){
   return (double)time.QuadPart / freq.QuadPart;
 }
 
-double get_cpu_time(){
+inline double get_cpu_time(){
   FILETIME a,b,c,d;
   if (GetProcessTimes(GetCurrentProcess(),&a,&b,&c,&d) != 0){
     //  Returns total user time.
@@ -73,7 +73,7 @@ double get_cpu_time(){
 #include <sys/time.h>
 #include <time.h>
 
-double get_wall_time(){
+inline double get_wall_time(){
   struct timeval time;
   if (gettimeofday(&time,NULL)){
     //  Handle error
@@ -82,7 +82,7 @@ double get_wall_time(){
   return (double)time.tv_sec + (double)time.tv_usec * .000001;
 }
 
-double get_cpu_time(){
+inline double get_cpu_time(){
   return (double)clock() / CLOCKS_PER_SEC;
 }
 
@@ -91,6 +91,4 @@ double get_cpu_time(){
 
 
 #endif // TIME_TOOLS_H
-
-
 

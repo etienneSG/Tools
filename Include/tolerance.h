@@ -43,12 +43,12 @@ public:
    * @param[in] rtol Relative tolerance. (0.5 denote a 50% tolerance)
    * @param[in] unite Name of the unite of measure
    */
-  Tolerance(const double& atol=1e-6, const double& rtol=1e-4, const Unite& unite=Unite());
+  inline Tolerance(const double& atol=1e-6, const double& rtol=1e-4, const Unite& unite=Unite());
 
   /**
    * @brief Destructor
    */
-  ~Tolerance();
+  inline ~Tolerance();
 
   /**
    * @brief Return a std::string describing the data of the class.
@@ -58,24 +58,24 @@ public:
   /**
    * @brief Return the absolute tolerance. (0.5 denote a 0.5 Unite tolerance)
    */
-  const double& get_atol() const;
+  inline const double& get_atol() const;
 
   /**
    * @brief Return the relative tolerance. (0.5 denote a 50% tolerance)
    */
-  const double& get_rtol() const;
+  inline const double& get_rtol() const;
 
   /**
    * @brief Set the absolute tolerance. (0.5 denote a 0.5 Unite tolerance)
    * @param[in] atol New absolute tolerance. (0.5 denote a 0.5 Unite tolerance)
    */
-  void set_atol(const double& atol);
+  inline void set_atol(const double& atol);
 
   /**
    * @brief Set the relative tolerance. (0.5 denote a 50% tolerance)
    * @param[in] rtol New relative tolerance. (0.5 denote a 50% tolerance)
    */
-  void set_rtol(const double& rtol);
+  inline void set_rtol(const double& rtol);
 
 
 	
@@ -86,7 +86,7 @@ public:
    * @param[in] d2 Secund number
    * @return True if d1 is close to d2 and false otherwise
    */
-  bool close(const double& d1, const double& d2) const;
+  inline bool close(const double& d1, const double& d2) const;
 
   /**
    * @brief Decide if the number d1 is lower but not close to the number d2 to the absolute error 
@@ -95,7 +95,7 @@ public:
    * @param[in] d2 Secund number
    * @return True if d1 is lower but not close to d2 and false otherwise
    */
-  bool lower_not_close(const double& d1, const double& d2) const;
+  inline bool lower_not_close(const double& d1, const double& d2) const;
 
   /**
    * @brief Decide if the number d1 is lower or close to the number d2 to the absolute error and 
@@ -104,7 +104,7 @@ public:
    * @param[in] d2 Secund number
    * @return True if d1 is lower or close to d2 and false otherwise
    */
-  bool lower_or_close(const double& d1, const double& d2) const;
+  inline bool lower_or_close(const double& d1, const double& d2) const;
 
   /**
    * @brief Decide if the vector v1 is close to the vector v2 (component by component) up to the 
@@ -115,7 +115,7 @@ public:
    * @param[in] v2 Secund vector
    * @return True if v1 is close to v2 and false otherwise
    */
-  bool allclose(const std::vector<double>& v1, const std::vector<double>& v2) const;
+  inline bool allclose(const std::vector<double>& v1, const std::vector<double>& v2) const;
 
   /**
    * @brief Decide if the vector v1 is close to the vector v2 (component by component) up to the 
@@ -129,7 +129,7 @@ public:
    * @param[in] v_tol Vector of tolerance for the comprison of each component
    * @return True if v1 is close to v2 and false otherwise
    */
-  static bool allclose(const std::vector<double >& v1,
+  inline static bool allclose(const std::vector<double >& v1,
 		       const std::vector<double >& v2,
 		       const std::vector<Tolerance*>& v_tol);
 
@@ -140,7 +140,7 @@ public:
    * @param[in] d Value of the number
    * @return The value of d plus the perturbation Epsilon
    */
-  double add_epsilon(const double& d) const;
+  inline double add_epsilon(const double& d) const;
 
   /**
    * @brief Subtract a perturbation Epsilon to the number d in the sense of absolute and relative 
@@ -148,7 +148,7 @@ public:
    * @param[in] d Value of the number
    * @return The value of d minus the perturbation Epsilon
    */
-  double substract_epsilon(const double& d) const;
+  inline double substract_epsilon(const double& d) const;
 
   /**
    * @brief Round the number in the sense of the absolute tolerance
@@ -157,7 +157,7 @@ public:
    * @param[in] d Value to round
    * @return The rounded value of d
    */
-  double round(const double& d) const;
+  inline double round(const double& d) const;
 
   /**
    * @brief Round the number in the sense of the absolute tolerance to upper value
@@ -166,7 +166,7 @@ public:
    * @param[in] d Value to round
    * @return The rounded value of d
    */
-  double round_up(const double& d) const;
+  inline double round_up(const double& d) const;
 
   /**
    * @brief Round the number in the sense of the absolute tolerance to lower value
@@ -175,7 +175,7 @@ public:
    * @param[in] d Value to round
    * @return The rounded value of d
    */
-  double round_down(const double& d) const;
+  inline double round_down(const double& d) const;
 
 protected:
   //==============================================================================
@@ -190,11 +190,11 @@ protected:
 
 
 //==============================================================================
-// Implementation of methods
+// Implementation of inline methods
 //==============================================================================
 
 
-Tolerance::Tolerance(const double& atol, const double& rtol, const Unite& unite)
+inline Tolerance::Tolerance(const double& atol, const double& rtol, const Unite& unite)
 : _atol(atol),
   _rtol(rtol),
   _unite(unite)
@@ -213,43 +213,43 @@ inline Tolerance::operator std::string() const {
 }
 
 
-const double& Tolerance::get_atol() const {
+inline const double& Tolerance::get_atol() const {
   return _atol;
 }
 
 
-const double& Tolerance::get_rtol() const {
+inline const double& Tolerance::get_rtol() const {
   return _rtol;
 }
 
 
-void Tolerance::set_atol(const double& atol) {
+inline void Tolerance::set_atol(const double& atol) {
   _atol = atol;
 }
 
 
-void Tolerance::set_rtol(const double& rtol) {
+inline void Tolerance::set_rtol(const double& rtol) {
   _rtol = rtol;
 }
 
 
-bool Tolerance::close(const double& d1, const double& d2) const {
+inline bool Tolerance::close(const double& d1, const double& d2) const {
   const double ecart_abs = std::abs(d1-d2);
   return  (ecart_abs <= _atol) || (ecart_abs <= _rtol*std::max(std::abs(d1), std::abs(d2)));
 }
 
 
-bool Tolerance::lower_not_close(const double& d1, const double& d2) const {
+inline bool Tolerance::lower_not_close(const double& d1, const double& d2) const {
   return  (d1 <= d2) && !close(d1, d2);
 }
 
 
-bool Tolerance::lower_or_close(const double& d1, const double& d2) const {
+inline bool Tolerance::lower_or_close(const double& d1, const double& d2) const {
   return  (d1 <= d2) || close(d1, d2);
 }
 
 
-bool Tolerance::allclose(const std::vector<double >& v1, const std::vector<double >& v2) const {
+inline bool Tolerance::allclose(const std::vector<double >& v1, const std::vector<double >& v2) const {
   for (std::vector<double >::const_iterator it1=v1.begin(), it2=v2.begin(), v1_end=v1.end(), v2_end=v2.end();
        it1!=v1_end && it2!=v2_end;
        it1++, it2++){
@@ -261,7 +261,7 @@ bool Tolerance::allclose(const std::vector<double >& v1, const std::vector<doubl
 }
 
 
-bool Tolerance::allclose(const std::vector<double>& v1, const std::vector<double>& v2, const std::vector<Tolerance*>& v_tol){
+inline bool Tolerance::allclose(const std::vector<double>& v1, const std::vector<double>& v2, const std::vector<Tolerance*>& v_tol){
   std::vector<Tolerance*>::const_iterator it_tol = v_tol.begin();
   const std::vector<Tolerance*>::const_iterator v_tol_end = v_tol.end();
   for (std::vector<double>::const_iterator it1=v1.begin(), it2=v2.begin(), v1_end=v1.end(), v2_end=v2.end();
@@ -276,17 +276,17 @@ bool Tolerance::allclose(const std::vector<double>& v1, const std::vector<double
 }
 
 
-double Tolerance::add_epsilon(const double& d) const {
+inline double Tolerance::add_epsilon(const double& d) const {
   return  d + _atol + (std::abs(d)+_atol)*_rtol;
 }
 
 
-double Tolerance::substract_epsilon(const double& d) const {
+inline double Tolerance::substract_epsilon(const double& d) const {
   return  d - _atol - (std::abs(d)+_atol)*_rtol;
 }
 
 
-double Tolerance::round(const double& d) const {
+inline double Tolerance::round(const double& d) const {
   const int nb_chiffres_apres_virgule = (_atol>0) ?
     std::max(0, static_cast<int>(-std::log10(_atol)+0.5)) :
     7;
@@ -296,12 +296,12 @@ double Tolerance::round(const double& d) const {
 }
 
 
-double Tolerance::round_up(const double& d) const {
+inline double Tolerance::round_up(const double& d) const {
   return round(d + 0.499999999*_atol);
 }
 
 
-double Tolerance::round_down(const double& d) const {
+inline double Tolerance::round_down(const double& d) const {
   return round(d - 0.5*_atol);
 }
 
