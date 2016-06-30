@@ -18,5 +18,6 @@ var dir_856524284ebe840938865dc061f982fb =
     [ "random_iterator.h", "random__iterator_8h.html", [
       [ "Random_iterator", "class_random__iterator.html", "class_random__iterator" ]
     ] ],
-    [ "time_tools.h", "time__tools_8h.html", "time__tools_8h" ]
+    [ "time_tools.h", "time__tools_8h.html", "time__tools_8h" ],
+    [ "tolerance.h", "tolerance_8h.html", "tolerance_8h" ]
 ];

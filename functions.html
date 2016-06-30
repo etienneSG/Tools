@@ -83,17 +83,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="#index__"><span>_</span></a></li>
       <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_k"><span>k</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_q"><span>q</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
       <li class="current"><a href="#index_~"><span>~</span></a></li>
     </ul>
   </div>
@@ -117,7 +120,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -133,6 +136,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>_aT
 : <a class="el" href="class_array2d.html#a8ed6c13c991d6d953c2b7d8597670d36">Array2d&lt; T &gt;</a>
 </li>
+<li>_atol
+: <a class="el" href="class_tolerance.html#ace94543369e0a5485514d48983502243">Tolerance</a>
+</li>
 <li>_it
 : <a class="el" href="class_random__iterator.html#a066d38aa2041f108caa6192c4766cea4">Random_iterator</a>
 </li>
@@ -142,8 +148,14 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>_opt_value
 : <a class="el" href="class_knapsack.html#a1b01b865fe7016c21a9673cfd6cb98a0">Knapsack&lt; T &gt;</a>
 </li>
+<li>_rtol
+: <a class="el" href="class_tolerance.html#af89be46fb85bcd2bf3b181d7addbaaed">Tolerance</a>
+</li>
 <li>_Solution
 : <a class="el" href="class_knapsack.html#afa19ea70e64f0b0ccb2a9cf5160326be">Knapsack&lt; T &gt;</a>
+</li>
+<li>_unite
+: <a class="el" href="class_tolerance.html#a0923a00d948fa515f39952afdca939fa">Tolerance</a>
 </li>
 <li>_v
 : <a class="el" href="class_random__iterator.html#a7ca6556f0df60919b7fe8252c97546f6">Random_iterator</a>
@@ -161,8 +173,21 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>add_epsilon()
+: <a class="el" href="class_tolerance.html#abac29e2adaa09b2316638a24b17e9051">Tolerance</a>
+</li>
+<li>allclose()
+: <a class="el" href="class_tolerance.html#a40caa299cfcb78135d70fffc1d74f847">Tolerance</a>
+</li>
 <li>Array2d()
 : <a class="el" href="class_array2d.html#a4161bd0eac0c227135b7be793ee2e7ad">Array2d&lt; T &gt;</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>close()
+: <a class="el" href="class_tolerance.html#adf5c1af5276a09804b2a975b9998ef58">Tolerance</a>
 </li>
 </ul>
 
@@ -184,11 +209,17 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>get_atol()
+: <a class="el" href="class_tolerance.html#aaf05647c6bbde0e3ec9659fd5a02b14d">Tolerance</a>
+</li>
 <li>get_chosen_objects()
 : <a class="el" href="class_knapsack.html#acd80014349fbbbd0ca54554aff6d5ecd">Knapsack&lt; T &gt;</a>
 </li>
 <li>get_optimal_value()
 : <a class="el" href="class_knapsack.html#a8d80a550c6f5043812ee919457d71458">Knapsack&lt; T &gt;</a>
+</li>
+<li>get_rtol()
+: <a class="el" href="class_tolerance.html#a14c102edd2d52808c039bdff6ed09bc9">Tolerance</a>
 </li>
 </ul>
 
@@ -222,6 +253,16 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </ul>
 
 
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>lower_not_close()
+: <a class="el" href="class_tolerance.html#a6eac87d46bb31f79356d288b7e7f149f">Tolerance</a>
+</li>
+<li>lower_or_close()
+: <a class="el" href="class_tolerance.html#a78c41ba09a494e469b5b29137d770287">Tolerance</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
 <li>N_choose_K_iterator()
 : <a class="el" href="class_n__choose___k__iterator.html#a90af59a61a9ad57ef5ddea314efc58c9">N_choose_K_iterator</a>
@@ -236,6 +277,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>operator std::string()
+: <a class="el" href="class_tolerance.html#a1fc671793c433e99bc949b1e48e39269">Tolerance</a>
+</li>
 <li>operator()()
 : <a class="el" href="class_array2d.html#a2c676ac4955bc7de767896b6c7188b4f">Array2d&lt; T &gt;</a>
 , <a class="el" href="class_hcube__iterator.html#a7b61d44fb3dc0d1f25999f6bead2fd55">Hcube_iterator</a>
@@ -288,18 +332,43 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>resize()
 : <a class="el" href="class_array2d.html#a36dc3093ba582eb832a2f39014cf459f">Array2d&lt; T &gt;</a>
 </li>
+<li>round()
+: <a class="el" href="class_tolerance.html#ae210d30ee156075971cec30154e477a3">Tolerance</a>
+</li>
+<li>round_down()
+: <a class="el" href="class_tolerance.html#a85894e2c68bb1464d3da698bef5278aa">Tolerance</a>
+</li>
+<li>round_up()
+: <a class="el" href="class_tolerance.html#a66ee1089abc03f70b8fa8b707195662f">Tolerance</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>set_atol()
+: <a class="el" href="class_tolerance.html#a114d4347ff090e692b26eb74d509897a">Tolerance</a>
+</li>
+<li>set_rtol()
+: <a class="el" href="class_tolerance.html#a9a3d04993d376b5b92aedcc21bb4afb5">Tolerance</a>
+</li>
 <li>solve()
 : <a class="el" href="class_knapsack.html#a442b53a9e2d3f2e6edf887ed2627a825">Knapsack&lt; T &gt;</a>
+</li>
+<li>substract_epsilon()
+: <a class="el" href="class_tolerance.html#a4b78762d1dc25c6ab3e129970ffde8a1">Tolerance</a>
 </li>
 <li>swap_column()
 : <a class="el" href="class_array2d.html#a5767f589953b4f966d80e6f76abcfaa1">Array2d&lt; T &gt;</a>
 </li>
 <li>swap_row()
 : <a class="el" href="class_array2d.html#a1627dd9e887f69ddb7f079b27f36ccb3">Array2d&lt; T &gt;</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>Tolerance()
+: <a class="el" href="class_tolerance.html#a9f007735c134809670ace41729434c18">Tolerance</a>
 </li>
 </ul>
 
@@ -323,13 +392,16 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>~Random_iterator()
 : <a class="el" href="class_random__iterator.html#af85ce0ea65cba8887618507d011d4db0">Random_iterator</a>
 </li>
+<li>~Tolerance()
+: <a class="el" href="class_tolerance.html#a72b9b7e4ab21ef9aea4b9d281c58ce28">Tolerance</a>
+</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jun 28 2016 15:12:35 for Tools by
+    <li class="footer">Generated on Thu Jun 30 2016 14:55:36 for Tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

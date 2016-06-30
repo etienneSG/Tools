@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['get_5fchosen_5fobjects',['get_chosen_objects',['../class_knapsack.html#acd80014349fbbbd0ca54554aff6d5ecd',1,'Knapsack']]],
-  ['get_5fcpu_5ftime',['get_cpu_time',['../time__tools_8h.html#acdbcf9be8c879dddacc5aed7d31d7c84',1,'time_tools.h']]],
-  ['get_5foptimal_5fvalue',['get_optimal_value',['../class_knapsack.html#a8d80a550c6f5043812ee919457d71458',1,'Knapsack']]],
-  ['get_5fwall_5ftime',['get_wall_time',['../time__tools_8h.html#ae9530b09b27f0c6e5c8836ecbfad493f',1,'time_tools.h']]]
+  ['erase_5fcolumn',['erase_column',['../class_array2d.html#afbe2291911b0b86af5d12eea9728b2e3',1,'Array2d']]],
+  ['erase_5fcolumns',['erase_columns',['../class_array2d.html#a44b974aba7f1046ec44098d8d97e91e1',1,'Array2d']]],
+  ['erase_5frow',['erase_row',['../class_array2d.html#ab6b831339ecc0efbbf8d6ae185644041',1,'Array2d']]],
+  ['erase_5frows',['erase_rows',['../class_array2d.html#a44ac905260ac4953e31cddc86b4b1722',1,'Array2d']]]
 ];
