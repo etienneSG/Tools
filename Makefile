@@ -3,7 +3,6 @@ CPP=g++
 
 # The folder containing:
 # source files *.cpp, header files *.h, objects *.o, executable
-SRC_DIR=Src
 HEAD_DIR=Include
 OBJ_DIR=Obj
 BIN_DIR=Bin

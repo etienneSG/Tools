@@ -5,6 +5,7 @@
 #include "quick_sort.h"
 #include "random_iterator.h"
 #include "time_tools.h"
+#include "tolerance.h"
 
 #include <algorithm>
 #include <iostream>
@@ -18,7 +19,7 @@ using namespace std;
 
 int array2d_test()
 {
-  cout << "********* Array2d test **********" << endl;
+  cout << "************* Array2d test *************" << endl;
   int fail = 0;
 
   int p = 3; int n = 4;
@@ -58,7 +59,7 @@ int array2d_test()
 
 int hcube_iterator_test()
 {
-  cout << "****** Hcube_iterator test *******" << endl;
+  cout << "********* Hcube_iterator test **********" << endl;
   unsigned int n = 2;
   unsigned int k = 3;
   Hcube_iterator myIt(n,k);
@@ -100,7 +101,7 @@ int hcube_iterator_test()
 
 int KnapSack_test1()
 {
-  cout << "******** Knapsack test 1 ********" << endl;
+  cout << "*********** Knapsack test 1 ************" << endl;
   int fail = 0;
 
   // Input of the knapsack
@@ -140,7 +141,7 @@ int KnapSack_test1()
 
 int KnapSack_test2()
 {
-  cout << "******** Knapsack test 2 ********" << endl;
+  cout << "*********** Knapsack test 2 ************" << endl;
   int fail = 0;
 
   // Input of the knapsack
@@ -168,7 +169,7 @@ int KnapSack_test2()
 
 int KnapSack_test3()
 {
-  cout << "******** Knapsack test 3 ********" << endl;
+  cout << "*********** Knapsack test 3 ************" << endl;
   int fail = 0;
 
   // Input of the knapsack at his creation
@@ -218,7 +219,7 @@ int KnapSack_test3()
 
 int n_choose_k_iterator_test()
 {
-  cout << "***** NchooseKiterator test *****" << endl;
+  cout << "******* N_choose_K_iterator test *******" << endl;
 
   unsigned int n = 5;
   unsigned int k = 2;
@@ -262,7 +263,7 @@ int n_choose_k_iterator_test()
 
 int quick_sort_test()
 {
-  cout << "******* QuickSort test 1 ********" << endl;
+  cout << "********** Quick_sort test 1 ***********" << endl;
 
   unsigned int n = 10;
   vector<int> tab(n, 0);
@@ -318,7 +319,7 @@ struct Point2d
 
 int quick_sort_test2()
 {
-  cout << "******* QuickSort test 2 ********" << endl;
+  cout << "********** Quick_sort test 2 ***********" << endl;
   int fail = 0;
 
   unsigned int n = 6;
@@ -358,7 +359,7 @@ int quick_sort_test2()
 
 int random_iterator_test()
 {
-  cout << "****** Random_iterator test ******" << endl;
+  cout << "********* Random_iterator test *********" << endl;
   int total = 0;
 
   int N = 5;
@@ -383,7 +384,7 @@ int random_iterator_test()
 
 int time_tools_test()
 {
-  cout << "******** TimeTools test *********" << endl;
+  cout << "*********** Time tools test ************" << endl;
   int fail = 0;
 
   try
@@ -401,6 +402,65 @@ int time_tools_test()
 }
 
 
+/**
+ * @brief Test the class #Tolerance
+ */
+int tolerance_test()
+{
+  cout << "************ Tolerance test ************" << endl;
+  int error_code = 0;
+
+  Tolerance myTol1(1e-3, 1e-2);
+  
+  std::cout << "Absolute and relative difference        " << std::flush;
+  double a = 3.6;
+  double b = 12.4;
+  if ( !myTol1.close(a, b) && myTol1.lower_not_close(a,b) && myTol1.lower_or_close(a,b) )
+    std::cout << "OK" << std::endl;
+  else
+  {
+    error_code++;
+    std::cout << "failed (return code: 1)" << std::endl;
+  }
+
+  std::cout << "Absolute difference and relative close  " << std::flush;
+  a = 3.;
+  b = 3.002 ;
+  if ( myTol1.close(a, b) && !myTol1.lower_not_close(a,b) && myTol1.lower_or_close(a,b) )
+    std::cout << "OK" << std::endl;
+  else
+  {
+    error_code++;
+    std::cout << "failed (return code: 1)" << std::endl;
+  }
+
+  Tolerance myTol2(1., 1e-2);
+  std::cout << "Absolute close and relative difference  " << std::flush;
+  a = 3.;
+  b = 3.1 ;
+  if ( myTol2.close(a, b) && !myTol2.lower_not_close(a,b) && myTol2.lower_or_close(a,b) )
+    std::cout << "OK" << std::endl;
+  else
+  {
+    error_code++;
+    std::cout << "failed (return code: 1)" << std::endl;
+  }
+
+  std::cout << "Absolute and relative close             " << std::flush;
+  a = 3.;
+  b = 3.001;
+  if ( myTol2.close(a, b) && !myTol2.lower_not_close(a,b) && myTol2.lower_or_close(a,b) )
+    std::cout << "OK" << std::endl;
+  else
+  {
+    error_code++;
+    std::cout << "failed (return code: 1)" << std::endl;
+  }
+  
+  return error_code;
+}
+
+
 
 int main()
 {
@@ -409,15 +469,37 @@ int main()
 
   int nb_failure = 0;
   nb_failure += array2d_test();
+  std::cout << std::endl;
+
   nb_failure += hcube_iterator_test();
+  std::cout << std::endl;
+
   nb_failure += KnapSack_test1();
+  std::cout << std::endl;
+
   nb_failure += KnapSack_test2();
+  std::cout << std::endl;
+
   nb_failure += KnapSack_test3();
+  std::cout << std::endl;
+
   nb_failure += n_choose_k_iterator_test();
+  std::cout << std::endl;
+
   nb_failure += quick_sort_test();
+  std::cout << std::endl;
+
   nb_failure += quick_sort_test2();
+  std::cout << std::endl;
+
   nb_failure += random_iterator_test();
+  std::cout << std::endl;
+
   nb_failure += time_tools_test();
+  std::cout << std::endl;
+
+  nb_failure += tolerance_test();
+  std::cout << std::endl;
 
   cout << "*********************************" << endl;
   switch (nb_failure)
