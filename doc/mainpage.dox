@@ -11,42 +11,42 @@ The whole code can be found at the following adress: https://github.com/etienneS
 
 Various generic tools that can be used in differents projects:
 
-- \a array2d.h
+- The class @a Array2d (implemented in array2d.h)
 
 Template for dynamic array in two dimensions.
 
-- \a hcube_iterator.h
+- The class @a Hcube_iterator (implemented in hcube_iterator.h)
 
 Iterator on the subdivision of an hypercube.
 
-- \a knapsack.h
+- The class @a Knapsack (implemented in knapsack.h)
 
 Tools to solve the knapsack problem using dynamic programming.
 
-- \a n_choose_k_iterator.h
+- The class @a N_choose_K_iterator (implemented in n_choose_k_iterator.h)
 
 Iterator on the possibilities of "N choose K".
 
-- \a quick_sort.h
+- The class @a Quick_sort (implemented in quick_sort.h)
 
 Template function to execute a quick sort in increasing order.
 
-- \a random_iterator.h
+- The class @a Random_iterator (implemented in random_iterator.h)
 
 Random iterator on the integer elements of the intervalle [0, N[.
 
-- \a time_tools.h
+- @a time_tools.h
 
 Two functions to get CPU time and wall time. (Defined for linux and windows plateforms.)
 
-- \a tolerance.h
+- The class @a Tolerance (implemented in tolerance.h)
 
 A class to perform double comparisons, to add perturbation to numbers and to round them up to relative and absolute tolerances.
 
 
 @section license License
 
-\code{.txt}
+@code{txt}
 Copyright (c) 2014, Etienne GAILLARD de SAINT GERMAIN
 All rights reserved.
 
@@ -73,7 +73,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-\endcode
+@endcode
 
 @section contacts Contacts
 

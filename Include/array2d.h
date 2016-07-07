@@ -2,8 +2,7 @@
  * @file array2d.h
  * @author Etienne de Saint Germain
  * @date 2014
- * @brief Template for dynamic array with two dimensions.
- * @details WARNING: this class DO NOT verify the validity of a range called by the user!
+ * @brief Implementtion of a template for dynamic array with two dimensions.
  */
 
 
@@ -18,6 +17,49 @@
 
 /**
  * @brief Template for dynamic array with two dimensions.
+ * @details A minimal example is given by the following code:
+ * @code{cpp}
+ * #include "array2d.h" // to use Array2d
+ * #include <iostream>  // to stream the output
+ * #include <vector>    // to use vector
+ *
+ * int main()
+ * {
+ *   // Create an array with 2 line and 3 column.
+ *   // This array is filled with value 0.
+ *   Array2d<int> myTab(2,3);
+ * 
+ *   // Insert a colum between column 0 and 1.
+ *   // This column is filled with value 5.
+ *   myTab.insert_column(1, std::vector<int>(2,5));
+ * 
+ *   // Put the value 4 at line 0 and column 2
+ *   myTab(0,2) = 4;
+ * 
+ *   // Resize the array to get an 3x3 array.
+ *   // If ellements new elements are created, their value is 1.
+ *   myTab.resize(3,3,1);
+ * 
+ *   // Print the array in the standart output
+ *   for (int j = 0; j < myTab.nb_rows(); j++) {
+ *     for (int i = 0; i < myTab.nb_columns(); i++)
+ *       std::cout << myTab(j,i) << " ";
+ *     std::cout << std::endl;
+ *   }
+ * 
+ *   return 0;
+ * }
+ * @endcode
+ * The expected output is:
+ * @code{txt}
+ * 0 5 4 
+ * 0 5 0 
+ * 1 1 1 
+ * @endcode
+ *
+ * @b Exception @b safety:
+ * If the container size is greater than n, the function never throws exceptions (no-throw 
+ * guarantee). Otherwise, the behavior is undefined.
  */
 template <class T>
 class Array2d
