@@ -130,8 +130,8 @@ public:
    * @return True if v1 is close to v2 and false otherwise
    */
   inline static bool allclose(const std::vector<double >& v1,
-		       const std::vector<double >& v2,
-		       const std::vector<Tolerance*>& v_tol);
+                              const std::vector<double >& v2,
+                              const std::vector<Tolerance*>& v_tol);
 
 
   /**
@@ -195,9 +195,9 @@ protected:
 
 
 inline Tolerance::Tolerance(const double& atol, const double& rtol, const Unite& unite)
-: _atol(atol),
-  _rtol(rtol),
-  _unite(unite)
+                 : _atol(atol),
+                 _rtol(rtol),
+                 _unite(unite)
 {}
 
 

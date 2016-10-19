@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <assert.h>
 #include <iostream>
+#include <string>
 #include <vector>
 
 
@@ -169,8 +170,27 @@ class Array2d
    */
   inline const T& operator()(int iJ, int iI)const;
 
+  /**
+   * @brief Print the array on the standart output
+   * @details The method is specialized for the following type: char, unsigned char, int, short
+   * int, long int, unsigned int, unsigned short int, unsigned long int, float, double, long
+   * double, std::string. In the other cases, the method prints nothing.
+   */
+  inline void print();
+
+  /**
+   * @brief Return the dot product between this array and the argument array.
+   * @param[in] Array wih the same size
+   * @details The method is specialized for the following type: int, short, int, long int,
+   * unsigned int, unsigned short int, unsigned long int, float, double, long, double.
+   * @return The dot product of the two arrays. If T has no operator * (that is, if the method is 
+   * not specialized for the type T), the method returns a default construction of T.
+   */
+  inline T dot_product(Array2d<T>& A);
+
  protected:
   std::vector< std::vector<T> > _aT; /**< @brief Array containing the values */
+  
 };
 
 
@@ -293,6 +313,68 @@ inline const T& Array2d<T>::operator()(int iJ, int iI)const
   return _aT[iJ][iI];
 }
 
+template <class T>
+inline void Array2d<T>::print()
+{
+  std::cerr << "[WARNING] void Array2d<T>::print()" << std::endl
+            << "The function is not specialized for this type." << std::endl;
+}
+
+
+#define PRINT_ARRAY2D()                         \
+  for (int i = 0; i < nb_rows(); i++) {         \
+    for (int j = 0; j < nb_columns(); j++)      \
+      std::cout << (*this)(i,j) << "\t";        \
+    std::cout << std::endl;                     \
+  }                                             
+
+template<> inline void Array2d<char>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<unsigned char>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<int>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<short int>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<long int>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<unsigned int>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<unsigned short int>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<unsigned long int>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<float>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<double>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<long double>::print() { PRINT_ARRAY2D() }
+template<> inline void Array2d<std::string>::print() { PRINT_ARRAY2D() }
+
+
+template <class T>
+inline T Array2d<T>::dot_product(Array2d<T>& A)
+{
+  std::cerr << "[WARNING] T Array2d<T>::dot_product(const Array2d<T>&)" << std::endl
+            << "The function is not specialized for this type." << std::endl;
+}
+
+
+#define ARRAY2D_DOT_PRODUCT(T,A)                                                        \
+  T dot_prod = 0;                                                                       \
+  if (nb_columns() != A.nb_columns() || nb_rows() != A.nb_rows()) {                     \
+    std::cerr << "[ERROR] T Array2d<T>::dot_product(const Array2d<T>& A)" << std::endl  \
+              << "The two array have not the same same size." << std::endl;             \
+  }                                                                                     \
+  else {                                                                                \
+    for (int i = 0; i < nb_rows(); i++) {                                               \
+      for (int j = 0; j < nb_columns(); j++) {                                          \
+        dot_prod += ( (*this)(i,j) * A(i,j) );                                          \
+      }                                                                                 \
+    }                                                                                   \
+  }                                                                                     \
+  return dot_prod;
+
+
+template<> inline int Array2d<int>::dot_product(Array2d<int>& A) { ARRAY2D_DOT_PRODUCT(int,A) }
+template<> inline short int Array2d<short int>::dot_product(Array2d<short int>& A) { ARRAY2D_DOT_PRODUCT(short int,A) }
+template<> inline long int Array2d<long int>::dot_product(Array2d<long int>& A) { ARRAY2D_DOT_PRODUCT(long int,A) }
+template<> inline unsigned int Array2d<unsigned int>::dot_product(Array2d<unsigned int>& A) { ARRAY2D_DOT_PRODUCT(unsigned int,A) }
+template<> inline unsigned short int Array2d<unsigned short int>::dot_product(Array2d<unsigned short int>& A) { ARRAY2D_DOT_PRODUCT(unsigned short int,A) }
+template<> inline unsigned long int Array2d<unsigned long int>::dot_product(Array2d<unsigned long int>& A) { ARRAY2D_DOT_PRODUCT(unsigned long int,A) }
+template<> inline float Array2d<float>::dot_product(Array2d<float>& A) { ARRAY2D_DOT_PRODUCT(float,A) }
+template<> inline double Array2d<double>::dot_product(Array2d<double>& A) { ARRAY2D_DOT_PRODUCT(double,A) }
+template<> inline long double Array2d<long double>::dot_product(Array2d<long double>& A) { ARRAY2D_DOT_PRODUCT(long double,A) }
 
 #endif // ARRAY2D_H
 

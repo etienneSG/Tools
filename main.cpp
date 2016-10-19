@@ -35,12 +35,7 @@ int array2d_test()
   tab.insert_column(1, vector<int>(5,7));
   tab.resize(5,5);
   tab.resize(6,5,1);
-
-  for (int j = 0; j < tab.nb_rows(); j++) {
-    for (int i = 0; i < tab.nb_columns(); i++)
-      cout << tab(j,i) << " ";
-    cout << endl;
-  }
+  tab.print();
 
   if (tab.nb_rows()!=6 || tab.nb_columns()!=5
       || tab(0,0)!=6 || tab(0,1)!=7 || tab(0,2)!=6 || tab(0,3)!=6 || tab(0,4)!=0
@@ -48,11 +43,27 @@ int array2d_test()
       || tab(2,0)!=2 || tab(2,1)!=7 || tab(2,2)!=3 || tab(2,3)!=9 || tab(2,4)!=0
       || tab(3,0)!=3 || tab(3,1)!=7 || tab(3,2)!=0 || tab(3,3)!=9 || tab(3,4)!=0
       || tab(4,0)!=0 || tab(4,1)!=7 || tab(4,2)!=0 || tab(4,3)!=9 || tab(4,4)!=0
-      || tab(5,0)!=1 || tab(5,1)!=1 || tab(5,2)!=1 || tab(5,3)!=1 || tab(5,4)!=1)
+      || tab(5,0)!=1 || tab(5,1)!=1 || tab(5,2)!=1 || tab(5,3)!=1 || tab(5,4)!=1 )
   {
     fail++;
+  }
+  
+  Array2d<short> tab_1(2,3);
+  tab_1(0,0) = 0; tab_1(0,1) = 2; tab_1(0,2) = 0;
+  tab_1(1,0) = 3; tab_1(1,1) = 0; tab_1(1,2) = 1;
+  Array2d<short> tab_2(2,3);
+  tab_2(0,0) = 1; tab_2(0,1) = 1; tab_2(0,2) = 3;
+  tab_2(1,0) = 5; tab_2(1,1) = 0; tab_2(1,2) = -4;
+  short dot_prod = tab_1.dot_product(tab_2);
+
+  if (dot_prod != 13)
+    fail++;
+
+  
+  if (fail > 0) {
     cout << "===> FAIL <===" << endl;
   }
+  
   return fail;
 }
 
