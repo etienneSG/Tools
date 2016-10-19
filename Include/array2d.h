@@ -321,6 +321,10 @@ inline void Array2d<T>::print()
 }
 
 
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS  // Only Macro definitions for specialization of template
+
+
 #define PRINT_ARRAY2D()                         \
   for (int i = 0; i < nb_rows(); i++) {         \
     for (int j = 0; j < nb_columns(); j++)      \
@@ -375,6 +379,10 @@ template<> inline unsigned long int Array2d<unsigned long int>::dot_product(Arra
 template<> inline float Array2d<float>::dot_product(Array2d<float>& A) { ARRAY2D_DOT_PRODUCT(float,A) }
 template<> inline double Array2d<double>::dot_product(Array2d<double>& A) { ARRAY2D_DOT_PRODUCT(double,A) }
 template<> inline long double Array2d<long double>::dot_product(Array2d<long double>& A) { ARRAY2D_DOT_PRODUCT(long double,A) }
+
+
+#endif // DOXYGEN_SHOULD_SKIP_THIS
+
 
 #endif // ARRAY2D_H
 
