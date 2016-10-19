@@ -180,7 +180,7 @@ class Array2d
 
   /**
    * @brief Return the dot product between this array and the argument array.
-   * @param[in] Array wih the same size
+   * @param[in] A Array wih the same size
    * @details The method is specialized for the following type: int, short, int, long int,
    * unsigned int, unsigned short int, unsigned long int, float, double, long, double.
    * @return The dot product of the two arrays. If T has no operator * (that is, if the method is 
