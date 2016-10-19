@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('array2d_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -102,7 +102,8 @@ $(document).ready(function(){initNavTree('array2d_8h.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">array2d.h File Reference</div>  </div>
 </div><!--header-->
@@ -113,6 +114,7 @@ $(document).ready(function(){initNavTree('array2d_8h.html','');});
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="array2d_8h_source.html">Go to the source code of this file.</a></p>
@@ -122,6 +124,13 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array2d.html">Array2d&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template for dynamic array with two dimensions.  <a href="class_array2d.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a5fc646ca5e64169693d46833630f09ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array2d_8h.html#a5fc646ca5e64169693d46833630f09ab">PRINT_ARRAY2D</a>()</td></tr>
+<tr class="separator:a5fc646ca5e64169693d46833630f09ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58c9aa636c5c585f91960cdd427cb5af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array2d_8h.html#a58c9aa636c5c585f91960cdd427cb5af">ARRAY2D_DOT_PRODUCT</a>(T, A)</td></tr>
+<tr class="separator:a58c9aa636c5c585f91960cdd427cb5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementtion of a template for dynamic array with two dimensions. </p>
@@ -129,13 +138,77 @@ Classes</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2014 </dd></dl>
 
 <p>Definition in file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a58c9aa636c5c585f91960cdd427cb5af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ARRAY2D_DOT_PRODUCT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">T, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">A&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">T dot_prod = 0;                                                                       \</div>
+<div class="line">  if (nb_columns() != A.nb_columns() || nb_rows() != A.nb_rows()) {                     \</div>
+<div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;[ERROR] T Array2d&lt;T&gt;::dot_product(const Array2d&lt;T&gt;&amp; A)&quot;</span> &lt;&lt; std::endl  \</div>
+<div class="line">              &lt;&lt; <span class="stringliteral">&quot;The two array have not the same same size.&quot;</span> &lt;&lt; std::endl;             \</div>
+<div class="line">  }                                                                                     \</div>
+<div class="line">  else {                                                                                \</div>
+<div class="line">    for (<span class="keywordtype">int</span> i = 0; i &lt; nb_rows(); i++) {                                               \</div>
+<div class="line">      for (<span class="keywordtype">int</span> j = 0; j &lt; nb_columns(); j++) {                                          \</div>
+<div class="line">        dot_prod += ( (*this)(i,j) * A(i,j) );                                          \</div>
+<div class="line">      }                                                                                 \</div>
+<div class="line">    }                                                                                   \</div>
+<div class="line">  }                                                                                     \</div>
+<div class="line">  return dot_prod;</div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00353">353</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5fc646ca5e64169693d46833630f09ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINT_ARRAY2D</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nb_rows(); i++) {         \</div>
+<div class="line">    for (<span class="keywordtype">int</span> j = 0; j &lt; nb_columns(); j++)      \</div>
+<div class="line">      std::cout &lt;&lt; (*<span class="keyword">this</span>)(i,j) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span>;        \</div>
+<div class="line">    std::cout &lt;&lt; std::endl;                     \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00324">324</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_856524284ebe840938865dc061f982fb.html">Include</a></li><li class="navelem"><a class="el" href="array2d_8h.html">array2d.h</a></li>
-    <li class="footer">Generated on Thu Jul 7 2016 17:52:01 for Tools by
+    <li class="footer">Generated on Wed Oct 19 2016 18:05:17 for Tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

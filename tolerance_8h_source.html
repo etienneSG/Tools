@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('tolerance_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -153,8 +153,8 @@ $(document).ready(function(){initNavTree('tolerance_8h_source.html','');});
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_tolerance.html#a40caa299cfcb78135d70fffc1d74f847">allclose</a>(<span class="keyword">const</span> std::vector&lt;double&gt;&amp; v1, <span class="keyword">const</span> std::vector&lt;double&gt;&amp; v2) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_tolerance.html#a40caa299cfcb78135d70fffc1d74f847">allclose</a>(<span class="keyword">const</span> std::vector&lt;double &gt;&amp; v1,</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                       <span class="keyword">const</span> std::vector&lt;double &gt;&amp; v2,</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                       <span class="keyword">const</span> std::vector&lt;Tolerance*&gt;&amp; v_tol);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                              <span class="keyword">const</span> std::vector&lt;double &gt;&amp; v2,</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                              <span class="keyword">const</span> std::vector&lt;Tolerance*&gt;&amp; v_tol);</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_tolerance.html#abac29e2adaa09b2316638a24b17e9051">add_epsilon</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; d) <span class="keyword">const</span>;</div>
@@ -185,9 +185,9 @@ $(document).ready(function(){initNavTree('tolerance_8h_source.html','');});
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
 <div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="class_tolerance.html#a9f007735c134809670ace41729434c18">  197</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="class_tolerance.html#a9f007735c134809670ace41729434c18">Tolerance::Tolerance</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; atol, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; rtol, <span class="keyword">const</span> <a class="code" href="tolerance_8h.html#a43c864b10f3c3ddea54f52d6df031ab6">Unite</a>&amp; unite)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;: _atol(atol),</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  _rtol(rtol),</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  _unite(unite)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                 : _atol(atol),</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                 _rtol(rtol),</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                 _unite(unite)</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;{}</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
@@ -324,7 +324,7 @@ $(document).ready(function(){initNavTree('tolerance_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_856524284ebe840938865dc061f982fb.html">Include</a></li><li class="navelem"><a class="el" href="tolerance_8h.html">tolerance.h</a></li>
-    <li class="footer">Generated on Thu Jul 7 2016 17:52:01 for Tools by
+    <li class="footer">Generated on Wed Oct 19 2016 18:05:17 for Tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['lower_5fnot_5fclose',['lower_not_close',['../class_tolerance.html#a6eac87d46bb31f79356d288b7e7f149f',1,'Tolerance']]],
-  ['lower_5for_5fclose',['lower_or_close',['../class_tolerance.html#a78c41ba09a494e469b5b29137d770287',1,'Tolerance']]]
+  ['knapsack',['Knapsack',['../class_knapsack.html#a1d9ead185b8ccc9c3ed50d949a744f95',1,'Knapsack::Knapsack()'],['../class_knapsack.html#a4d6156ffc5339312b397b53ee4065786',1,'Knapsack::Knapsack(const unsigned int iW, const std::vector&lt; unsigned int &gt; iWt, const typename std::vector&lt; T &gt; iVal)']]]
 ];
