@@ -324,26 +324,32 @@ inline void Array2d<T>::print()
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS  // Only Macro definitions for specialization of template
 
+#define ARRAY2D_PRINT(T)                            \
+  template<>                                        \
+  inline void Array2d<T>::print()                   \
+  {                                                 \
+    for (int i = 0; i < nb_rows(); i++) {           \
+      for (int j = 0; j < nb_columns(); j++)        \
+        std::cout << (*this)(i,j) << "\t";          \
+      std::cout << std::endl;                       \
+    }                                               \
+  }                     
 
-#define PRINT_ARRAY2D()                         \
-  for (int i = 0; i < nb_rows(); i++) {         \
-    for (int j = 0; j < nb_columns(); j++)      \
-      std::cout << (*this)(i,j) << "\t";        \
-    std::cout << std::endl;                     \
-  }                                             
+ARRAY2D_PRINT(char)
+ARRAY2D_PRINT(unsigned char)
+ARRAY2D_PRINT(int)
+ARRAY2D_PRINT(short int)
+ARRAY2D_PRINT(long int)
+ARRAY2D_PRINT(unsigned int)
+ARRAY2D_PRINT(unsigned short int)
+ARRAY2D_PRINT(unsigned long int)
+ARRAY2D_PRINT(float)
+ARRAY2D_PRINT(double)
+ARRAY2D_PRINT(long double)
+ARRAY2D_PRINT(std::string)
 
-template<> inline void Array2d<char>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<unsigned char>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<int>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<short int>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<long int>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<unsigned int>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<unsigned short int>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<unsigned long int>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<float>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<double>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<long double>::print() { PRINT_ARRAY2D() }
-template<> inline void Array2d<std::string>::print() { PRINT_ARRAY2D() }
+#endif // DOXYGEN_SHOULD_SKIP_THIS
+
 
 
 template <class T>
@@ -354,32 +360,36 @@ inline T Array2d<T>::dot_product(Array2d<T>& A)
 }
 
 
-#define ARRAY2D_DOT_PRODUCT(T,A)                                                        \
-  T dot_prod = 0;                                                                       \
-  if (nb_columns() != A.nb_columns() || nb_rows() != A.nb_rows()) {                     \
-    std::cerr << "[ERROR] T Array2d<T>::dot_product(const Array2d<T>& A)" << std::endl  \
-              << "The two array have not the same same size." << std::endl;             \
-  }                                                                                     \
-  else {                                                                                \
-    for (int i = 0; i < nb_rows(); i++) {                                               \
-      for (int j = 0; j < nb_columns(); j++) {                                          \
-        dot_prod += ( (*this)(i,j) * A(i,j) );                                          \
-      }                                                                                 \
-    }                                                                                   \
-  }                                                                                     \
-  return dot_prod;
+#ifndef DOXYGEN_SHOULD_SKIP_THIS  // Only Macro definitions for specialization of template
 
+#define ARRAY2D_DOT_PRODUCT(T)                                                            \
+  template<>                                                                              \
+  inline T Array2d<T>::dot_product(Array2d<T>& A)                                         \
+  {                                                                                       \
+    T dot_prod = 0;                                                                       \
+    if (nb_columns() != A.nb_columns() || nb_rows() != A.nb_rows()) {                     \
+      std::cerr << "[ERROR] T Array2d<T>::dot_product(const Array2d<T>& A)" << std::endl  \
+                << "The two array have not the same same size." << std::endl;             \
+    }                                                                                     \
+    else {                                                                                \
+      for (int i = 0; i < nb_rows(); i++) {                                               \
+        for (int j = 0; j < nb_columns(); j++) {                                          \
+          dot_prod += ( (*this)(i,j) * A(i,j) );                                          \
+        }                                                                                 \
+      }                                                                                   \
+    }                                                                                     \
+    return dot_prod;                                                                      \
+  }
 
-template<> inline int Array2d<int>::dot_product(Array2d<int>& A) { ARRAY2D_DOT_PRODUCT(int,A) }
-template<> inline short int Array2d<short int>::dot_product(Array2d<short int>& A) { ARRAY2D_DOT_PRODUCT(short int,A) }
-template<> inline long int Array2d<long int>::dot_product(Array2d<long int>& A) { ARRAY2D_DOT_PRODUCT(long int,A) }
-template<> inline unsigned int Array2d<unsigned int>::dot_product(Array2d<unsigned int>& A) { ARRAY2D_DOT_PRODUCT(unsigned int,A) }
-template<> inline unsigned short int Array2d<unsigned short int>::dot_product(Array2d<unsigned short int>& A) { ARRAY2D_DOT_PRODUCT(unsigned short int,A) }
-template<> inline unsigned long int Array2d<unsigned long int>::dot_product(Array2d<unsigned long int>& A) { ARRAY2D_DOT_PRODUCT(unsigned long int,A) }
-template<> inline float Array2d<float>::dot_product(Array2d<float>& A) { ARRAY2D_DOT_PRODUCT(float,A) }
-template<> inline double Array2d<double>::dot_product(Array2d<double>& A) { ARRAY2D_DOT_PRODUCT(double,A) }
-template<> inline long double Array2d<long double>::dot_product(Array2d<long double>& A) { ARRAY2D_DOT_PRODUCT(long double,A) }
-
+ARRAY2D_DOT_PRODUCT(int)
+ARRAY2D_DOT_PRODUCT(short int)
+ARRAY2D_DOT_PRODUCT(long int)
+ARRAY2D_DOT_PRODUCT(unsigned int)
+ARRAY2D_DOT_PRODUCT(unsigned short int)
+ARRAY2D_DOT_PRODUCT(unsigned long int)
+ARRAY2D_DOT_PRODUCT(float)
+ARRAY2D_DOT_PRODUCT(double)
+ARRAY2D_DOT_PRODUCT(long double)
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
