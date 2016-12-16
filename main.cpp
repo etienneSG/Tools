@@ -59,6 +59,19 @@ int array2d_test()
   if (dot_prod != 13)
     fail++;
 
+  Array2d<short> tab_3(tab_1);
+  if (tab_1.nb_rows() != tab_3.nb_rows() || tab_1.nb_columns() != tab_3.nb_columns()) {
+    fail++;
+  }
+  else {
+    for (int j = 0; j < tab_3.nb_rows(); j++) {
+      for (int i = 0; i < tab_3.nb_columns(); i++) {
+        if (tab_1(j,i) != tab_3(j,i))
+          fail++;
+      }
+    }
+  }
+
   
   if (fail > 0) {
     cout << "===> FAIL <===" << endl;

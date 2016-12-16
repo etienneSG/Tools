@@ -77,7 +77,7 @@ class Array2d
    * @brief Copy constructor
    * @param[in] iArray2d 2-dimensional array whose value will be copied
    */
-  inline Array2d(const Array2d & iArray2d);
+  inline Array2d(Array2d & iArray2d);
 
   /** @brief Destructor */
   inline ~Array2d();
@@ -205,8 +205,9 @@ inline Array2d<T>::Array2d(int iP, int iN)
 }
 
 template <class T>
-inline Array2d<T>::Array2d(const Array2d & iArray2d)
-: _aT(iArray2d.nb_rows(), std::vector<T>(iArray2d.nb_columns(), T()))
+inline Array2d<T>::Array2d(Array2d & iArray2d)
+: _aT(iArray2d._aT)
+//: _aT(iArray2d.nb_rows(), std::vector<T>(iArray2d.nb_columns(), T()))
 {
 }
 
