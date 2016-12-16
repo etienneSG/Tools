@@ -207,7 +207,6 @@ inline Array2d<T>::Array2d(int iP, int iN)
 template <class T>
 inline Array2d<T>::Array2d(Array2d & iArray2d)
 : _aT(iArray2d._aT)
-//: _aT(iArray2d.nb_rows(), std::vector<T>(iArray2d.nb_columns(), T()))
 {
 }
 
