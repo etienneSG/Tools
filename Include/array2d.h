@@ -218,28 +218,29 @@ inline Array2d<T>::~Array2d()
 template <class T>
 inline void Array2d<T>::erase_column(int iI)
 {
-  for (int j = 0; j < _aT.nb_rows(); j++)
+  for (int j = 0; j < _aT.size(); j++)
     _aT[j].erase(_aT.begin()+iI);
 }
 
 template <class T>
 inline void Array2d<T>::erase_columns(int iBegin, int iEnd)
 {
-  for (int j = 0; j < _aT.nb_rows(); j++)
-    _aT[j].erase(_aT.begin()+iBegin, _aT.begin()+iEnd);
+  for (int j = 0; j < _aT.size(); j++)
+    _aT[j].erase(_aT[j].begin()+iBegin, _aT[j].begin()+iEnd);
 }
 
 template <class T>
 inline void Array2d<T>::erase_row(int iJ)
 {
-  if (0 <= iJ && iJ < _aT.nb_rows())
+  if (0 <= iJ && iJ < _aT.size())
     _aT.erase(_aT.begin()+iJ);
 }
 
 template <class T>
 inline void Array2d<T>::erase_rows(int iBegin, int iEnd)
 {
-  _aT.erase(_aT.begin()+iBegin, _aT.begin()+iEnd);
+  if (0 <= iBegin && iBegin <= iEnd && iEnd <= _aT.size())
+    _aT.erase(_aT.begin()+iBegin, _aT.begin()+iEnd);
 }
 
 template <class T>
