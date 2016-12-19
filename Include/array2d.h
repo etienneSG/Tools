@@ -271,7 +271,7 @@ inline void Array2d<T>::insert_column(int iI, const std::vector<T> & iC)
   if (nb_rows()==0) {
     _aT.assign(iC.size(), std::vector<T>());
   }
-  if (0 <= iI && iI < nb_columns()) {
+  if (0 <= iI && iI <= nb_columns()) {
     if (iC.size() == (unsigned int)nb_rows()) {
       for (int j = 0; j < nb_rows(); j++)
         _aT[j].insert(_aT[j].begin()+iI, iC[j]);
@@ -291,8 +291,8 @@ inline void Array2d<T>::insert_column(int iI, const std::vector<T> & iC)
 template <class T>
 inline void Array2d<T>::insert_row(int iJ, const std::vector<T> & iR)
 {
-  if (0 <= iJ && iJ < nb_rows()) {
-    if (nb_rows()==0 || iR.size() == (unsigned int)nb_columns()) {
+  if (0 <= iJ && iJ <= nb_rows()) {
+    if (iR.size() == (unsigned int)nb_columns()) {
       _aT.insert(_aT.begin()+iJ, iR);
     }
     else {
