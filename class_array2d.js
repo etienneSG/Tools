@@ -1,7 +1,7 @@
 var class_array2d =
 [
     [ "Array2d", "class_array2d.html#a4161bd0eac0c227135b7be793ee2e7ad", null ],
-    [ "Array2d", "class_array2d.html#a2828ff75c85bcbf38870eb2cc034e492", null ],
+    [ "Array2d", "class_array2d.html#a0f0dd347edb87885d19cb96b90918287", null ],
     [ "~Array2d", "class_array2d.html#a29e4e64835a401288c802cef093f8617", null ],
     [ "dot_product", "class_array2d.html#afe4b46a40f772d7e9176b734a1659432", null ],
     [ "erase_column", "class_array2d.html#afbe2291911b0b86af5d12eea9728b2e3", null ],
