@@ -225,19 +225,21 @@ inline void Array2d<T>::erase_column(int iI)
   else {
     std::cerr << "[WARNING] void Array2d<T>::erase_column(int)" << std::endl
               << "Column index out of range. No column removed." << std::endl;
+    assert(false);
   }
 }
 
 template <class T>
 inline void Array2d<T>::erase_columns(int iBegin, int iEnd)
 {
-  if (0 <= iBegin && iBegin <= iEnd && iEnd < nb_columns()) {
+  if (0 <= iBegin && iBegin <= iEnd && iEnd <= nb_columns()) {
     for (int j = 0; j < _aT.size(); j++)
       _aT[j].erase(_aT[j].begin()+iBegin, _aT[j].begin()+iEnd);
   }
   else {
     std::cerr << "[WARNING] void Array2d<T>::erase_columns(int,int)" << std::endl
               << "Column index out of range. No columns removed." << std::endl;
+    assert(false);
   }
 }
 
@@ -250,6 +252,7 @@ inline void Array2d<T>::erase_row(int iJ)
   else {
     std::cerr << "[WARNING] void Array2d<T>::erase_row(int)" << std::endl
               << "Row index out of range. No row removed." << std::endl;
+    assert(false);
   }
 }
 
@@ -262,6 +265,7 @@ inline void Array2d<T>::erase_rows(int iBegin, int iEnd)
   else {
     std::cerr << "[WARNING] void Array2d<T>::erase_rows(int,int)" << std::endl
               << "Row index out of range. No rows removed." << std::endl;
+    assert(false);
   }
 }
 
@@ -279,11 +283,13 @@ inline void Array2d<T>::insert_column(int iI, const std::vector<T> & iC)
     else {
       std::cerr << "[WARNING] void Array2d<T>::insert_column(int, const std::vector<T>&)" << std::endl
                 << "New column size different from array column size. No column added." << std::endl;
+      assert(false);
     }
   }
   else {
     std::cerr << "[WARNING] void Array2d<T>::insert_column(int, const std::vector<T>&)" << std::endl
               << "Column index out of range. No column added." << std::endl;
+    assert(false);
   }
 }
 
@@ -298,11 +304,13 @@ inline void Array2d<T>::insert_row(int iJ, const std::vector<T> & iR)
     else {
       std::cerr << "[WARNING] void Array2d<T>::insert_row(int, const std::vector<T>&)" << std::endl
                 << "New row size different from array row size. No row added." << std::endl;
+      assert(false);
     }
   }
   else {
     std::cerr << "[WARNING] void Array2d<T>::insert_row(int, const std::vector<T>&)" << std::endl
               << "Row index out of range. No row added." << std::endl;
+    assert(false);
   }
 }
 
@@ -328,6 +336,7 @@ inline void Array2d<T>::push_back_column(const std::vector<T> & iC)
   else {
     std::cerr << "[WARNING] void Array2d<T>::push_back_column(const std::vector<T>&)" << std::endl
               << "New column size different from array column size. No column added." << std::endl;
+    assert(false);
   }
 }
 
@@ -340,6 +349,7 @@ inline void Array2d<T>::push_back_row(const std::vector<T> & iR)
   else {
     std::cerr << "[WARNING] void Array2d<T>::push_back_row(const std::vector<T>&)" << std::endl
               << "New row size different from array row size. No row added." << std::endl;
+    assert(false);
   }
 }
 
@@ -353,6 +363,7 @@ inline void Array2d<T>::swap_column(int i, int j)
   else {
     std::cerr << "[WARNING] void Array2d<T>::swap_column(int,int)" << std::endl
               << "Column index out of range. No column swapped." << std::endl;
+    assert(false);
   }
 }
 
@@ -365,6 +376,7 @@ inline void Array2d<T>::swap_row(int i, int j)
   else {
     std::cerr << "[WARNING] void Array2d<T>::swap_row(int,int)" << std::endl
               << "Row index out of range. No row swapped." << std::endl;
+    assert(false);
   }
 }
 
@@ -390,11 +402,13 @@ inline T& Array2d<T>::operator()(int iJ, int iI)
     else {
       std::cerr << "[WARNING] void Array2d<T>::operator()(int,int)" << std::endl
                 << "Column index out of range." << std::endl;
+      assert(false);
     }
   }
   else {
     std::cerr << "[WARNING] void Array2d<T>::operator()(int,int)" << std::endl
               << "Row index out of range." << std::endl;
+    assert(false);
   }
   return _aT[0][0];
 }
@@ -409,11 +423,13 @@ inline const T& Array2d<T>::operator()(int iJ, int iI)const
     else {
       std::cerr << "[WARNING] void Array2d<T>::operator()(int,int)" << std::endl
                 << "Column index out of range." << std::endl;
+      assert(false);
     }
   }
   else {
     std::cerr << "[WARNING] void Array2d<T>::operator()(int,int)" << std::endl
               << "Row index out of range." << std::endl;
+    assert(false);
   }
   return _aT[0][0];
 }
