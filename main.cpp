@@ -72,6 +72,21 @@ int array2d_test()
     }
   }
 
+  Array2d<short> tab_4;
+  tab_4.push_back_column(vector<short>(3,1));
+  if (tab_4.nb_rows()!=3 || tab_4.nb_columns()!=1
+    || tab_4(0,0)!=1 || tab_4(1,0)!=1 || tab_4(2,0)!=1 )
+  {
+    fail++;
+  }
+
+  Array2d<short> tab_5;
+  tab_5.push_back_row(vector<short>(3,1));
+  if (tab_5.nb_rows()!=1 || tab_5.nb_columns()!=3
+    || tab_5(0,0)!=1 || tab_5(0,1)!=1 || tab_5(0,2)!=1 )
+  {
+    fail++;
+  }
   
   if (fail > 0) {
     cout << "===> FAIL <===" << endl;

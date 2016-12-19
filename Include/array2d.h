@@ -30,7 +30,7 @@
  *   // This array is filled with value 0.
  *   Array2d<int> myTab(2,3);
  * 
- *   // Insert a colum between column 0 and 1.
+ *   // Insert a column between column 0 and 1.
  *   // This column is filled with value 5.
  *   myTab.insert_column(1, std::vector<int>(2,5));
  * 
@@ -38,10 +38,10 @@
  *   myTab(0,2) = 4;
  * 
  *   // Resize the array to get an 3x3 array.
- *   // If ellements new elements are created, their value is 1.
+ *   // If elements new elements are created, their value is 1.
  *   myTab.resize(3,3,1);
  * 
- *   // Print the array in the standart output
+ *   // Print the array in the standard output
  *   for (int j = 0; j < myTab.nb_rows(); j++) {
  *     for (int i = 0; i < myTab.nb_columns(); i++)
  *       std::cout << myTab(j,i) << " ";
@@ -157,21 +157,21 @@ class Array2d
   inline int nb_columns();
 
   /**
-   * @brief Write acces to coefficients of the array
+   * @brief Write access to coefficients of the array
    * @param[in] iJ Index of the row
    * @param[in] iI Index of the column
    */
   inline T& operator()(int iJ, int iI);
 
   /**
-   * @brief Read acces to coefficients of the array
+   * @brief Read access to coefficients of the array
    * @param[in] iJ Index of the row
    * @param[in] iI Index of the column
    */
   inline const T& operator()(int iJ, int iI)const;
 
   /**
-   * @brief Print the array on the standart output
+   * @brief Print the array on the standard output
    * @details The method is specialized for the following type: char, unsigned char, int, short
    * int, long int, unsigned int, unsigned short int, unsigned long int, float, double, long
    * double, std::string. In the other cases, the method prints nothing.
@@ -180,7 +180,7 @@ class Array2d
 
   /**
    * @brief Return the dot product between this array and the argument array.
-   * @param[in] A Array wih the same size
+   * @param[in] A Array with the same size
    * @details The method is specialized for the following type: int, short, int, long int,
    * unsigned int, unsigned short int, unsigned long int, float, double, long, double.
    * @return The dot product of the two arrays. If T has no operator * (that is, if the method is 
@@ -218,43 +218,94 @@ inline Array2d<T>::~Array2d()
 template <class T>
 inline void Array2d<T>::erase_column(int iI)
 {
-  for (int j = 0; j < _aT.size(); j++)
-    _aT[j].erase(_aT.begin()+iI);
+  if (0 <= iI && iI < nb_columns()) {
+    for (int j = 0; j < _aT.size(); j++)
+      _aT[j].erase(_aT.begin()+iI);
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::erase_column(int)" << std::endl
+              << "Column index out of range. No column removed." << std::endl;
+  }
 }
 
 template <class T>
 inline void Array2d<T>::erase_columns(int iBegin, int iEnd)
 {
-  for (int j = 0; j < _aT.size(); j++)
-    _aT[j].erase(_aT[j].begin()+iBegin, _aT[j].begin()+iEnd);
+  if (0 <= iBegin && iBegin <= iEnd && iEnd < nb_columns()) {
+    for (int j = 0; j < _aT.size(); j++)
+      _aT[j].erase(_aT[j].begin()+iBegin, _aT[j].begin()+iEnd);
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::erase_columns(int,int)" << std::endl
+              << "Column index out of range. No columns removed." << std::endl;
+  }
 }
 
 template <class T>
 inline void Array2d<T>::erase_row(int iJ)
 {
-  if (0 <= iJ && iJ < _aT.size())
+  if (0 <= iJ && iJ < nb_columns()) {
     _aT.erase(_aT.begin()+iJ);
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::erase_row(int)" << std::endl
+              << "Row index out of range. No row removed." << std::endl;
+  }
 }
 
 template <class T>
 inline void Array2d<T>::erase_rows(int iBegin, int iEnd)
 {
-  if (0 <= iBegin && iBegin <= iEnd && iEnd <= _aT.size())
+  if (0 <= iBegin && iBegin <= iEnd && iEnd <= nb_rows()){
     _aT.erase(_aT.begin()+iBegin, _aT.begin()+iEnd);
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::erase_rows(int,int)" << std::endl
+              << "Row index out of range. No rows removed." << std::endl;
+  }
 }
 
 template <class T>
 inline void Array2d<T>::insert_column(int iI, const std::vector<T> & iC)
 {
-  for (int j = 0; j < nb_rows(); j++)
-    _aT[j].insert(_aT[j].begin()+iI, iC[j]);
+  if (nb_rows()==0) {
+    _aT.assign(iC.size(), std::vector<T>());
+  }
+  if (0 <= iI && iI < nb_columns()) {
+    if (iC.size() == (unsigned int)nb_rows()) {
+      for (int j = 0; j < nb_rows(); j++)
+        _aT[j].insert(_aT[j].begin()+iI, iC[j]);
+    }
+    else {
+      std::cerr << "[WARNING] void Array2d<T>::insert_column(int, const std::vector<T>&)" << std::endl
+                << "New column size different from array column size. No column added." << std::endl;
+    }
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::insert_column(int, const std::vector<T>&)" << std::endl
+              << "Column index out of range. No column added." << std::endl;
+  }
 }
+
 
 template <class T>
 inline void Array2d<T>::insert_row(int iJ, const std::vector<T> & iR)
 {
-  _aT.insert(_aT.begin()+iJ, iR);
+  if (0 <= iJ && iJ < nb_rows()) {
+    if (nb_rows()==0 || iR.size() == (unsigned int)nb_columns()) {
+      _aT.insert(_aT.begin()+iJ, iR);
+    }
+    else {
+      std::cerr << "[WARNING] void Array2d<T>::insert_row(int, const std::vector<T>&)" << std::endl
+                << "New row size different from array row size. No row added." << std::endl;
+    }
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::insert_row(int, const std::vector<T>&)" << std::endl
+              << "Row index out of range. No row added." << std::endl;
+  }
 }
+
 
 template <class T>
 inline void Array2d<T>::resize(int iP, int iN, T iVal)
@@ -267,27 +318,54 @@ inline void Array2d<T>::resize(int iP, int iN, T iVal)
 template <class T>
 inline void Array2d<T>::push_back_column(const std::vector<T> & iC)
 {
-  for (int j = 0; j < nb_rows(); j++)
-    _aT[j].push_back(iC[j]);
+  if (nb_rows()==0) {
+    _aT.assign(iC.size(), std::vector<T>());
+  }
+  if (iC.size() == (unsigned int)nb_rows()) {
+    for (int j = 0; j < nb_rows(); j++)
+      _aT[j].push_back(iC[j]);
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::push_back_column(const std::vector<T>&)" << std::endl
+              << "New column size different from array column size. No column added." << std::endl;
+  }
 }
 
 template <class T>
 inline void Array2d<T>::push_back_row(const std::vector<T> & iR)
 {
-  _aT.push_back(iR);
+  if (nb_rows()==0 || iR.size() == (unsigned int)nb_columns()) {
+    _aT.push_back(iR);
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::push_back_row(const std::vector<T>&)" << std::endl
+              << "New row size different from array row size. No row added." << std::endl;
+  }
 }
 
 template <class T>
 inline void Array2d<T>::swap_column(int i, int j)
 {
-  for (int k = 0; k < nb_rows(); k++)
-    std::swap(_aT[k][i], _aT[k][j]);
+  if (0 <= i && i < nb_columns() && 0 <= j && j < nb_columns()) {
+    for (int k = 0; k < nb_rows(); k++)
+      std::swap(_aT[k][i], _aT[k][j]);
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::swap_column(int,int)" << std::endl
+              << "Column index out of range. No column swapped." << std::endl;
+  }
 }
 
 template <class T>
 inline void Array2d<T>::swap_row(int i, int j)
 {
-  std::swap(_aT[i], _aT[j]);
+  if (0 <= i && i < nb_rows() && 0 <= j && j < nb_rows()) {
+    std::swap(_aT[i], _aT[j]);
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::swap_row(int,int)" << std::endl
+              << "Row index out of range. No row swapped." << std::endl;
+  }
 }
 
 template <class T>
@@ -305,14 +383,41 @@ inline int Array2d<T>::nb_columns()
 template <class T>
 inline T& Array2d<T>::operator()(int iJ, int iI)
 {
-  return _aT[iJ][iI];
+  if (0 <= iJ && iJ < nb_rows()) {
+    if (0 <= iI && iI < nb_columns()) {
+      return _aT[iJ][iI];
+    }
+    else {
+      std::cerr << "[WARNING] void Array2d<T>::operator()(int,int)" << std::endl
+                << "Column index out of range." << std::endl;
+    }
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::operator()(int,int)" << std::endl
+              << "Row index out of range." << std::endl;
+  }
+  return _aT[0][0];
 }
 
 template <class T>
 inline const T& Array2d<T>::operator()(int iJ, int iI)const
 {
-  return _aT[iJ][iI];
+  if (0 <= iJ && iJ < nb_rows()) {
+    if (0 <= iI && iI < nb_columns()) {
+      return _aT[iJ][iI];
+    }
+    else {
+      std::cerr << "[WARNING] void Array2d<T>::operator()(int,int)" << std::endl
+                << "Column index out of range." << std::endl;
+    }
+  }
+  else {
+    std::cerr << "[WARNING] void Array2d<T>::operator()(int,int)" << std::endl
+              << "Row index out of range." << std::endl;
+  }
+  return _aT[0][0];
 }
+
 
 template <class T>
 inline void Array2d<T>::print()
@@ -325,15 +430,15 @@ inline void Array2d<T>::print()
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS  // Only Macro definitions for specialization of template
 
-#define ARRAY2D_PRINT(T)                            \
-  template<>                                        \
-  inline void Array2d<T>::print()                   \
-  {                                                 \
-    for (int i = 0; i < nb_rows(); i++) {           \
-      for (int j = 0; j < nb_columns(); j++)        \
-        std::cout << (*this)(i,j) << "\t";          \
-      std::cout << std::endl;                       \
-    }                                               \
+#define ARRAY2D_PRINT(T)                        \
+  template<>                                    \
+  inline void Array2d<T>::print()               \
+  {                                             \
+    for (int i = 0; i < nb_rows(); i++) {       \
+      for (int j = 0; j < nb_columns(); j++)    \
+        std::cout << (*this)(i,j) << "\t";      \
+      std::cout << std::endl;                   \
+    }                                           \
   }                     
 
 ARRAY2D_PRINT(char)
@@ -363,23 +468,23 @@ inline T Array2d<T>::dot_product(Array2d<T>& A)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS  // Only Macro definitions for specialization of template
 
-#define ARRAY2D_DOT_PRODUCT(T)                                                            \
-  template<>                                                                              \
-  inline T Array2d<T>::dot_product(Array2d<T>& A)                                         \
-  {                                                                                       \
-    T dot_prod = 0;                                                                       \
-    if (nb_columns() != A.nb_columns() || nb_rows() != A.nb_rows()) {                     \
-      std::cerr << "[ERROR] T Array2d<T>::dot_product(const Array2d<T>& A)" << std::endl  \
-                << "The two array have not the same same size." << std::endl;             \
-    }                                                                                     \
-    else {                                                                                \
-      for (int i = 0; i < nb_rows(); i++) {                                               \
-        for (int j = 0; j < nb_columns(); j++) {                                          \
-          dot_prod += ( (*this)(i,j) * A(i,j) );                                          \
-        }                                                                                 \
-      }                                                                                   \
-    }                                                                                     \
-    return dot_prod;                                                                      \
+#define ARRAY2D_DOT_PRODUCT(T)                                          \
+  template<>                                                            \
+  inline T Array2d<T>::dot_product(Array2d<T>& A)                       \
+  {                                                                     \
+    T dot_prod = 0;                                                     \
+    if (nb_columns() != A.nb_columns() || nb_rows() != A.nb_rows()) {   \
+      std::cerr << "[ERROR] T Array2d<T>::dot_product(const Array2d<T>& A)" << std::endl \
+                << "The two array have not the same same size." << std::endl; \
+    }                                                                   \
+    else {                                                              \
+      for (int i = 0; i < nb_rows(); i++) {                             \
+        for (int j = 0; j < nb_columns(); j++) {                        \
+          dot_prod += ( (*this)(i,j) * A(i,j) );                        \
+        }                                                               \
+      }                                                                 \
+    }                                                                   \
+    return dot_prod;                                                    \
   }
 
 ARRAY2D_DOT_PRODUCT(int)
