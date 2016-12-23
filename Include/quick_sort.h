@@ -18,7 +18,7 @@
  * @details Template function to sort on the elements of a vector in increasing
  * order. This function perform the quick sort algorithm.
  *
- * WARNING: this class DO NOT verify the validity of a range called by the user!
+ * @warning This class DO NOT verify the validity of a range called by the user!
  */
 template< class T >
 class Quick_sort

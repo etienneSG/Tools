@@ -19,6 +19,41 @@
  * - a default constructor
  * - an operator +
  * - an operator <
+
+ * A minimal example is given by the following code:
+ * @code{cpp}
+ * #include "knapsack.h" // Knapsack class
+ * #include <iostream>   // Streaming output
+ * #include <vector>     // Vector class
+ * 
+ * int main()
+ * {
+ *   std::vector<int> val(4,0);                    // Values of the items
+ *   val[0]=100; val[1]=60; val[2]=120; val[3]=50; //
+ *   std::vector<unsigned int> wt(4,0);            // Weights of the items
+ *   wt[0]=20;   wt[1]=20;  wt[2]=30;   wt[3]=10;  //
+ *   unsigned int  W = 50;                         // Weight limit of the knapsack
+ * 
+ *   Knapsack<int> knapsack(W, wt, val);     // Create the knapsack problem
+ *   int opt = knapsack();                   // Solve the knapsack problem
+ *   std::vector<bool> Solution;             // 
+ *   knapsack.get_chosen_objects(Solution);  // Get the list of chosen item
+ * 
+ *   std::cout << "Optimal value of the knapsack: " << opt << std::endl;
+ *   std::cout << "Affectation in the knapsack: ";
+ *   for (unsigned int i = 0; i < Solution.size(); i++)
+ *     std::cout << Solution[i] << " ";
+ *   std::cout << std::endl;
+ * 
+ *   return 0;
+ * }
+ * @endcode
+ * The expected output is:
+ * @code{txt}
+ * Optimal value of the knapsack: 220
+ * Affectation in the knapsack: 1 0 1 0 
+ * @endcode
+ *
  */
 template< class T >
 class Knapsack
@@ -31,9 +66,9 @@ public:
 
   /**
    * @brief Constructor
-   * @param[in] iW Total weight of the knapsack
-   * @param[in] iWt Vector of object's weights
-   * @param[in] iVal Vector of object's values
+   * @param[in] iW Weight limit of the knapsack
+   * @param[in] iWt Vector of weights of the items
+   * @param[in] iVal Vector of values of the items
    */
   inline Knapsack(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal);
 
@@ -51,15 +86,16 @@ public:
   /**
    * @brief Solve the knapsack problem with the parameters in argument
    * @details This method modifies the attribute of the fonctor
-   * @param[in] iW Total weight of the knapsack
-   * @param[in] iWt Vector of object's weights
-   * @param[in] iVal Vector of object's values
+   * @param[in] iW Weight limit of the knapsack
+   * @param[in] iWt Vector of weights of the items
+   * @param[in] iVal Vector of values of the items
    * @return Optimal value of the knapsack
    */
   inline T operator()(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal);
 
   /**
    * @brief Return the optimal value of the knapsack
+   * @warning The user must solve the knapsack calling the operator operator()()
    */
   inline T get_optimal_value();
 
@@ -68,6 +104,7 @@ public:
    * @details This method modifies the vector passed in argument
    * @param[out] oSolution Vector representing the chosen elements. If coordinate i is true,
    * the i-th element is chosen, otherwise, it is not.
+   * @warning The user must solve the knapsack calling the operator operator()()
    */
   inline void get_chosen_objects(std::vector<bool> & oSolution);
 
