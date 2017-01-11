@@ -154,6 +154,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a36dc3093ba582eb832a2f39014cf459f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array2d.html#a36dc3093ba582eb832a2f39014cf459f">resize</a> (int iP, int iN, T iVal=T())</td></tr>
 <tr class="memdesc:a36dc3093ba582eb832a2f39014cf459f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the size of the array keeping its coefficients.  <a href="#a36dc3093ba582eb832a2f39014cf459f">More...</a><br /></td></tr>
 <tr class="separator:a36dc3093ba582eb832a2f39014cf459f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d71b4321f0ff406755a1762d6f33b42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array2d.html#a0d71b4321f0ff406755a1762d6f33b42">clear</a> ()</td></tr>
+<tr class="memdesc:a0d71b4321f0ff406755a1762d6f33b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all elements from the vector (which are destroyed), leaving the container with a size of 0.  <a href="#a0d71b4321f0ff406755a1762d6f33b42">More...</a><br /></td></tr>
+<tr class="separator:a0d71b4321f0ff406755a1762d6f33b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5767f589953b4f966d80e6f76abcfaa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array2d.html#a5767f589953b4f966d80e6f76abcfaa1">swap_column</a> (int i, int j)</td></tr>
 <tr class="memdesc:a5767f589953b4f966d80e6f76abcfaa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exchange the values of the columns i and j.  <a href="#a5767f589953b4f966d80e6f76abcfaa1">More...</a><br /></td></tr>
 <tr class="separator:a5767f589953b4f966d80e6f76abcfaa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,7 +273,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00202">202</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00208">208</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -306,7 +309,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00208">208</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00214">214</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -335,11 +338,40 @@ template&lt;class T &gt; </div>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00214">214</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00220">220</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a0d71b4321f0ff406755a1762d6f33b42"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_array2d.html">Array2d</a>&lt; T &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes all elements from the vector (which are destroyed), leaving the container with a size of 0. </p>
+
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00334">334</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="afe4b46a40f772d7e9176b734a1659432"></a>
 <div class="memitem">
 <div class="memproto">
@@ -373,7 +405,7 @@ template&lt;class T &gt; </div>
 </dl>
 <p>The method is specialized for the following type: int, short, int, long int, unsigned int, unsigned short int, unsigned long int, float, double, long, double. </p><dl class="section return"><dt>Returns</dt><dd>The dot product of the two arrays. If T has no operator * (that is, if the method is not specialized for the type T), the method returns a default construction of T. </dd></dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00478">478</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00492">492</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -409,7 +441,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00219">219</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00225">225</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -456,7 +488,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00233">233</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00239">239</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -492,7 +524,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00247">247</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00253">253</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -539,7 +571,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00260">260</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00266">266</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -586,7 +618,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00273">273</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00279">279</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -633,7 +665,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00298">298</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00304">304</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -662,7 +694,7 @@ template&lt;class T &gt; </div>
 
 <p>Return the number of columns of the array. </p>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00390">390</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00404">404</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -691,7 +723,7 @@ template&lt;class T &gt; </div>
 
 <p>Return the number of rows of the array. </p>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00384">384</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00398">398</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -738,7 +770,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00396">396</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00410">410</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -785,7 +817,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00417">417</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00431">431</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -815,7 +847,7 @@ template&lt;class T &gt; </div>
 <p>Print the array on the standard output. </p>
 <p>The method is specialized for the following type: char, unsigned char, int, short int, long int, unsigned int, unsigned short int, unsigned long int, float, double, long double, std::string. In the other cases, the method prints nothing. </p>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00439">439</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00453">453</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -851,7 +883,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00327">327</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00341">341</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -887,7 +919,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00344">344</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00358">358</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -941,7 +973,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00319">319</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00325">325</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -981,7 +1013,7 @@ template&lt;class T &gt; </div>
 
 <p>Exchange the values of the columns i and j. </p>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00357">357</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00371">371</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -1021,7 +1053,7 @@ template&lt;class T &gt; </div>
 
 <p>Exchange the values of the rows i and j. </p>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00371">371</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00385">385</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -1048,7 +1080,7 @@ template&lt;class T&gt; </div>
 
 <p>Array containing the values. </p>
 
-<p>Definition at line <a class="el" href="array2d_8h_source.html#l00192">192</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
+<p>Definition at line <a class="el" href="array2d_8h_source.html#l00198">198</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
 </div>
 </div>
@@ -1061,7 +1093,7 @@ template&lt;class T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_array2d.html">Array2d</a></li>
-    <li class="footer">Generated on Fri Dec 23 2016 15:48:05 for Tools by
+    <li class="footer">Generated on Wed Jan 11 2017 12:47:18 for Tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
