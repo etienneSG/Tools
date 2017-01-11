@@ -143,6 +143,12 @@ class Array2d
    * used instead.
    */
   inline void resize(int iP, int iN, T iVal = T());
+  
+  /**
+   * @brief Removes all elements from the vector (which are destroyed), leaving the container
+   * with a size of 0.
+   */
+  inline void clear();
 
   /** @brief Exchange the values of the columns i and j */
   inline void swap_column(int i, int j);
@@ -322,6 +328,14 @@ inline void Array2d<T>::resize(int iP, int iN, T iVal)
   for (int i = 0; i < iP; i++)
     _aT[i].resize(iN, iVal);
 }
+
+
+template <class T>
+inline void Array2d<T>::clear()
+{
+  _aT.clear();
+}
+
 
 template <class T>
 inline void Array2d<T>::push_back_column(const std::vector<T> & iC)

@@ -47,6 +47,8 @@ int array2d_test()
   {
     fail++;
   }
+  tab.clear();
+  
   
   Array2d<short> tab_1(2,3);
   tab_1(0,0) = 0; tab_1(0,1) = 2; tab_1(0,2) = 0;
