@@ -3,9 +3,11 @@
  * @author Etienne de Saint Germain
  * @date 2014
  * @brief Functions to get CPU and user time.
- * @details Two functions:
+ * @details Three functions:
  * - get_wall_time() returns the user time.
  * - get_cpu_time() returns the CPU time.
+ * - get_human_readable_time() returns a string containing the date and time information
+ * in a human-readable format.
  */
 
 
@@ -27,7 +29,7 @@ inline double get_wall_time();
 /** @brief Return CPU time */
 inline double get_cpu_time();
 
-/** @brief Return a C-string containing the date and time information in a human-readable format.*/
+/** @brief Return a string containing the date and time information in a human-readable format.*/
 inline std::string get_human_readable_time();
 
 
