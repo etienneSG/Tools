@@ -13,6 +13,9 @@
 #define TIME_TOOLS_H
 
 
+#include <string>
+#include <time.h>
+
 //==============================================================================
 // Declaration of functions
 //==============================================================================
@@ -24,6 +27,8 @@ inline double get_wall_time();
 /** @brief Return CPU time */
 inline double get_cpu_time();
 
+/** @brief Return a C-string containing the date and time information in a human-readable format.*/
+inline std::string get_human_readable_time();
 
 
 
@@ -34,7 +39,7 @@ inline double get_cpu_time();
 
 // Windows
 #ifdef _WIN32
-#include <Windows.h>
+#include <windows.h>
 
 
 inline double get_wall_time(){
@@ -71,7 +76,6 @@ inline double get_cpu_time(){
 //  Posix/Linux
 #ifdef __linux__
 #include <sys/time.h>
-#include <time.h>
 
 inline double get_wall_time(){
   struct timeval time;
@@ -87,6 +91,22 @@ inline double get_cpu_time(){
 }
 
 #endif // __linux__
+
+
+inline std::string get_human_readable_time()
+{
+  time_t rawtime;
+  struct tm * timeinfo;
+
+  time ( &rawtime );
+  timeinfo = localtime ( &rawtime );
+  
+  std::string date = (std::string)asctime(timeinfo);
+  date.erase( std::remove( date.begin(), date.end(), '\n' ), date.end() ) ;
+  date.erase( std::remove( date.begin(), date.end(), '\r' ), date.end() ) ;
+  
+  return date;
+}
 
 
 

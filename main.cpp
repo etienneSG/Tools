@@ -432,6 +432,7 @@ int time_tools_test()
   {
     cout << "CPU time:  " << get_cpu_time() << " s." << endl;
     cout << "Wall time: " << get_wall_time() << "s." << endl;
+    cout << "The current date/time is: " << get_human_readable_time() << endl;
   }
   catch (...)
   {
