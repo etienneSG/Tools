@@ -89,6 +89,14 @@ int array2d_test()
   {
     fail++;
   }
+
+  Array2d<short> tab_6(2,2);
+  tab_6.copy(tab_5);
+  if (tab_6.nb_rows()!=1 || tab_6.nb_columns()!=3
+    || tab_6(0,0)!=1 || tab_6(0,1)!=1 || tab_6(0,2)!=1 )
+  {
+    fail++;
+  }
   
   if (fail > 0) {
     cout << "===> FAIL <===" << endl;

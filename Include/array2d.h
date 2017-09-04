@@ -83,6 +83,12 @@ class Array2d
   inline ~Array2d();
 
   /**
+   * @brief Resize the array and fill it with the argument array
+   * @param[in] iArray2d Array whose values must be copied
+   */
+  inline void copy(Array2d& iArray2d);
+
+  /**
    * @brief Erase a column of the array
    * @param[in] iJ Number of the column to erase
    */
@@ -222,6 +228,19 @@ inline Array2d<T>::~Array2d()
 }
 
 template <class T>
+inline void Array2d<T>::copy(Array2d& iArray2d)
+{
+  unsigned int nb_rows = iArray2d.nb_rows();
+  unsigned int nb_cols = iArray2d.nb_columns();
+  resize(nb_rows,nb_cols);
+  for (unsigned int r = 0; r < nb_rows; r++) {
+    for (unsigned int c = 0; c < nb_cols; c++) {
+      (*this)(r,c) = iArray2d(r,c);
+    }
+  }
+}
+
+template <class T>
 inline void Array2d<T>::erase_column(int iI)
 {
   if (0 <= iI && iI < nb_columns()) {
@@ -252,7 +271,7 @@ inline void Array2d<T>::erase_columns(int iBegin, int iEnd)
 template <class T>
 inline void Array2d<T>::erase_row(int iJ)
 {
-  if (0 <= iJ && iJ < nb_columns()) {
+  if (0 <= iJ && iJ < nb_rows()) {
     _aT.erase(_aT.begin()+iJ);
   }
   else {
