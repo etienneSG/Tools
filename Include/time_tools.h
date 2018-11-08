@@ -15,6 +15,7 @@
 #define TIME_TOOLS_H
 
 
+#include <algorithm>
 #include <string>
 #include <time.h>
 

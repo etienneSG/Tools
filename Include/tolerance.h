@@ -21,7 +21,7 @@
 #include <vector>
 
 
-/** @brief Name of the unit of measure in #Tolerance class */
+/** @brief Name of the measure unit in #Tolerance class */
 typedef std::string Unite;
 
 
@@ -41,7 +41,7 @@ public:
    * @brief Constructor from an absolute and a relative tolerance
    * @param[in] atol Absolute tolerance. (0.5 denote a 0.5 Unite tolerance)
    * @param[in] rtol Relative tolerance. (0.5 denote a 50% tolerance)
-   * @param[in] unite Name of the unite of measure
+   * @param[in] unite Name of the measure unite
    */
   inline Tolerance(const double& atol=1e-6, const double& rtol=1e-4, const Unite& unite=Unite());
 
@@ -83,7 +83,7 @@ public:
    * @brief Decide if the number d1 is close to number d2 up to the absolute error and the 
    * relative error.
    * @param[in] d1 First number
-   * @param[in] d2 Secund number
+   * @param[in] d2 Second number
    * @return True if d1 is close to d2 and false otherwise
    */
   inline bool close(const double& d1, const double& d2) const;
@@ -92,7 +92,7 @@ public:
    * @brief Decide if the number d1 is lower but not close to the number d2 to the absolute error 
    * and the relative error.
    * @param[in] d1 First number
-   * @param[in] d2 Secund number
+   * @param[in] d2 Second number
    * @return True if d1 is lower but not close to d2 and false otherwise
    */
   inline bool lower_not_close(const double& d1, const double& d2) const;
@@ -101,7 +101,7 @@ public:
    * @brief Decide if the number d1 is lower or close to the number d2 to the absolute error and 
    * the relative error.
    * @param[in] d1 First number
-   * @param[in] d2 Secund number
+   * @param[in] d2 Second number
    * @return True if d1 is lower or close to d2 and false otherwise
    */
   inline bool lower_or_close(const double& d1, const double& d2) const;
@@ -109,10 +109,10 @@ public:
   /**
    * @brief Decide if the vector v1 is close to the vector v2 (component by component) up to the 
    * absolute error and the relative error.
-   * @details If the size of the vectors are differents, it only perform the comparison between 
-   * the communs components (up to the minimal size of the vectors).
+   * @details If the size of the vectors are different, it only performs the comparison between 
+   * the common components (up to the minimal size of the vectors).
    * @param[in] v1 First vector
-   * @param[in] v2 Secund vector
+   * @param[in] v2 Second vector
    * @return True if v1 is close to v2 and false otherwise
    */
   inline bool allclose(const std::vector<double>& v1, const std::vector<double>& v2) const;
@@ -122,11 +122,11 @@ public:
    * absolute error and the relative error.
    * @details It uses a different tolerance (given in the vector v_tol) for each comparison.
    *
-   * If the size of the vectors are differents, it only perform the comparison between the 
-   * communs components (up to the minimal size of the vectors).
+   * If the size of the vectors are different, it only performs the comparison between the 
+   * common components (up to the minimal size of the vectors).
    * @param[in] v1 First vector
-   * @param[in] v2 Secund vector
-   * @param[in] v_tol Vector of tolerance for the comprison of each component
+   * @param[in] v2 Second vector
+   * @param[in] v_tol Vector of tolerance for the comparison of each component
    * @return True if v1 is close to v2 and false otherwise
    */
   inline static bool allclose(const std::vector<double >& v1,
@@ -195,9 +195,9 @@ protected:
 
 
 inline Tolerance::Tolerance(const double& atol, const double& rtol, const Unite& unite)
-                 : _atol(atol),
-                 _rtol(rtol),
-                 _unite(unite)
+: _atol(atol),
+  _rtol(rtol),
+  _unite(unite)
 {}
 
 

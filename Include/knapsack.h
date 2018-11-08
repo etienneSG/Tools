@@ -67,8 +67,8 @@ public:
   /**
    * @brief Constructor
    * @param[in] iW Weight limit of the knapsack
-   * @param[in] iWt Vector of weights of the items
-   * @param[in] iVal Vector of values of the items
+   * @param[in] iWt Vector of item weights
+   * @param[in] iVal Vector of item values
    */
   inline Knapsack(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal);
 
@@ -87,8 +87,8 @@ public:
    * @brief Solve the knapsack problem with the parameters in argument
    * @details This method modifies the attribute of the fonctor
    * @param[in] iW Weight limit of the knapsack
-   * @param[in] iWt Vector of weights of the items
-   * @param[in] iVal Vector of values of the items
+   * @param[in] iWt Vector of item weights
+   * @param[in] iVal Vector of item values
    * @return Optimal value of the knapsack
    */
   inline T operator()(const unsigned int iW, const std::vector<unsigned int> iWt, const typename std::vector<T> iVal);
@@ -115,11 +115,11 @@ protected:
   inline void solve();
 
   unsigned int _W; /**< @brief [input] Total weight of the knapsack */
-  std::vector<unsigned int> _Wt; /**< @brief [input] Vector of object's weights */
-  typename std::vector<T> _Val; /**< @brief [input] Vector of object's values */
+  std::vector<unsigned int> _Wt; /**< @brief [input] Vector of item weights */
+  typename std::vector<T> _Val; /**< @brief [input] Vector of item values */
 
   T _opt_value; /**< @brief [output] Optimal value of the knapsack */
-  std::vector<bool> _Solution; /**< @brief [output] Array of the choosen elements */
+  std::vector<bool> _Solution; /**< @brief [output] Array of the chosen elements */
 };
 
 

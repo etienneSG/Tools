@@ -19,10 +19,10 @@ GLLIBS= -lstdc++
 HEAD_FILES= $(wildcard $(HEAD_DIR)/*.h)
 
 # the executable
-all: MyExec
+all: ToolsTests
 
 # create the executable
-MyExec: $(OBJ_DIR)/main.o
+ToolsTests: $(OBJ_DIR)/main.o
 	@mkdir -p $(BIN_DIR)
 	@echo "link $(BIN_DIR)/$@"
 	@$(CPP) -o $(BIN_DIR)/$@ $^ $(CFLAGS) $(GLLIBS)
@@ -39,7 +39,7 @@ clean:
 	@echo "clean objects"
 	@rm -R -f $(OBJ_DIR)
 
-# complete cleanning (clean + delete the executable)
+# complete cleaning (clean + delete the executable)
 Clean: clean
 	@echo "clean binaries and temporary files"
 	@rm -R -f $(BIN_DIR)

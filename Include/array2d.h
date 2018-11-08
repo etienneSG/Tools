@@ -75,7 +75,7 @@ class Array2d
   
   /**
    * @brief Copy constructor
-   * @param[in] iArray2d 2-dimensional array whose value will be copied
+   * @param[in] iArray2d 2-dimensional array whose values will be copied
    */
   inline Array2d(Array2d & iArray2d);
 
@@ -84,74 +84,74 @@ class Array2d
 
   /**
    * @brief Resize the array and fill it with the argument array
-   * @param[in] iArray2d Array whose values must be copied
+   * @param[in] iArray2d Array whose will must be copied
    */
   inline void copy(Array2d& iArray2d);
 
   /**
    * @brief Erase a column of the array
-   * @param[in] iJ Number of the column to erase
+   * @param[in] iJ Index of the column to erase
    */
   inline void erase_column(int iJ);
 
   /**
    * @brief Erase columns of the array
-   * @param[in] iBegin Number of the first column to erase
-   * @param[in] iEnd Number of the last column to erase (excluded)
+   * @param[in] iBegin Index of the first column to erase
+   * @param[in] iEnd Index of the last column to erase (excluded)
    */
   inline void erase_columns(int iBegin, int iEnd);
 
   /**
    * @brief Erase a row of the array
-   * @param[in] iI Number of the row to erase
+   * @param[in] iI Index of the row to erase
    */
   inline void erase_row(int iI);
 
   /**
    * @brief Erase rows of the array
-   * @param[in] iBegin Number of the first row to erase
-   * @param[in] iEnd Number of the last row to erase
+   * @param[in] iBegin Index of the first row to erase
+   * @param[in] iEnd Index of the last row to erase
    */
   inline void erase_rows(int iBegin, int iEnd);
 
   /**
    * @brief Insert a column at the position iI
-   * @param[in] iI position for insertion of the column
-   * @param[in] iC vector containing element of the new column
+   * @param[in] iI Index for insertion of the column
+   * @param[in] iC Vector containing elements of the new column
    */
   inline void insert_column(int iI, const std::vector<T> & iC);
 
   /**
    * @brief Insert a row at the position iJ
-   * @param[in] iJ position for insertion of the row
-   * @param[in] iR vector containing element of the new row
+   * @param[in] iJ Index for insertion of the row
+   * @param[in] iR Vector containing elements of the new row
    */
   inline void insert_row(int iJ, const std::vector<T> & iR);
 
   /**
    * @brief Add a column at the end of the array
-   * @param[in] iC vector containing element of the new column
+   * @param[in] iC Vector containing elements of the new column
    */
   inline void push_back_column(const std::vector<T> & iC);
 
   /**
    * @brief Add a row at the end of the array 
-   * @param[in] iR vector containing element of the new row
+   * @param[in] iR Vector containing elements of the new row
    */
   inline void push_back_row(const std::vector<T> & iR);
   
   /**
-   * @brief Change the size of the array keeping its coefficients
+   * @brief Change the size of the array keeping its elements
    * @param[in] iP New number of rows of the array
-   * @param[in] iN New Number of column of the array
-   * @param[in] iVal Object whose content is copied to the added elements in case that new size 
-   * is greater than the current container size. If not specified, the default constructor is 
+   * @param[in] iN New Number of columns of the array
+   * @param[in] iVal Object whose content is copied to the added elements (in case that new size 
+   * is greater than the current container size). If not specified, the default constructor is 
    * used instead.
    */
   inline void resize(int iP, int iN, T iVal = T());
   
   /**
-   * @brief Removes all elements from the vector (which are destroyed), leaving the container
+   * @brief Removes all elements from the array (which are destroyed), leaving the container
    * with a size of 0.
    */
   inline void clear();

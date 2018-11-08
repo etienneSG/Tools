@@ -2,7 +2,7 @@
  * @file random_iterator.h
  * @author Etienne de Saint Germain
  * @date 2014
- * @brief File declaring a random iterator on the integer of an intervalle [0, N[
+ * @brief File declaring a random iterator on the set {0,...,N-1}
  */
 
 #ifndef RANDOMITERATOR_H
@@ -14,8 +14,8 @@
 
 
 /**
- * @brief Random iterator on the integer of an intervalle [0, N[
- * @details N represent the number of element of the intervalle.
+ * @brief Random iterator on the set {0,...,N-1}
+ * @details N represent the number of element of the set.
  *
  * WARNING! Random must be initialize in the main function!
  */
@@ -40,7 +40,7 @@ public:
   /** @brief Return false while the iterator has not iterate on every element */
   inline bool is_ended();
   
-  /** Return current random integer of [0, N[ */
+  /** Return current random integer of {0,...,N-1} */
   inline int operator()();
   
 protected:

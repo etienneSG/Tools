@@ -2,7 +2,7 @@
  * @file n_choose_k_iterator.h
  * @author Etienne de Saint Germain
  * @date 2014
- * @brief File declaring an iterator n the set of k-combinations from a set of n elements
+ * @brief File declaring an iterator on the set of k-combinations from a set of n elements
  */
 
 
@@ -14,7 +14,7 @@
 #include <vector>
 
 /**
- * @brief File declaring an iterator n the set of k-combinations from a set of n elements
+ * @brief File declaring an iterator on the set of k-combinations from a set of n elements
 
  * @details For example, if n=4 and k=2, there are 6 iterated points:
  * <table>
