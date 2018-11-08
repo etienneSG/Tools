@@ -155,10 +155,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6e21f09f750e776357a5841492e83611"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a row at the end of the array.  <a href="#a6e21f09f750e776357a5841492e83611">More...</a><br /></td></tr>
 <tr class="separator:a6e21f09f750e776357a5841492e83611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36dc3093ba582eb832a2f39014cf459f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array2d.html#a36dc3093ba582eb832a2f39014cf459f">resize</a> (int iP, int iN, T iVal=T())</td></tr>
-<tr class="memdesc:a36dc3093ba582eb832a2f39014cf459f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the size of the array keeping its coefficients.  <a href="#a36dc3093ba582eb832a2f39014cf459f">More...</a><br /></td></tr>
+<tr class="memdesc:a36dc3093ba582eb832a2f39014cf459f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the size of the array keeping its elements.  <a href="#a36dc3093ba582eb832a2f39014cf459f">More...</a><br /></td></tr>
 <tr class="separator:a36dc3093ba582eb832a2f39014cf459f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d71b4321f0ff406755a1762d6f33b42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array2d.html#a0d71b4321f0ff406755a1762d6f33b42">clear</a> ()</td></tr>
-<tr class="memdesc:a0d71b4321f0ff406755a1762d6f33b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all elements from the vector (which are destroyed), leaving the container with a size of 0.  <a href="#a0d71b4321f0ff406755a1762d6f33b42">More...</a><br /></td></tr>
+<tr class="memdesc:a0d71b4321f0ff406755a1762d6f33b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all elements from the array (which are destroyed), leaving the container with a size of 0.  <a href="#a0d71b4321f0ff406755a1762d6f33b42">More...</a><br /></td></tr>
 <tr class="separator:a0d71b4321f0ff406755a1762d6f33b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5767f589953b4f966d80e6f76abcfaa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_array2d.html#a5767f589953b4f966d80e6f76abcfaa1">swap_column</a> (int i, int j)</td></tr>
 <tr class="memdesc:a5767f589953b4f966d80e6f76abcfaa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exchange the values of the columns i and j.  <a href="#a5767f589953b4f966d80e6f76abcfaa1">More...</a><br /></td></tr>
@@ -307,7 +307,7 @@ template&lt;class T &gt; </div>
 <p>Copy constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">iArray2d</td><td>2-dimensional array whose value will be copied </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iArray2d</td><td>2-dimensional array whose values will be copied </td></tr>
   </table>
   </dd>
 </dl>
@@ -369,7 +369,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Removes all elements from the vector (which are destroyed), leaving the container with a size of 0. </p>
+<p>Removes all elements from the array (which are destroyed), leaving the container with a size of 0. </p>
 
 <p>Definition at line <a class="el" href="array2d_8h_source.html#l00353">353</a> of file <a class="el" href="array2d_8h_source.html">array2d.h</a>.</p>
 
@@ -402,7 +402,7 @@ template&lt;class T &gt; </div>
 <p>Resize the array and fill it with the argument array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">iArray2d</td><td>Array whose values must be copied </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iArray2d</td><td>Array whose will must be copied </td></tr>
   </table>
   </dd>
 </dl>
@@ -475,7 +475,7 @@ template&lt;class T &gt; </div>
 <p>Erase a column of the array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">iJ</td><td>Number of the column to erase </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iJ</td><td>Index of the column to erase </td></tr>
   </table>
   </dd>
 </dl>
@@ -521,8 +521,8 @@ template&lt;class T &gt; </div>
 <p>Erase columns of the array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">iBegin</td><td>Number of the first column to erase </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iEnd</td><td>Number of the last column to erase (excluded) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iBegin</td><td>Index of the first column to erase </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iEnd</td><td>Index of the last column to erase (excluded) </td></tr>
   </table>
   </dd>
 </dl>
@@ -558,7 +558,7 @@ template&lt;class T &gt; </div>
 <p>Erase a row of the array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">iI</td><td>Number of the row to erase </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iI</td><td>Index of the row to erase </td></tr>
   </table>
   </dd>
 </dl>
@@ -604,8 +604,8 @@ template&lt;class T &gt; </div>
 <p>Erase rows of the array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">iBegin</td><td>Number of the first row to erase </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iEnd</td><td>Number of the last row to erase </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iBegin</td><td>Index of the first row to erase </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iEnd</td><td>Index of the last row to erase </td></tr>
   </table>
   </dd>
 </dl>
@@ -651,8 +651,8 @@ template&lt;class T &gt; </div>
 <p>Insert a column at the position iI. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">iI</td><td>position for insertion of the column </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iC</td><td>vector containing element of the new column </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iI</td><td>Index for insertion of the column </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iC</td><td>Vector containing elements of the new column </td></tr>
   </table>
   </dd>
 </dl>
@@ -698,8 +698,8 @@ template&lt;class T &gt; </div>
 <p>Insert a row at the position iJ. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">iJ</td><td>position for insertion of the row </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iR</td><td>vector containing element of the new row </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iJ</td><td>Index for insertion of the row </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iR</td><td>Vector containing elements of the new row </td></tr>
   </table>
   </dd>
 </dl>
@@ -917,7 +917,7 @@ template&lt;class T &gt; </div>
 <p>Add a column at the end of the array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">iC</td><td>vector containing element of the new column </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iC</td><td>Vector containing elements of the new column </td></tr>
   </table>
   </dd>
 </dl>
@@ -953,7 +953,7 @@ template&lt;class T &gt; </div>
 <p>Add a row at the end of the array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">iR</td><td>vector containing element of the new row </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iR</td><td>Vector containing elements of the new row </td></tr>
   </table>
   </dd>
 </dl>
@@ -1002,12 +1002,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Change the size of the array keeping its coefficients. </p>
+<p>Change the size of the array keeping its elements. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">iP</td><td>New number of rows of the array </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iN</td><td>New Number of column of the array </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iVal</td><td>Object whose content is copied to the added elements in case that new size is greater than the current container size. If not specified, the default constructor is used instead. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iN</td><td>New Number of columns of the array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iVal</td><td>Object whose content is copied to the added elements (in case that new size is greater than the current container size). If not specified, the default constructor is used instead. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1132,7 +1132,7 @@ template&lt;class T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_array2d.html">Array2d</a></li>
-    <li class="footer">Generated on Mon Sep 4 2017 14:16:06 for Tools by
+    <li class="footer">Generated on Thu Nov 8 2018 11:30:47 for Tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

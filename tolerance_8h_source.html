@@ -185,9 +185,9 @@ $(document).ready(function(){initNavTree('tolerance_8h_source.html','');});
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
 <div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="class_tolerance.html#a9f007735c134809670ace41729434c18">  197</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="class_tolerance.html#a9f007735c134809670ace41729434c18">Tolerance::Tolerance</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; atol, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; rtol, <span class="keyword">const</span> <a class="code" href="tolerance_8h.html#a43c864b10f3c3ddea54f52d6df031ab6">Unite</a>&amp; unite)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                 : _atol(atol),</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                 _rtol(rtol),</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                 _unite(unite)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;: _atol(atol),</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  _rtol(rtol),</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  _unite(unite)</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;{}</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
@@ -310,7 +310,7 @@ $(document).ready(function(){initNavTree('tolerance_8h_source.html','');});
 <div class="ttc" id="class_tolerance_html_a9a3d04993d376b5b92aedcc21bb4afb5"><div class="ttname"><a href="class_tolerance.html#a9a3d04993d376b5b92aedcc21bb4afb5">Tolerance::set_rtol</a></div><div class="ttdeci">void set_rtol(const double &amp;rtol)</div><div class="ttdoc">Set the relative tolerance. (0.5 denote a 50% tolerance) </div><div class="ttdef"><b>Definition:</b> <a href="tolerance_8h_source.html#l00231">tolerance.h:231</a></div></div>
 <div class="ttc" id="class_tolerance_html_abac29e2adaa09b2316638a24b17e9051"><div class="ttname"><a href="class_tolerance.html#abac29e2adaa09b2316638a24b17e9051">Tolerance::add_epsilon</a></div><div class="ttdeci">double add_epsilon(const double &amp;d) const </div><div class="ttdoc">Add a perturbation Epsilon to the number d in the sense of absolute and relative tolerances. </div><div class="ttdef"><b>Definition:</b> <a href="tolerance_8h_source.html#l00279">tolerance.h:279</a></div></div>
 <div class="ttc" id="class_tolerance_html_ae210d30ee156075971cec30154e477a3"><div class="ttname"><a href="class_tolerance.html#ae210d30ee156075971cec30154e477a3">Tolerance::round</a></div><div class="ttdeci">double round(const double &amp;d) const </div><div class="ttdoc">Round the number in the sense of the absolute tolerance. </div><div class="ttdef"><b>Definition:</b> <a href="tolerance_8h_source.html#l00289">tolerance.h:289</a></div></div>
-<div class="ttc" id="tolerance_8h_html_a43c864b10f3c3ddea54f52d6df031ab6"><div class="ttname"><a href="tolerance_8h.html#a43c864b10f3c3ddea54f52d6df031ab6">Unite</a></div><div class="ttdeci">std::string Unite</div><div class="ttdoc">Name of the unit of measure in Tolerance class. </div><div class="ttdef"><b>Definition:</b> <a href="tolerance_8h_source.html#l00025">tolerance.h:25</a></div></div>
+<div class="ttc" id="tolerance_8h_html_a43c864b10f3c3ddea54f52d6df031ab6"><div class="ttname"><a href="tolerance_8h.html#a43c864b10f3c3ddea54f52d6df031ab6">Unite</a></div><div class="ttdeci">std::string Unite</div><div class="ttdoc">Name of the measure unit in Tolerance class. </div><div class="ttdef"><b>Definition:</b> <a href="tolerance_8h_source.html#l00025">tolerance.h:25</a></div></div>
 <div class="ttc" id="class_tolerance_html_a40caa299cfcb78135d70fffc1d74f847"><div class="ttname"><a href="class_tolerance.html#a40caa299cfcb78135d70fffc1d74f847">Tolerance::allclose</a></div><div class="ttdeci">bool allclose(const std::vector&lt; double &gt; &amp;v1, const std::vector&lt; double &gt; &amp;v2) const </div><div class="ttdoc">Decide if the vector v1 is close to the vector v2 (component by component) up to the absolute error a...</div><div class="ttdef"><b>Definition:</b> <a href="tolerance_8h_source.html#l00252">tolerance.h:252</a></div></div>
 <div class="ttc" id="class_tolerance_html_adf5c1af5276a09804b2a975b9998ef58"><div class="ttname"><a href="class_tolerance.html#adf5c1af5276a09804b2a975b9998ef58">Tolerance::close</a></div><div class="ttdeci">bool close(const double &amp;d1, const double &amp;d2) const </div><div class="ttdoc">Decide if the number d1 is close to number d2 up to the absolute error and the relative error...</div><div class="ttdef"><b>Definition:</b> <a href="tolerance_8h_source.html#l00236">tolerance.h:236</a></div></div>
 <div class="ttc" id="class_tolerance_html"><div class="ttname"><a href="class_tolerance.html">Tolerance</a></div><div class="ttdoc">Class for double comparison with tolerance. </div><div class="ttdef"><b>Definition:</b> <a href="tolerance_8h_source.html#l00033">tolerance.h:33</a></div></div>
@@ -324,7 +324,7 @@ $(document).ready(function(){initNavTree('tolerance_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_856524284ebe840938865dc061f982fb.html">Include</a></li><li class="navelem"><a class="el" href="tolerance_8h.html">tolerance.h</a></li>
-    <li class="footer">Generated on Mon Sep 4 2017 14:16:06 for Tools by
+    <li class="footer">Generated on Thu Nov 8 2018 11:30:47 for Tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

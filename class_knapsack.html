@@ -153,16 +153,16 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:ae5f59bedcbf7042bbb8d8f1d3a94e4bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">[input] Total weight of the knapsack  <a href="#ae5f59bedcbf7042bbb8d8f1d3a94e4bd">More...</a><br /></td></tr>
 <tr class="separator:ae5f59bedcbf7042bbb8d8f1d3a94e4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86c0b532efa107c3ca097e07accce435"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_knapsack.html#a86c0b532efa107c3ca097e07accce435">_Wt</a></td></tr>
-<tr class="memdesc:a86c0b532efa107c3ca097e07accce435"><td class="mdescLeft">&#160;</td><td class="mdescRight">[input] Vector of object's weights  <a href="#a86c0b532efa107c3ca097e07accce435">More...</a><br /></td></tr>
+<tr class="memdesc:a86c0b532efa107c3ca097e07accce435"><td class="mdescLeft">&#160;</td><td class="mdescRight">[input] Vector of item weights  <a href="#a86c0b532efa107c3ca097e07accce435">More...</a><br /></td></tr>
 <tr class="separator:a86c0b532efa107c3ca097e07accce435"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac141d40b312fe9a7440cc97bf8dce8f3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_knapsack.html#ac141d40b312fe9a7440cc97bf8dce8f3">_Val</a></td></tr>
-<tr class="memdesc:ac141d40b312fe9a7440cc97bf8dce8f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">[input] Vector of object's values  <a href="#ac141d40b312fe9a7440cc97bf8dce8f3">More...</a><br /></td></tr>
+<tr class="memdesc:ac141d40b312fe9a7440cc97bf8dce8f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">[input] Vector of item values  <a href="#ac141d40b312fe9a7440cc97bf8dce8f3">More...</a><br /></td></tr>
 <tr class="separator:ac141d40b312fe9a7440cc97bf8dce8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b01b865fe7016c21a9673cfd6cb98a0"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_knapsack.html#a1b01b865fe7016c21a9673cfd6cb98a0">_opt_value</a></td></tr>
 <tr class="memdesc:a1b01b865fe7016c21a9673cfd6cb98a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">[output] Optimal value of the knapsack  <a href="#a1b01b865fe7016c21a9673cfd6cb98a0">More...</a><br /></td></tr>
 <tr class="separator:a1b01b865fe7016c21a9673cfd6cb98a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa19ea70e64f0b0ccb2a9cf5160326be"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_knapsack.html#afa19ea70e64f0b0ccb2a9cf5160326be">_Solution</a></td></tr>
-<tr class="memdesc:afa19ea70e64f0b0ccb2a9cf5160326be"><td class="mdescLeft">&#160;</td><td class="mdescRight">[output] Array of the choosen elements  <a href="#afa19ea70e64f0b0ccb2a9cf5160326be">More...</a><br /></td></tr>
+<tr class="memdesc:afa19ea70e64f0b0ccb2a9cf5160326be"><td class="mdescLeft">&#160;</td><td class="mdescRight">[output] Array of the chosen elements  <a href="#afa19ea70e64f0b0ccb2a9cf5160326be">More...</a><br /></td></tr>
 <tr class="separator:afa19ea70e64f0b0ccb2a9cf5160326be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -278,8 +278,8 @@ template&lt;class T &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">iW</td><td>Weight limit of the knapsack </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iWt</td><td>Vector of weights of the items </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iVal</td><td>Vector of values of the items </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iWt</td><td>Vector of item weights </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iVal</td><td>Vector of item values </td></tr>
   </table>
   </dd>
 </dl>
@@ -459,8 +459,8 @@ template&lt;class T &gt; </div>
 <p>This method modifies the attribute of the fonctor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">iW</td><td>Weight limit of the knapsack </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iWt</td><td>Vector of weights of the items </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iVal</td><td>Vector of values of the items </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iWt</td><td>Vector of item weights </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iVal</td><td>Vector of item values </td></tr>
   </table>
   </dd>
 </dl>
@@ -546,7 +546,7 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>[output] Array of the choosen elements </p>
+<p>[output] Array of the chosen elements </p>
 
 <p>Definition at line <a class="el" href="knapsack_8h_source.html#l00122">122</a> of file <a class="el" href="knapsack_8h_source.html">knapsack.h</a>.</p>
 
@@ -572,7 +572,7 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>[input] Vector of object's values </p>
+<p>[input] Vector of item values </p>
 
 <p>Definition at line <a class="el" href="knapsack_8h_source.html#l00119">119</a> of file <a class="el" href="knapsack_8h_source.html">knapsack.h</a>.</p>
 
@@ -624,7 +624,7 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>[input] Vector of object's weights </p>
+<p>[input] Vector of item weights </p>
 
 <p>Definition at line <a class="el" href="knapsack_8h_source.html#l00118">118</a> of file <a class="el" href="knapsack_8h_source.html">knapsack.h</a>.</p>
 
@@ -639,7 +639,7 @@ template&lt;class T&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_knapsack.html">Knapsack</a></li>
-    <li class="footer">Generated on Mon Sep 4 2017 14:16:06 for Tools by
+    <li class="footer">Generated on Thu Nov 8 2018 11:30:47 for Tools by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
